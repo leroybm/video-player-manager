@@ -13,7 +13,6 @@ async function getAll() {
 }
 
 async function create(req: Request) {
-    console.log('interacting with repo');
     const body = await req.json();
     await playersRepo.create(body);
 }
@@ -21,4 +20,5 @@ async function create(req: Request) {
 create.schema = joi.object({
     title: joi.string().required(),
     configuration: joi.object().required(),
+    videoUrl: joi.string().required(),
 });

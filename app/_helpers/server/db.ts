@@ -14,7 +14,8 @@ export const db = {
 function playerModel() {
     const schema = new Schema({
         title: { type: String, unique: true, required: true },
-        configuration: { type: Object, required: true }
+        videoUrl: { type: String, required: true },
+        configuration: { type: Object, required: true },
     }, {
         // add createdAt and updatedAt timestamps
         timestamps: true
