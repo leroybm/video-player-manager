@@ -12,7 +12,7 @@ function AddEdit({ title, player }: { title: string, player?: any }) {
     const router = useRouter();
     const alertService = useAlertService();
     const playerService = usePlayerService();
-    const formattedPlayer = player ? { title: player.title, testBool: player.configuration.testBool } : null;
+    const formattedPlayer = player ? { title: player.title, testBool: player.configuration.testBool } : undefined;
 
     // get functions to build form with useForm() hook
     const { register, handleSubmit, reset, formState } = useForm({ defaultValues: formattedPlayer });
