@@ -9,12 +9,6 @@ export default function Players() {
     const playerService = usePlayerService();
     const players = playerService.players;
 
-    const b = true;
-
-    if (b === false) {
-        console.log(true);
-    }
-
     useEffect(() => {
         playerService.getAll();
     }, []);
