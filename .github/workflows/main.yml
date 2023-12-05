@@ -1,11 +1,10 @@
 name: Push-to-EC2
 
 # Trigger deployment only on push to master branch
-# on:
-#   push:
-#     branches:
-#       - master
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
