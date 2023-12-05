@@ -9,13 +9,19 @@ export default function Players() {
     const playerService = usePlayerService();
     const players = playerService.players;
 
+    const b = true;
+
+    if (b === false) {
+        console.log(true);
+    }
+
     useEffect(() => {
         playerService.getAll();
     }, []);
 
     return (
         <>
-            <h1>Video Players</h1>
+            <h1>Video Players Pass</h1>
             <Link href="/players/add">Create New</Link>
             <table>
                 <thead>
