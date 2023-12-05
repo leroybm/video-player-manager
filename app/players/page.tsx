@@ -15,7 +15,7 @@ export default function Players() {
 
     return (
         <>
-            <h1>Video Players</h1>
+            <h1>Video Players (Test Github Action)</h1>
             <Link href="/players/add">Create New</Link>
             <table>
                 <thead>
