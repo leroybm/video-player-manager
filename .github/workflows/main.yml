@@ -15,6 +15,7 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v2
 
+      - run: npm ci
       - run: npm run build
 
       - name: Deploy to Server 1
