@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { validateMiddleware, errorHandler } from './';
+import { validateMiddleware, errorHandler } from '.';
 
 export { apiHandler };
 

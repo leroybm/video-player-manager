@@ -1,5 +1,5 @@
-import { AdvertismentListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "_components/forms";
-import { MetadataForm } from "_components/forms/MetadataForm";
+import { AdvertismentListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "components/forms";
+import { MetadataForm } from "components/forms/MetadataForm";
 
 type FormComponents =
   | typeof MetadataForm

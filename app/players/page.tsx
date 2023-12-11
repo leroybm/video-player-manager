@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-import { usePlayerService } from '_services';
+import { usePlayerService } from 'services';
 
 export default function Players() {
     const playerService = usePlayerService();

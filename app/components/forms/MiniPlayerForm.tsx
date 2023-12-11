@@ -1,9 +1,9 @@
 import { cloneDeep } from "lodash";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "_models/ConfiguratorOptions";
-import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "_components/fields";
-import { SubmitButton } from "_components/SubmitButton";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "models/ConfiguratorOptions";
+import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "components/fields";
+import { SubmitButton } from "components/SubmitButton";
 
 export function MiniPlayerForm({
   configuration,

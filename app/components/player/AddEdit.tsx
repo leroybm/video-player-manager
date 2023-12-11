@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-import { useAlertService, usePlayerService } from '_services';
-import { FluidPlayerConfigurator } from '_components/FluidPlayerConfigurator';
+import { useAlertService, usePlayerService } from 'services';
+import { FluidPlayerConfigurator } from 'components/FluidPlayerConfigurator';
 import { useState } from 'react';
-import { ConfiguratorOptions } from '_models';
+import { ConfiguratorOptions } from 'models';
 
 export { AddEdit };
 
