@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 import { useRouter, useSearchParams } from 'next/navigation';
-
-import { useAlertService } from 'services';
-import { useFetch } from 'helpers/client';
+import { useAlertService } from './useAlertService';
+import { useFetch } from '../helpers/client';
 
 export { usePlayerService };
 

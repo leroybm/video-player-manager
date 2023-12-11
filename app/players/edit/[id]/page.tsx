@@ -2,9 +2,8 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-
-import { AddEdit } from 'components/player';
-import { usePlayerService } from 'services';
+import { usePlayerService } from '../../../../services';
+import { AddEdit } from '../../../../components/player';
 
 export default Edit;
 

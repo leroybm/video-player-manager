@@ -1,11 +1,11 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
 import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "models/ConfiguratorOptions";
-import { CheckboxInput, FormField, Select, TextInput } from "components/fields";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
+import { CheckboxInput, FormField, Select, TextInput } from "../../components/fields";
 import { StaticPreviewForm } from "./StaticPreviewForm";
-import { SubmitButton } from "components/SubmitButton";
-import { VTTPreviewOptions } from "models";
+import { SubmitButton } from "../../components/SubmitButton";
+import { VTTPreviewOptions } from "../../models";
 
 type VTTPreviewOptionsFieldError = Merge<FieldError, FieldErrorsImpl<NonNullable<VTTPreviewOptions>>>;
 

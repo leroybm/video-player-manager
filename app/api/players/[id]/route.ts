@@ -2,8 +2,8 @@ import joi from 'joi';
 
 import { cookies } from 'next/headers';
 
-import { apiHandler } from 'helpers/server/api';
-import { playersRepo } from 'helpers/server';
+import { apiHandler } from '../../../../helpers/server/api';
+import { playersRepo } from '../../../../helpers/server';
 
 module.exports = apiHandler({
     GET: getById,
