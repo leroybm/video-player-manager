@@ -29,6 +29,8 @@ As part of building a small project to train development in general we need to e
 
 ### Positive Consequences
 
+* Architecture works well to handle the player configurations that are large json blobs
+* There is no concern in regards of performance since it's a b2b project
 
 ### Negative Consequences <!-- optional -->
 
