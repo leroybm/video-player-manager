@@ -24,6 +24,8 @@ As part of building a small project to train development in general we need to e
 ## Decision Outcome
 
 * Continue using what is already implemented
+    * FE: The stack fits with normal client needs
+    * BE: Storing a large and complex JSON object such as the player configuration, emphasizes the simplicity and flexibility that NoSQL databases offer in handling such unstructured or semi-structured data compared to the more rigid table-based structure of SQL databases. 
 
 ![Architecture design](./images/architecture_diagram.png 'Architecture design') 
 
