@@ -19,6 +19,6 @@ This repo contains all the code for the FP Manager project.
 
 The project currently runs in AWS EC2, with the NextJS server running with pm2, and the MongoDB instance running in the same system, for more information check the docs folder.
 
-## Resources
+## Fluid Player
 
-- [Fluid Player](https://docs.fluidplayer.com)
+Fluid Player is an open source HTML5 video player that served as inspiration for this project, feel free to check the [Fluid Player documentation](https://docs.fluidplayer.com).
