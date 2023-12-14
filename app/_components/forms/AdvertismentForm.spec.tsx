@@ -45,7 +45,7 @@ const DummyComponent = ({
 };
 
 describe("AdvertismentForm", () => {
-  fit("should render empty", () => {
+  it("should render empty", () => {
     render(<DummyComponent />);
   });
 

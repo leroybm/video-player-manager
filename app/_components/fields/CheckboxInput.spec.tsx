@@ -46,7 +46,7 @@ describe("CheckboxInput", () => {
   });
 
   it("should change form value", async () => {
-    // This test is a little redudant since it's testing RHF
+    // This test is a little redundant since it's testing RHF
     // But it's a nice POC
     let formValue;
 
