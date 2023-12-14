@@ -28,7 +28,6 @@ export function FluidPlayerConfigurator({
    */
   function handleSave(options: Partial<ConfiguratorOptions>) {
     setIsDirty(false);
-    console.log('handleSave', options);
     onSave({ ...options, playerConfiguration: transformFluidPlayerConfiguration(options?.playerConfiguration || {}) });
   }
 

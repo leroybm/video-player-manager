@@ -17,7 +17,6 @@ async function create(req: Request) {
     await playersRepo.create(body);
 }
 
-// TODO update this
 create.schema = joi.object({
     title: joi.string(),
     playerConfiguration: joi.object(),
