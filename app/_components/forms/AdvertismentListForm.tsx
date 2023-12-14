@@ -25,7 +25,7 @@ export function AdvertismentListForm({
   onDirty: () => void;
 }) {
   const { handleSubmit, watch, control } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.options) },
+    defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
   });
   const {
     fields: advertisments,

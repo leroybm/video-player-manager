@@ -24,11 +24,11 @@ const staticTimelineItemDefaults = {
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/preview/
  */
 export function TimelinePreviewForm({
-  configuration,
+  options,
   onSave,
   onDirty,
 }: {
-  configuration: ConfiguratorOptions;
+  options: ConfiguratorOptions;
   onSave: (newOptions: Partial<ExtendedFluidPlayerOptions>) => void;
   onDirty: () => void;
 }) {
@@ -39,7 +39,7 @@ export function TimelinePreviewForm({
     watch,
     control,
   } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.options) },
+    defaultValues: { ...cloneDeep(options.playerConfiguration) },
   });
   const {
     fields: staticPreviews,
@@ -51,7 +51,7 @@ export function TimelinePreviewForm({
     control,
   });
   const [timelinePreviewType, setTimelinePreviewType] = useState(
-    configuration.options.layoutControls?.timelinePreview?.type,
+    options.playerConfiguration.layoutControls?.timelinePreview?.type,
   );
   const [openPreviewIndex, setOpenPreviewIndex] = useState<null | number>(null);
 
