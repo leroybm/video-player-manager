@@ -24,9 +24,7 @@ function AddEdit({ title, player }: { title: string, player?: any }) {
             // create or update user based on user prop
 
             const payload = {
-                configuration: currentPlayer.options,
-                title: currentPlayer.title,
-                videoUrl: currentPlayer.videoUrl
+                ...currentPlayer
             }
 
             let message;

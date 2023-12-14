@@ -17,8 +17,12 @@ async function create(req: Request) {
     await playersRepo.create(body);
 }
 
+// TODO update this
 create.schema = joi.object({
-    title: joi.string().required(),
-    configuration: joi.object().required(),
-    videoUrl: joi.string().required(),
+    title: joi.string(),
+    playerConfiguration: joi.object(),
+    sources: joi.array().items(joi.object().keys({
+        label: joi.string(),
+        url: joi.string(),
+    }))
 });

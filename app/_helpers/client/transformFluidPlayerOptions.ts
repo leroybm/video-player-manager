@@ -5,7 +5,7 @@ import { omit } from "lodash";
  * Transforms values from the data types that work well with the form, to the
  * data types that Fluid Player accepts.
  */
-export function transformFluidPlayerOptions(
+export function transformFluidPlayerConfiguration(
   options: Partial<ExtendedFluidPlayerOptions>,
 ): Partial<ExtendedFluidPlayerOptions> {
   if (typeof options.onBeforeXMLHttpRequestOpen === "string") {
