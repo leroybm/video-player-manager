@@ -42,8 +42,13 @@ interface MissingFluidPlayerOptions {
 
 export type ExtendedFluidPlayerOptions = FluidPlayerOptions & MissingFluidPlayerOptions;
 
+export interface SourceConfiguration {
+  label: string,
+  url: string,
+}
+
 export interface ConfiguratorOptions {
-  options: Partial<ExtendedFluidPlayerOptions>;
+  playerConfiguration: Partial<ExtendedFluidPlayerOptions>;
   title: string;
-  videoUrl: string;
+  sources: SourceConfiguration[];
 }

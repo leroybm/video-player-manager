@@ -2,7 +2,7 @@ import { headers } from 'next/headers';
 import { db } from './db';
 import { ObjectId } from 'mongodb';
 
-const Player = db.Player;
+const Player = db.VideoPlayer;
 
 export const playersRepo = {
     getAll,
@@ -42,7 +42,7 @@ async function update(id: string, params: any) {
     // validate
     if (!player) throw 'Player not found';
     if (player.title !== params.title && await Player.findOne({ title: params.title })) {
-        throw 'Title "' + params.username + '" is already taken';
+        throw 'Title "' + params.title + '" is already taken';
     }
 
     // copy params properties to user
