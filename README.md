@@ -8,12 +8,12 @@ This repo contains all the code for the FP Manager project.
 
 - Run `nvm use` to ensure you have the correct Node version ([For information about NVM](https://github.com/nvm-sh/nvm))
 - Run `npm install` to install all dependencies
-- Copy `.env.local.example`, at this time you need to have a MongoDB instance running to develop
-- Run `npm run dev` to serve the project locally
+- Copy `.env.local.example`, at this time you need to have a MongoDB instance running to run the project locally
+- Run `npm run dev` to serve the project
 
 ## Deployment
 
-- Deployment is made automatically when mergin a pull request to the main branch
+- Deployment is made automatically when merging a pull request to the main branch
 
 ## Infrastructure
 

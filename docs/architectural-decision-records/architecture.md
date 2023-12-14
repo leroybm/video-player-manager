@@ -3,6 +3,7 @@
 - Status: first draft
 - Deciders: Leroy Medeiros, Bernardo Trindade, 
 - Date: 2023-12-12
+
 ## Context and Problem Statement
 
 As part of building a small project to train development in general we need to ensure that we have an architectural design that is simple and will provide learning opportunities in a short term spam.
