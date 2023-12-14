@@ -35,15 +35,15 @@ export function MetadataForm({
     return () => subscription.unsubscribe();
   }, [watch, onDirty]);
 
-  function innerOnSave(newOptions: any) {
-    newOptions.sources = [{ label: 'default', url: newOptions.videoUrl }];
-    delete newOptions.videoUrl;
-    console.log('saving with ', newOptions);
-    onSave({ ...configuration, ...newOptions });
+  /**
+   * TODO: Remove when form for multiple sources is developed
+   */
+  function transformData(data: { videoUrl: string, title: string }) {
+    return { ...configuration, title: data.title, sources: [{ label: 'default', url: data.videoUrl }] };
   }
 
   return (
-    <form onSubmit={handleSubmit(innerOnSave)}>
+    <form onSubmit={handleSubmit((data) => onSave(transformData(data)))}>
       <FormField
         label="Title"
         errorMessage={errors.title?.message}
