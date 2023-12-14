@@ -1,0 +1,24 @@
+# FP Manager
+
+> This project aims to create a central place to manage video player distributions, by creating a listing of video player configurations, and providing an easy to use interface to create, change and delete configurations.
+
+This repo contains all the code for the FP Manager project.
+
+## Setup
+
+- Run `nvm use` to ensure you have the correct Node version ([For information about NVM](https://github.com/nvm-sh/nvm))
+- Run `npm install` to install all dependencies
+- Copy `.env.local.example`, at this time you need to have a MongoDB instance running to develop
+- Run `npm run dev` to serve the project locally
+
+## Deployment
+
+- Deployment is made automatically when mergin a pull request to the main branch
+
+## Infrastructure
+
+The project currently runs in AWS EC2, with the NextJS server running with pm2, and the MongoDB instance running in the same system, for more information check the docs folder.
+
+## Resources
+
+- [Fluid Player](https://docs.fluidplayer.com)
