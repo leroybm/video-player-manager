@@ -1,5 +1,5 @@
-export * from './AdvertismentForm';
-export * from './AdvertismentListForm';
+export * from './AdvertisementForm';
+export * from './AdvertisementListForm';
 export * from './ControlBarForm';
 export * from './LayoutForm';
 export * from './LogoForm';

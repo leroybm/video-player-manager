@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "_models/ConfiguratorOptions";
-import { AdvertismentForm } from "./AdvertismentForm";
+import { AdvertisementForm } from "./AdvertisementForm";
 
 const DummyComponent = ({
   openIndex = 0,
@@ -21,15 +21,15 @@ const DummyComponent = ({
   const { control } = useForm<ExtendedFluidPlayerOptions>({
     defaultValues: defaultValues,
   });
-  const { fields: advertisments, update, remove } = useFieldArray({
+  const { fields: advertisements, update, remove } = useFieldArray({
     name: "vastOptions.adList",
     control,
   });
 
   return (
     <>
-      {advertisments.map((ad, i) => (
-        <AdvertismentForm
+      {advertisements.map((ad, i) => (
+        <AdvertisementForm
           key={ad._id}
           control={control}
           update={onUpdate ? (...args) => { onUpdate(...args); update(...args); } : (...args) => update(...args)}
@@ -44,7 +44,7 @@ const DummyComponent = ({
   );
 };
 
-describe("AdvertismentForm", () => {
+describe("AdvertisementForm", () => {
   it("should render empty", () => {
     render(<DummyComponent />);
   });
@@ -152,7 +152,7 @@ describe("AdvertismentForm", () => {
     await fillInput('Timer', '120');
     await fillInput('Fallback Vast Tags (Comma separated)', 'https://adserver.com/test1,https://adserver.com/test2');
     await fillInput('Video Ad Text', 'Ad Text');
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Video Ad Text Postion' }), 'bottom left');
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Video Ad Text Position' }), 'bottom left');
     await user.pointer({ target: screen.getByLabelText('Video Ad Clickable'), keys: '[MouseLeft]' });
     await user.selectOptions(screen.getByRole('combobox', { name: 'Banner Vertical Alignment' }), 'middle');
     await fillInput('Banner Ad Duration', '20');

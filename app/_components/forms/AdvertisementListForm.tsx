@@ -2,10 +2,10 @@ import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions, ExtendedAdOptions } from "_models/ConfiguratorOptions";
-import { AdvertismentForm } from "./AdvertismentForm";
+import { AdvertisementForm } from "./AdvertisementForm";
 import { SubmitButton } from "_components/SubmitButton";
 
-const advertismentDefaults: ExtendedAdOptions = {
+const advertisementDefaults: ExtendedAdOptions = {
   _id: uniqueId(),
   roll: "preRoll",
   vastTag: "https://",
@@ -15,7 +15,7 @@ const advertismentDefaults: ExtendedAdOptions = {
 /**
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/ads/#adlist
  */
-export function AdvertismentListForm({
+export function AdvertisementListForm({
   configuration,
   onSave,
   onDirty,
@@ -28,15 +28,15 @@ export function AdvertismentListForm({
     defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
   });
   const {
-    fields: advertisments,
-    append: appendAdvertisment,
-    update: updateAdvertisment,
-    remove: removeAdvertisment,
+    fields: advertisements,
+    append: appendAdvertisement,
+    update: updateAdvertisement,
+    remove: removeAdvertisement,
   } = useFieldArray({
     name: "vastOptions.adList",
     control,
   });
-  const [openAdvertismentIndex, setOpenAdvertismentIndex] = useState<null | number>(null);
+  const [openAdvertisementIndex, setOpenAdvertisementIndex] = useState<null | number>(null);
 
   useEffect(() => {
     const subscription = watch(() => {
@@ -46,55 +46,55 @@ export function AdvertismentListForm({
   }, [watch, onDirty]);
 
   /**
-   * Appends new advertisments by either creating it from the defaults or by
-   * copying the last one. Opens newly created advertisment.
+   * Appends new advertisements by either creating it from the defaults or by
+   * copying the last one. Opens newly created advertisement.
    */
-  function addNewAdvertisment() {
-    if (advertisments.length === 0) {
-      return appendAdvertisment(cloneDeep(advertismentDefaults));
+  function addNewAdvertisement() {
+    if (advertisements.length === 0) {
+      return appendAdvertisement(cloneDeep(advertisementDefaults));
     }
 
-    appendAdvertisment(
+    appendAdvertisement(
       cloneDeep({
-        ...advertisments[advertisments.length - 1],
+        ...advertisements[advertisements.length - 1],
         _id: uniqueId(),
       }),
     );
 
-    setOpenAdvertismentIndex(advertisments.length);
+    setOpenAdvertisementIndex(advertisements.length);
   }
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
       <p className="text-blue-700 mb-2">
         <a href="https://docs.fluidplayer.com/docs/configuration/ads/#adlist" target="_blank">
-          Open Advertisment documentation in a new tab&nbsp;↗️
+          Open Advertisement documentation in a new tab&nbsp;↗️
         </a>
       </p>
 
       <ul>
-        {advertisments.map((advertisment, index) => (
-          <AdvertismentForm
-            key={advertisment._id}
+        {advertisements.map((advertisement, index) => (
+          <AdvertisementForm
+            key={advertisement._id}
             control={control}
             update={(...args) => {
               console.log("update from ads form", ...args);
 
-              updateAdvertisment(...args);
+              updateAdvertisement(...args);
             }}
             index={index}
-            value={advertisment}
-            isOpen={openAdvertismentIndex === index}
-            onClickOpen={() => setOpenAdvertismentIndex(index)}
-            onClickRemove={() => removeAdvertisment(index)}
+            value={advertisement}
+            isOpen={openAdvertisementIndex === index}
+            onClickOpen={() => setOpenAdvertisementIndex(index)}
+            onClickRemove={() => removeAdvertisement(index)}
           />
         ))}
 
         <li
           className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-          onClick={addNewAdvertisment}
+          onClick={addNewAdvertisement}
         >
-          ➕ Add new Advertisment
+          ➕ Add new Advertisement
         </li>
       </ul>
 

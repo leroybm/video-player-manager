@@ -2,7 +2,7 @@ import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } fro
 import { ExtendedFluidPlayerOptions } from "_models/ConfiguratorOptions";
 import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "_components/fields";
 
-interface AdvertismentFormProps {
+interface AdvertisementFormProps {
   update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "vastOptions.adList">;
   index: number;
   value: FieldArrayWithId<ExtendedFluidPlayerOptions, "vastOptions.adList", "id">;
@@ -12,7 +12,7 @@ interface AdvertismentFormProps {
   onClickRemove: () => void;
 }
 
-export function AdvertismentForm({
+export function AdvertisementForm({
   update,
   index,
   value,
@@ -20,7 +20,7 @@ export function AdvertismentForm({
   isOpen,
   onClickOpen,
   onClickRemove,
-}: AdvertismentFormProps) {
+}: AdvertisementFormProps) {
   const {
     register,
     handleSubmit,
@@ -123,7 +123,7 @@ export function AdvertismentForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text Postion" errorMessage={errors?.adTextPosition?.message}>
+      <FormField label="Video Ad Text Position" errorMessage={errors?.adTextPosition?.message}>
         <Select
           register={register}
           fieldName="adTextPosition"

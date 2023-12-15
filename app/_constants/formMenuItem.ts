@@ -1,4 +1,4 @@
-import { AdvertismentListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "_components/forms";
+import { AdvertisementListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "_components/forms";
 import { MetadataForm } from "_components/forms/MetadataForm";
 
 type FormComponents =
@@ -8,7 +8,7 @@ type FormComponents =
   | typeof LogoForm
   | typeof ControlBarForm
   | typeof TimelinePreviewForm
-  | typeof AdvertismentListForm;
+  | typeof AdvertisementListForm;
 
 export interface FormMenuItem {
   label: string;
@@ -48,8 +48,8 @@ export const formMenuItems: FormMenuItem[] = [
     FormComponent: MiniPlayerForm,
   },
   {
-    label: "Advertisments",
-    key: "advertisments",
-    FormComponent: AdvertismentListForm,
+    label: "advertisement",
+    key: "advertisement",
+    FormComponent: AdvertisementListForm,
   },
 ];

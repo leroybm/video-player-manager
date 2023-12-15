@@ -76,7 +76,7 @@ export function LogoForm({
         />
       </FormField>
 
-      <FormField label="Image marign (CSS)" errorMessage={errors.layoutControls?.logo?.imageMargin?.message}>
+      <FormField label="Image margin (CSS)" errorMessage={errors.layoutControls?.logo?.imageMargin?.message}>
         <TextInput register={register} fieldName="layoutControls.logo.imageMargin" placeholder="30px 80% 0 30px" />
       </FormField>
 

@@ -80,7 +80,7 @@ export function ControlBarForm({
       </FormField>
 
       <FormField
-        label="Playback rates (Plaback rates must be toggled on)"
+        label="Playback rates (Playback rates must be toggled on)"
         errorMessage={errors.layoutControls?.controlBar?.playbackRates?.message}
       >
         <TextInput

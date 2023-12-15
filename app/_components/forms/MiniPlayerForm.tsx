@@ -60,7 +60,7 @@ export function MiniPlayerForm({
         <TextInput
           register={register}
           fieldName="layoutControls.miniPlayer.placeholderText"
-          placeholder="Playing in Miniplayer"
+          placeholder="Playing in Mini Player"
         />
       </FormField>
 
