@@ -1,4 +1,4 @@
-import { formMenuItems } from "../_constants";
+import { formMenuItems } from "../constants";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../models";
 import { useState } from "react";
 import { FormMenu } from "./FormMenu";

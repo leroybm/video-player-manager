@@ -1,17 +1,36 @@
+"use client"
+
 import 'globals.css';
+import { Sidebar } from '../components/sidebar';
+import { useState } from 'react';
+import classNames from 'classnames';
 
-export const metadata = {
-    title: 'FP Manager'
-}
+export default function Rootlayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
 
-export default Layout;
+  const [collapsed, setSidebarCollapsed] = useState(false);
 
-function Layout({ children }: { children: React.ReactNode }) {
-    return (
-        <html lang="en">
-            <body>
-                {children}
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <body>
+        <div
+          // className="min-h-screen lg:grid lg:grid-cols-app"
+          className={classNames({
+            "lg:grid  min-h-screen": true,
+            "lg:grid-cols-app": !collapsed,
+            "lg:grid-cols-collapsed": collapsed,
+            "transition-[grid-template-columns] duration-300 ease-in-out": true,
+          })}
+        >
+          <Sidebar setSidebarCollapsed={setSidebarCollapsed} isCollapsed={collapsed} />
+          <main className="max-w-screen px-4 pb-12 pt-24 space-y-2 lg:col-start-2 lg:w-auto lg:px-6 lg:pt-8">
+            {children}
+          </main>
+        </div>
+      </body>
+    </html>
+  );
 }
