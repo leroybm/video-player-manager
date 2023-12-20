@@ -17,6 +17,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npm run test
 
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
