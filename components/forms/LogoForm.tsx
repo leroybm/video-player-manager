@@ -23,7 +23,7 @@ export function LogoForm({
     formState: { errors },
     watch,
   } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.options) },
+    defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
   });
 
   useEffect(() => {

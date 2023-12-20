@@ -23,18 +23,12 @@ function AddEdit({ title, player }: { title: string, player?: any }) {
         try {
             // create or update user based on user prop
 
-            const payload = {
-                configuration: currentPlayer.options,
-                title: currentPlayer.title,
-                videoUrl: currentPlayer.videoUrl
-            }
-
             let message;
             if (player) {
-                await playerService.update(player.id, payload as any);
+                await playerService.update(player.id, currentPlayer as any);
                 message = 'Player updated';
             } else {
-                await playerService.create(payload as any);
+                await playerService.create(currentPlayer as any);
                 message = 'Player added';
             }
 

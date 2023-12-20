@@ -5,7 +5,7 @@ import { useFetch } from '../helpers/client';
 
 export { usePlayerService };
 
-// user state store
+// player state store
 const initialState: IPlayerStore = {
     players: undefined,
     player: undefined,
@@ -43,7 +43,7 @@ function usePlayerService(): IPlayerService {
             await fetch.put(`/api/players/${id}`, params);
         },
         delete: async (id: string) => {
-            // set isDeleting prop to true on user
+            // set isDeleting prop to true on player
             playerStore.setState({
                 players: players!.map(x => {
                     if (x.id === id) { x.isDeleting = true; }
@@ -51,10 +51,10 @@ function usePlayerService(): IPlayerService {
                 })
             });
 
-            // delete user
+            // delete player
             const response = await fetch.delete(`/api/players/${id}`);
 
-            // remove deleted user from state
+            // remove deleted player from state
             playerStore.setState({ players: players!.filter(x => x.id !== id) });
         }
     };
@@ -63,9 +63,11 @@ function usePlayerService(): IPlayerService {
 // interfaces
 
 interface IPlayer {
+    userId: ObjectId,
     id: string,
     title: string,
-    configuration: string,
+    playerConfiguration: string,
+    sources: { label: string, url: string }[]
     isDeleting?: boolean
 }
 

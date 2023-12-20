@@ -22,7 +22,11 @@ async function update(req: Request, { params: { id } }: any) {
 
 update.schema = joi.object({
     title: joi.string(),
-    configuration: joi.object(),
+    playerConfiguration: joi.object(),
+    sources: joi.array().items(joi.object().keys({
+        label: joi.string(),
+        url: joi.string(),
+    }))
 });
 
 async function _delete(req: Request, { params: { id } }: any) {

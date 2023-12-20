@@ -23,7 +23,7 @@ export function LayoutForm({
     formState: { errors },
     watch,
   } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.options) },
+    defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
   });
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export function LayoutForm({
   }, [watch, onDirty]);
 
   return (
-    <form onSubmit={handleSubmit((data) => onSave({ options: data }))}>
+    <form onSubmit={handleSubmit((data) => onSave({ playerConfiguration: data }))}>
       <FormField
         label="Primary color"
         errorMessage={errors.layoutControls?.primaryColor?.message}

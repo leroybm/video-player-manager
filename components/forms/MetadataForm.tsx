@@ -1,4 +1,3 @@
-import { cloneDeep, rest } from "lodash";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
@@ -21,7 +20,7 @@ export function MetadataForm({
     watch,
     trigger
   } = useForm<{ title: string, videoUrl: string }>({
-    defaultValues: { title: configuration?.title, videoUrl: configuration?.videoUrl },
+    defaultValues: { title: configuration?.title, videoUrl: configuration?.sources[0].url },
   });
 
   useEffect(() => {
@@ -36,8 +35,15 @@ export function MetadataForm({
     return () => subscription.unsubscribe();
   }, [watch, onDirty]);
 
+  /**
+   * TODO: Remove when form for multiple sources is developed
+   */
+  function transformData(data: { videoUrl: string, title: string }) {
+    return { ...configuration, title: data.title, sources: [{ label: 'default', url: data.videoUrl }] };
+  }
+
   return (
-    <form onSubmit={handleSubmit(onSave)}>
+    <form onSubmit={handleSubmit((data) => onSave(transformData(data)))}>
       <FormField
         label="Title"
         errorMessage={errors.title?.message}
