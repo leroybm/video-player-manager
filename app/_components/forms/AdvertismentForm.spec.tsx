@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "_models";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
-import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "_models/ConfiguratorOptions";
 import { AdvertismentForm } from "./AdvertismentForm";
 
 const DummyComponent = ({
