@@ -15,9 +15,7 @@ export function Sidebar({ setSidebarCollapsed, isCollapsed }) {
 
   const Icon = isCollapsed ? ChevronRight : ChevronLeft
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   return (
     <Collapsible.Root

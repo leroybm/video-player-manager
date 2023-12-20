@@ -9,9 +9,7 @@ export function NavItem({ item: { path, title, icon: Icon }, onClose, isCollapse
 
   const pathname = usePathname();
 
-  const handleOnClose = () => {
-    onClose()
-  };
+  const handleOnClose = () => onClose()
 
   return (
     <div className="relative group">

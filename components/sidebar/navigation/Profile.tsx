@@ -26,12 +26,9 @@ export function Profile({ isCollapsed }) {
           john.doe@ustwo.com
         </span>
       </div>
-
-      {/* {!isCollapsed &&  */}
       <Button variant="ghost" aria-label="Log Out" className="ml-auto">
         <LogOut className="h-5 w-5 text-zinc-500" />
       </Button>
-      {/* } */}
     </div>
   )
 }

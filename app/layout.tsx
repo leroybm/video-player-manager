@@ -17,9 +17,8 @@ export default function Rootlayout({
     <html lang="en">
       <body>
         <div
-          // className="min-h-screen lg:grid lg:grid-cols-app"
           className={classNames({
-            "lg:grid  min-h-screen": true,
+            "lg:grid min-h-screen": true,
             "lg:grid-cols-app": !collapsed,
             "lg:grid-cols-collapsed": collapsed,
             "transition-[grid-template-columns] duration-300 ease-in-out": true,
