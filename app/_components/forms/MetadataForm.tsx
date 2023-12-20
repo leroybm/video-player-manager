@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "_models/ConfiguratorOptions";
 import { FormField, TextInput } from "_components/fields";
 import { SubmitButton } from "_components/SubmitButton";
@@ -7,11 +7,9 @@ import { SubmitButton } from "_components/SubmitButton";
 export function MetadataForm({
   configuration,
   onSave,
-  onDirty,
 }: {
   configuration: ConfiguratorOptions;
   onSave: (newOptions: Partial<{ title: string, videoUrl: string }>) => void;
-  onDirty: () => void;
 }) {
   const {
     register,
@@ -19,31 +17,23 @@ export function MetadataForm({
     formState: { errors },
     watch,
     trigger
-  } = useForm<{ title: string, videoUrl: string }>({
-    defaultValues: { title: configuration?.title, videoUrl: configuration?.sources[0].url },
-  });
+  } = useFormContext<ConfiguratorOptions>();
 
   useEffect(() => {
     if (configuration?.title === undefined) {
-      trigger(["title", "videoUrl"], { shouldFocus: true });
-      onDirty(); // Prevents navigation
+      trigger(["title", "sources.0.url"], { shouldFocus: true });
     }
   }, []);
-
-  useEffect(() => {
-    const subscription = watch(onDirty);
-    return () => subscription.unsubscribe();
-  }, [watch, onDirty]);
 
   /**
    * TODO: Remove when form for multiple sources is developed
    */
-  function transformData(data: { videoUrl: string, title: string }) {
-    return { ...configuration, title: data.title, sources: [{ label: 'default', url: data.videoUrl }] };
-  }
+  // function transformData(data: { videoUrl: string, title: string }) {
+  //   return { ...configuration, title: data.title, sources: [{ label: 'default', url: data.videoUrl }] };
+  // }
 
   return (
-    <form onSubmit={handleSubmit((data) => onSave(transformData(data)))}>
+    <form onSubmit={handleSubmit((data) => onSave(data))}>
       <FormField
         label="Title"
         errorMessage={errors.title?.message}
@@ -53,9 +43,9 @@ export function MetadataForm({
 
       <FormField
         label="Video URL"
-        errorMessage={errors.videoUrl?.message}
+        errorMessage={errors.sources?.[0]?.url?.message}
       >
-        <TextInput register={register} fieldName="videoUrl" placeholder="Video URL" required />
+        <TextInput register={register} fieldName="sources.0.url" placeholder="Video URL" required />
       </FormField>
 
       <SubmitButton />

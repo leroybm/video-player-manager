@@ -41,18 +41,26 @@ function AddEdit({ title, player }: { title: string, player?: any }) {
     }
 
     return (
-        <div>
-            <h1>{title}</h1>
+        <div className="container mx-auto max-h-screen min-h-screen grid grid-rows-[50px_1fr_50px] gap-2">
+            <h1 className="my-3 text-xl">{title}</h1>
             <FluidPlayerConfigurator 
                 configuration={currentPlayer}
-                onSave={(data) => setCurrentPlayer({ ...currentPlayer, ...data })}
+                onSave={(data) => {
+                    console.log('saving ass', { ...currentPlayer, ...data });
+                    return setCurrentPlayer({ ...currentPlayer, ...data });
+                }}
             />
-            <div className="mb-3">
-                <button type="button" className="btn btn-primary me-2" onClick={onSubmit}>
+            <div className="flex justify-end items-center gap-2 pb-4">
+                <Link href="/players" className="rounded bg-gray-200 text-gray-800 px-3 py-1">Cancel</Link>
+                <button type="button" className="rounded bg-gray-200 text-gray-800 px-3 py-1 cursor-not-allowed">
+                    Preview
+                </button>
+                <button type="button" className="rounded bg-gray-200 text-gray-800 px-3 py-1 cursor-not-allowed">
+                    Embed
+                </button>
+                <button type="button" className="rounded bg-green-500 text-gray-100 px-3 py-1" onClick={onSubmit}>
                     Save
                 </button>
-                {/* <button onClick={() => reset()} type="button" disabled={formState.isSubmitting} className="btn btn-secondary">Reset</button> */}
-                <Link href="/players" className="btn btn-link">Cancel</Link>
             </div>
         </div>
     );
