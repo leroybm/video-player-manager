@@ -6,7 +6,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        app: "20rem 1fr",
+        collapsed: "5rem 1fr", //for collapsed sidebar layout
+      }
+    },
   },
   plugins: [],
 }
