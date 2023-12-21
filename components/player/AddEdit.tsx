@@ -56,10 +56,7 @@ function AddEdit({ title, player }: { title: string, player: ConfiguratorOptions
                 <h1 className="my-3 text-xl">{title}</h1>
                 <FluidPlayerConfigurator 
                     configuration={currentPlayer}
-                    onSave={(data) => {
-                        console.log('saving as', { ...currentPlayer, ...data });
-                        return setCurrentPlayer({ ...currentPlayer, ...data });
-                    }}
+                    onSave={(data) => setCurrentPlayer({ ...currentPlayer, ...data })}
                 />
                 <div className="flex justify-end items-center gap-2 pb-4">
                     <Link href="/players" className="rounded bg-gray-200 text-gray-800 px-3 py-1">Cancel</Link>

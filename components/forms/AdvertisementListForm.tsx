@@ -64,8 +64,6 @@ export function AdvertisementListForm({
             key={advertisement._id}
             control={control}
             update={(...args) => {
-              console.log("update from ads form", ...args);
-
               updateAdvertisement(...args);
             }}
             index={index}

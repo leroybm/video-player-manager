@@ -12,7 +12,6 @@ export function transformFluidPlayerConfiguration(
     options.onBeforeXMLHttpRequestOpen = new Function("return " + options.onBeforeXMLHttpRequestOpen)() as (
       request: XMLHttpRequest,
     ) => void;
-    console.log("function is ", options.onBeforeXMLHttpRequestOpen.toString());
   }
 
   if (options?.vastOptions?.adList && Array.isArray(options?.vastOptions?.adList)) {

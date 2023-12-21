@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { ceil, words } from 'lodash';
 
 const alertTimeoutMs = 1000 * 5; // Base of 5 seconds
-const msPerWordRead = 100;
+const msPerWordRead = 1000 / (120 / 60); // 120 words per minute
 
 export { Alert };
 

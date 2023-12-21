@@ -37,7 +37,6 @@ function usePlayerService(): IPlayerService {
             }
         },
         create: async (player: IPlayer) => {
-            console.log('doing create request with ', player)
             await fetch.post('/api/players', player);
         },
         update: async (id: string, params: Partial<IPlayer>) => {
