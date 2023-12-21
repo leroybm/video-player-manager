@@ -1,5 +1,5 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
 
 interface AdvertismentFormProps {

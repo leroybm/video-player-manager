@@ -1,7 +1,7 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions, ExtendedAdOptions } from "@/models/ConfiguratorOptions";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions, ExtendedAdOptions } from "@/models/configurator-options";
 import { AdvertismentForm } from "./AdvertismentForm";
 import { SubmitButton } from "@/components/SubmitButton";
 

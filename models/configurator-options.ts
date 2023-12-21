@@ -1,4 +1,4 @@
-import { FluidPlayerOptions, VTTPreviewOptions } from "./FluidPlayerConfiguration";
+import { FluidPlayerOptions, VTTPreviewOptions } from "./fluid-player-configuration";
 
 export interface ExtendedAdOptions {
   vastTag: string;
