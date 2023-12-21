@@ -1,2 +1,2 @@
-export * from './useFetch';
-export * from './transformFluidPlayerOptions';
+export * from './use-fetch';
+export * from './transform-fluid-player-options';
