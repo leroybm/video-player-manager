@@ -1,7 +1,7 @@
-import { AddEdit } from '_components/player';
+import { AddEdit } from "../../../components/player";
 
 export default Add;
 
 function Add() {
-    return <AddEdit title="Add Player" />;
+  return <AddEdit title="Add Player" />;
 }
