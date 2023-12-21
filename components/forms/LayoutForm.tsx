@@ -1,8 +1,5 @@
-import { cloneDeep } from "lodash";
-import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "../../models";
-import { SubmitButton } from "../SubmitButton";
 import { FormField, TextInput, CheckboxInput, Select } from "../fields";
 
 /**

@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "../../models";
-import { CheckboxInput, FormField, FunctionInput, TextInput } from "../fields";
+import { CheckboxInput, FormField } from "../fields";
 
 export function PersistentSettingsForm({
   onSave,

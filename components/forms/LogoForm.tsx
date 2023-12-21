@@ -1,9 +1,6 @@
-import { cloneDeep } from "lodash";
-import { useEffect } from "react";
-import { useForm, useFormContext } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
+import { useFormContext } from "react-hook-form";
+import { ConfiguratorOptions } from "../../models/ConfiguratorOptions";
 import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "../../components/fields";
-import { SubmitButton } from "../../components/SubmitButton";
 
 /**
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/layout/#logo

@@ -1,10 +1,8 @@
 import { formMenuItems } from "../constants";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../models";
-import { useEffect, useState } from "react";
+import { ConfiguratorOptions } from "../models";
+import { useState } from "react";
 import { FormMenu } from "./FormMenu";
 import { transformFluidPlayerConfiguration } from "../helpers/client";
-import { FormProvider, useForm } from "react-hook-form";
-import { cloneDeep } from "lodash";
 
 export function FluidPlayerConfigurator({
   configuration,

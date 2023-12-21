@@ -1,9 +1,8 @@
 import { cloneDeep, uniqueId } from "lodash";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedAdOptions } from "../../models";
 import { AdvertisementForm } from "./AdvertisementForm";
-import { SubmitButton } from "../SubmitButton";
 
 const advertisementDefaults: ExtendedAdOptions = {
   _id: uniqueId(),

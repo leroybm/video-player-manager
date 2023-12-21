@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "../../models";
-import { FormField, FunctionInput, TextInput } from "../fields";
+import { FormField, TextInput } from "../fields";
 
 export function CaptionsForm({
   onSave,

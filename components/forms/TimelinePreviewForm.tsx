@@ -4,7 +4,6 @@ import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, us
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
 import { CheckboxInput, FormField, Select, TextInput } from "../../components/fields";
 import { StaticPreviewForm } from "./StaticPreviewForm";
-import { SubmitButton } from "../../components/SubmitButton";
 import { VTTPreviewOptions } from "../../models";
 
 type VTTPreviewOptionsFieldError = Merge<FieldError, FieldErrorsImpl<NonNullable<VTTPreviewOptions>>>;

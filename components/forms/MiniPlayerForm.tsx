@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "../../models";
-import { SubmitButton } from "../SubmitButton";
 import { FormField, CheckboxInput, NumberInput, TextInput, Select } from "../fields";
 
 export function MiniPlayerForm({
