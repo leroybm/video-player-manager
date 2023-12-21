@@ -1,2 +1,2 @@
 export * from './fluidPlayerConfigs';
-export * from './formMenuItem';
+export * from './form-menu-item';
