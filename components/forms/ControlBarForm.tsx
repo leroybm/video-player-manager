@@ -79,6 +79,42 @@ export function ControlBarForm({
         />
       </FormField>
 
+      <FormField
+        label="Allow download"
+        forCheckbox
+        errorMessage={errors.playerConfiguration?.layoutControls?.allowDownload?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#allowdownload"
+      >
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.allowDownload"} register={register} />
+      </FormField>
+
+      <FormField
+        label="Playback Rate Enabled"
+        forCheckbox
+        errorMessage={errors.playerConfiguration?.layoutControls?.playbackRateEnabled?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#playbackrateenabled"
+      >
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.playbackRateEnabled"} register={register} />
+      </FormField>
+
+      <FormField
+        label="Show skip buttons"
+        forCheckbox
+        errorMessage={errors.playerConfiguration?.layoutControls?.controlForwardBackward?.show?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#controlforwardbackward"
+      >
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.controlForwardBackward.show"} register={register} />
+      </FormField>
+
+      <FormField
+        label="Allow double-tap to skip"
+        forCheckbox
+        errorMessage={errors.playerConfiguration?.layoutControls?.controlForwardBackward?.doubleTapMobile?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#controlforwardbackward"
+      >
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.controlForwardBackward.doubleTapMobile"} register={register} />
+      </FormField>
+
       <p>
         <a
           className="text-blue-700"

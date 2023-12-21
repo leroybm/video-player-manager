@@ -84,8 +84,6 @@ export function AdvertisementListForm({
           ➕ Add new Advertisement
         </li>
       </ul>
-
-      <SubmitButton />
     </form>
   );
 }

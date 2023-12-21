@@ -38,6 +38,14 @@ export function LayoutForm({
       </FormField>
 
       <FormField
+        label="Poster image size"
+        errorMessage={errors.playerConfiguration?.layoutControls?.posterImageSize?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#posterimagesize"
+      >
+        <Select fieldName={"playerConfiguration.layoutControls.posterImageSize"} register={register} values={["auto", "contain", "cover"]} />
+      </FormField>
+
+      <FormField
         label="Enable play button"
         forCheckbox
         errorMessage={errors.playerConfiguration?.layoutControls?.playButtonShowing?.message}
@@ -132,6 +140,14 @@ export function LayoutForm({
         externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#loop"
       >
         <CheckboxInput fieldName={"playerConfiguration.layoutControls.loop"} register={register} />
+      </FormField>
+
+      <FormField
+        label="Layout"
+        errorMessage={errors.playerConfiguration?.layoutControls?.layout?.message}
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#layout"
+      >
+        <TextInput register={register} fieldName="playerConfiguration.layoutControls.layout" placeholder="default" />
       </FormField>
     </form>
   );
