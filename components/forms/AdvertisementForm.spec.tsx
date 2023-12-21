@@ -1,28 +1,28 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
+import { ConfiguratorOptions, ExtendedAdOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import { AdvertisementForm } from "./AdvertisementForm";
 
 const DummyComponent = ({
   openIndex = 0,
-  defaultValues = {} as ExtendedFluidPlayerOptions,
+  defaultValues = {} as ConfiguratorOptions,
   onOpen,
   onRemove,
   onUpdate,
 }: {
   openIndex?: number;
-  defaultValues?: ExtendedFluidPlayerOptions;
+  defaultValues?: ConfiguratorOptions;
   onOpen?: (i: number) => void;
   onRemove?: (i: number) => void;
   onUpdate?: (...args: unknown[]) => void;
 }) => {
-  const { control } = useForm<ExtendedFluidPlayerOptions>({
+  const { control } = useForm<ConfiguratorOptions>({
     defaultValues: defaultValues,
   });
   const { fields: advertisements, update, remove } = useFieldArray({
-    name: "vastOptions.adList",
+    name: "playerConfiguration.vastOptions.adList",
     control,
   });
 
@@ -76,7 +76,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'preRoll', vastTag: '' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } }} } />)
 
     await user.pointer({ target: screen.getByLabelText('Vast Tag'), keys: '[MouseLeft]' });
     await user.keyboard('https://adserver.com/test');
@@ -88,7 +88,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'midRoll', vastTag: 'https://' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await user.type(screen.getByLabelText('Timer'), '30%');
 
@@ -99,7 +99,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'preRoll', vastTag: 'https://' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await user.selectOptions(screen.getByRole('combobox', { name: 'Roll Type' }), 'midRoll');
     await user.type(screen.getByLabelText('Timer'), '30%');
@@ -114,7 +114,7 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: 'postRoll', vastTag: 'https://' }
     ] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent onOpen={mockOpen} defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent onOpen={mockOpen} defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await userEvent.click(screen.getAllByRole('listitem')[1]);
     
@@ -128,7 +128,7 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: 'postRoll', vastTag: 'https://' }
     ] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent onRemove={mockRemove} defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent onRemove={mockRemove} defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await userEvent.click(screen.getAllByText('Remove')[1]);
     
@@ -145,7 +145,7 @@ describe("AdvertisementForm", () => {
       await user.keyboard(text);
     }
     // @ts-expect-error
-    render(<DummyComponent onUpdate={mockUpdate} defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent onUpdate={mockUpdate} defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await fillInput('Vast Tag', 'https://adserver.com/test');
     await user.selectOptions(screen.getByRole('combobox', { name: 'Roll Type' }), 'midRoll');
@@ -176,7 +176,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'preRoll', vastTag: '' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await user.pointer({ target: screen.getByLabelText('Vast Tag'), keys: '[MouseLeft]' });
     await user.keyboard('1');
@@ -196,7 +196,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'midRoll', vastTag: '' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await user.pointer({ target: screen.getByLabelText('Timer'), keys: '[MouseLeft]' });
     await user.keyboard('one');
@@ -220,7 +220,7 @@ describe("AdvertisementForm", () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'preRoll', vastTag: 'https://' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
     const getTarget = (withPatterError?: boolean) => screen.getByRole('textbox', {
       name: `Fallback Vast Tags (Comma separated)${withPatterError ? ' Should be a string of URLs separated by commas' : ''}`
     });
