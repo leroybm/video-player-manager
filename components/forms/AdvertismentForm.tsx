@@ -1,6 +1,6 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
-import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "../../components/fields";
+import { ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
 
 interface AdvertismentFormProps {
   update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "vastOptions.adList">;

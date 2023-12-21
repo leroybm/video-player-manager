@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
-import { CheckboxInput, FormField, Select, TextInput } from "../../components/fields";
-import { SubmitButton } from "../../components/SubmitButton";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
+import { SubmitButton } from "@/components/SubmitButton";
 
 export function MetadataForm({
   configuration,

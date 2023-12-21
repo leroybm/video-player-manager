@@ -1,5 +1,5 @@
 import { LogOut } from 'lucide-react'
-import { Button } from '../../Button'
+import { Button } from '@/components/Button'
 import classNames from 'classnames'
 
 export interface ProfileProps { }

@@ -1,9 +1,9 @@
 import { cloneDeep } from "lodash";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
-import { CheckboxInput, FormField, NumberInput, TextInput } from "../../components/fields";
-import { SubmitButton } from "../../components/SubmitButton";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { CheckboxInput, FormField, NumberInput, TextInput } from "@/components/fields";
+import { SubmitButton } from "@/components/SubmitButton";
 
 function transformStringIntoArray(value: string) {
   return value.split(",").map((x) => x.trim());
