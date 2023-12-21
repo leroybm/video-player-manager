@@ -1,14 +1,14 @@
-import { LayoutForm } from "../components/forms";
+import { AdvertisementListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "../components/forms";
 import { MetadataForm } from "../components/forms/MetadataForm";
 
 type FormComponents =
   | typeof MetadataForm
   | typeof LayoutForm
-  // | typeof MiniPlayerForm
-  // | typeof LogoForm
-  // | typeof ControlBarForm
-  // | typeof TimelinePreviewForm
-  // | typeof AdvertisementListForm;
+  | typeof MiniPlayerForm
+  | typeof LogoForm
+  | typeof ControlBarForm
+  | typeof TimelinePreviewForm
+  | typeof AdvertisementListForm;
 
 export interface FormMenuItem {
   label: string;
@@ -27,29 +27,29 @@ export const formMenuItems: FormMenuItem[] = [
     key: "layout",
     FormComponent: LayoutForm,
   },
-  // {
-  //   label: "Layout - Logo",
-  //   key: "logo",
-  //   FormComponent: LogoForm,
-  // },
-  // {
-  //   label: "Layout - Control Bar",
-  //   key: "controlBar",
-  //   FormComponent: ControlBarForm,
-  // },
-  // {
-  //   label: "Timeline Preview",
-  //   key: "timelinePreview",
-  //   FormComponent: TimelinePreviewForm,
-  // },
-  // {
-  //   label: "Mini Player",
-  //   key: "miniPlayer",
-  //   FormComponent: MiniPlayerForm,
-  // },
-  // {
-  //   label: "Advertisement",
-  //   key: "advertisement",
-  //   FormComponent: AdvertisementListForm,
-  // },
+  {
+    label: "Layout - Logo",
+    key: "logo",
+    FormComponent: LogoForm,
+  },
+  {
+    label: "Layout - Control Bar",
+    key: "controlBar",
+    FormComponent: ControlBarForm,
+  },
+  {
+    label: "Timeline Preview",
+    key: "timelinePreview",
+    FormComponent: TimelinePreviewForm,
+  },
+  {
+    label: "Mini Player",
+    key: "miniPlayer",
+    FormComponent: MiniPlayerForm,
+  },
+  {
+    label: "Advertisement",
+    key: "advertisement",
+    FormComponent: AdvertisementListForm,
+  },
 ];

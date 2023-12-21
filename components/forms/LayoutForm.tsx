@@ -11,7 +11,6 @@ import { FormField, TextInput, CheckboxInput, Select } from "../fields";
 export function LayoutForm({
   onSave,
 }: {
-  configuration: ConfiguratorOptions;
   onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
   const {
@@ -134,8 +133,6 @@ export function LayoutForm({
       >
         <CheckboxInput fieldName={"playerConfiguration.layoutControls.loop"} register={register} />
       </FormField>
-
-      <SubmitButton />
     </form>
   );
 }

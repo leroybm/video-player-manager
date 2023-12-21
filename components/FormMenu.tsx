@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { FormMenuItem, formMenuItems } from "../constants/formMenuItem";
 import { ConfiguratorOptions } from "../models";
+import { useAlertService } from "../services";
 
 interface FormMenuProps {
   onMenuChange: (menuItem: FormMenuItem) => void;
@@ -10,29 +11,34 @@ interface FormMenuProps {
 
 export function FormMenu({ onMenuChange, onSave, selectedItem }: FormMenuProps) {
   const { getValues, trigger, formState: { isDirty, isValid }  } = useFormContext<ConfiguratorOptions>();
+  const alertService = useAlertService();
 
   function handleMenuChange(menuItem: FormMenuItem) {
     if (!isDirty) {
-      onMenuChange(menuItem);
+      return onMenuChange(menuItem);
     }
 
     trigger();
 
     if (isValid) {
       onSave(getValues());
-      onMenuChange(menuItem);
+      return onMenuChange(menuItem);
     }
+
+    alertService.error('Some fields have errors. Please check your input and try again.');
   }
 
   return (
     <div>
       <p className="mb-1.5">Configuration</p>
       <ul className="flex flex-col max-w-lg overflow-hidden gap-1">
-        {formMenuItems.map((menuItem, index) => (
+        {formMenuItems.map((menuItem) => (
           <li
             key={menuItem.key}
             onClick={() => handleMenuChange(menuItem)}
-            className={`pl-2 whitespace-nowrap ${selectedItem === menuItem.key ? "!text-blue-500" : "text-slate-500"}`}
+            className={`pl-2 whitespace-nowrap cursor-pointer
+              ${selectedItem === menuItem.key ? "!text-blue-500" : "text-slate-500"}
+              `}
           >
             {menuItem.label}
           </li>

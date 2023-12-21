@@ -13,14 +13,7 @@ export function FluidPlayerConfigurator({
   configuration: ConfiguratorOptions;
   onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
-  const formMethods = useForm<ConfiguratorOptions>({
-    defaultValues: { ...cloneDeep(configuration) },
-  });
   const [openedMenu, setOpenedMenu] = useState(formMenuItems[0].key);
-
-  useEffect(() => {
-    const formValues = formMethods.getValues();
-  }, []);
 
   /**
    * Changes selected menu if there is no form errors
@@ -39,13 +32,11 @@ export function FluidPlayerConfigurator({
   const { FormComponent } = formMenuItems.find((menuItem) => menuItem.key === openedMenu) || {};
 
   return (
-    <FormProvider {...formMethods}>
-      <div className="grid grid-cols-[minmax(160px,_1fr)_3fr] gap-2">
-        <FormMenu onMenuChange={handleChangeMenu} onSave={handleSave} selectedItem={openedMenu} />
-        {FormComponent && (
-          <FormComponent configuration={configuration} onSave={handleSave} />
-        )}
-      </div>
-    </FormProvider>
+    <div className="grid grid-cols-[minmax(160px,_1fr)_3fr] gap-2">
+      <FormMenu onMenuChange={handleChangeMenu} onSave={handleSave} selectedItem={openedMenu} />
+      {FormComponent && (
+        <FormComponent onSave={handleSave} />
+      )}
+    </div>
   );
 }

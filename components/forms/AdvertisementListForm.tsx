@@ -1,7 +1,7 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedAdOptions, ExtendedFluidPlayerOptions } from "../../models";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { ConfiguratorOptions, ExtendedAdOptions } from "../../models";
 import { AdvertisementForm } from "./AdvertisementForm";
 import { SubmitButton } from "../SubmitButton";
 
@@ -16,34 +16,21 @@ const advertisementDefaults: ExtendedAdOptions = {
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/ads/#adlist
  */
 export function AdvertisementListForm({
-  configuration,
   onSave,
-  onDirty,
 }: {
-  configuration: ConfiguratorOptions;
-  onSave: (newOptions: Partial<ExtendedFluidPlayerOptions>) => void;
-  onDirty: () => void;
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
-  const { handleSubmit, watch, control } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
-  });
+  const { handleSubmit, watch, control } = useFormContext<ConfiguratorOptions>();;
   const {
     fields: advertisements,
     append: appendAdvertisement,
     update: updateAdvertisement,
     remove: removeAdvertisement,
   } = useFieldArray({
-    name: "vastOptions.adList",
+    name: "playerConfiguration.vastOptions.adList",
     control,
   });
   const [openAdvertisementIndex, setOpenAdvertisementIndex] = useState<null | number>(null);
-
-  useEffect(() => {
-    const subscription = watch(() => {
-      onDirty();
-    });
-    return () => subscription.unsubscribe();
-  }, [watch, onDirty]);
 
   /**
    * Appends new advertisements by either creating it from the defaults or by

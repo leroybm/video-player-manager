@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAlertService } from './useAlertService';
 import { useFetch } from '../helpers/client';
+import { ObjectId } from 'mongoose';
 
 export { usePlayerService };
 
@@ -66,7 +67,7 @@ interface IPlayer {
     userId: ObjectId,
     id: string,
     title: string,
-    playerConfiguration: string,
+    playerConfiguration: Object,
     sources: { label: string, url: string }[]
     isDeleting?: boolean
 }

@@ -1,12 +1,12 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
+import { ConfiguratorOptions } from "../../models/ConfiguratorOptions";
 import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "../../components/fields";
 
 interface AdvertisementFormProps {
-  update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "vastOptions.adList">;
+  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.vastOptions.adList">;
   index: number;
-  value: FieldArrayWithId<ExtendedFluidPlayerOptions, "vastOptions.adList", "id">;
-  control: Control<ExtendedFluidPlayerOptions>;
+  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.vastOptions.adList", "id">;
+  control: Control<ConfiguratorOptions>;
   isOpen: boolean;
   onClickOpen: () => void;
   onClickRemove: () => void;
@@ -31,7 +31,7 @@ export function AdvertisementForm({
   });
   const data = useWatch({
     control,
-    name: `vastOptions.adList.${index}`,
+    name: `playerConfiguration.vastOptions.adList.${index}`,
   });
 
   const titleSection = (

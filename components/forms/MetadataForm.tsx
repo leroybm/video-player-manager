@@ -1,36 +1,27 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { ConfiguratorOptions } from "../../models";
-import { SubmitButton } from "../SubmitButton";
 import { FormField, TextInput } from "../fields";
 
 export function MetadataForm({
-  configuration,
   onSave,
 }: {
-  configuration: ConfiguratorOptions;
   onSave: (newOptions: Partial<{ title: string, videoUrl: string }>) => void;
 }) {
   const {
+    getValues,
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     trigger
   } = useFormContext<ConfiguratorOptions>();
+  const configuration = getValues();
 
   useEffect(() => {
-    if (configuration?.title === undefined) {
+    if (configuration?.title === '') {
       trigger(["title", "sources.0.url"], { shouldFocus: true });
     }
   }, []);
-
-  /**
-   * TODO: Remove when form for multiple sources is developed
-   */
-  // function transformData(data: { videoUrl: string, title: string }) {
-  //   return { ...configuration, title: data.title, sources: [{ label: 'default', url: data.videoUrl }] };
-  // }
 
   return (
     <form onSubmit={handleSubmit((data) => onSave(data))}>
@@ -47,8 +38,6 @@ export function MetadataForm({
       >
         <TextInput register={register} fieldName="sources.0.url" placeholder="Video URL" required />
       </FormField>
-
-      <SubmitButton />
     </form>
   );
 }
