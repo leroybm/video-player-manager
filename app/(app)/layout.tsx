@@ -1,9 +1,8 @@
 "use client"
 
-import 'globals.css';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { Sidebar } from '../../components/sidebar';
+import { Sidebar } from '@/components/sidebar';
 
 export default function AppLayout({
     children,

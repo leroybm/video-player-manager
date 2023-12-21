@@ -1,4 +1,4 @@
-import { AddEdit } from "../../../../components/player";
+import { AddEdit } from "@/components/player";
 
 export default Add;
 

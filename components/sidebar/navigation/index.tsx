@@ -1,4 +1,4 @@
-import { SIDENAV_ITEMS, SideNavItem } from "../constants";
+import { SIDENAV_ITEMS } from "../constants";
 import { NavItem } from "./navItem";
 
 export function Navigation({ onClose, isCollapsed, setSidebarCollapsed }: any) {

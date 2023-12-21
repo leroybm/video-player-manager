@@ -1,6 +1,6 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
-import { FormField, NumberInput, TextInput } from "../../components/fields";
+import { ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { FormField, NumberInput, TextInput } from "@/components/fields";
 
 interface StaticPreviewFormProps {
   update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "layoutControls.timelinePreview.frames">;

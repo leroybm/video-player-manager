@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "../../models/ConfiguratorOptions";
+import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import { AdvertismentForm } from "./AdvertismentForm";

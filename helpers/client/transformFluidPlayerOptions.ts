@@ -1,4 +1,4 @@
-import { AdOptions, ExtendedFluidPlayerOptions } from "../../models";
+import { AdOptions, ExtendedFluidPlayerOptions } from "@/models/index";
 import { omit } from "lodash";
 
 /**

@@ -1,4 +1,4 @@
-import { FormMenuItem, formMenuItems } from "../constants/formMenuItem";
+import { FormMenuItem, formMenuItems } from "@/constants/formMenuItem";
 
 interface FormMenuProps {
   onMenuChange: (menuItem: FormMenuItem) => void;
