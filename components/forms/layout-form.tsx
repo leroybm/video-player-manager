@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
-import { SubmitButton } from "@/components/SubmitButton";
+import { SubmitButton } from "@/components/submit-button";
 
 /**
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/layout/

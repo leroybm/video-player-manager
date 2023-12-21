@@ -1,5 +1,5 @@
 import { LayoutForm } from "@/components/forms";
-import { MetadataForm } from "@/components/forms/MetadataForm";
+import { MetadataForm } from "@/components/forms/metadata-form";
 
 type FormComponents =
   | typeof MetadataForm

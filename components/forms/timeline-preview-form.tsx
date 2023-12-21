@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, useForm } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
-import { StaticPreviewForm } from "./StaticPreviewForm";
-import { SubmitButton } from "@/components/SubmitButton";
+import { StaticPreviewForm } from "./static-preview-form";
+import { SubmitButton } from "@/components/submit-button";
 import { VTTPreviewOptions } from "@/models/index";
 
 type VTTPreviewOptionsFieldError = Merge<FieldError, FieldErrorsImpl<NonNullable<VTTPreviewOptions>>>;

@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 import { useAlertService, usePlayerService } from '@/services/index';
-import { FluidPlayerConfigurator } from '@/components/FluidPlayerConfigurator';
+import { FluidPlayerConfigurator } from '@/components/fluid-player-configurator';
 import { useState } from 'react';
 import { ConfiguratorOptions } from '@/models/index';
 

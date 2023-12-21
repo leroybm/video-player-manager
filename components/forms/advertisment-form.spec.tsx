@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { ExtendedAdOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
-import { AdvertismentForm } from "./AdvertismentForm";
+import { AdvertismentForm } from "./advertisment-form";
 
 const DummyComponent = ({
   openIndex = 0,

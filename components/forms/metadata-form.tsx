@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ConfiguratorOptions } from "@/models/configurator-options";
 import { FormField, TextInput } from "@/components/fields";
-import { SubmitButton } from "@/components/SubmitButton";
+import { SubmitButton } from "@/components/submit-button";
 
 export function MetadataForm({
   configuration,

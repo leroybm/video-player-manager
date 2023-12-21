@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, NumberInput, TextInput } from "@/components/fields";
-import { SubmitButton } from "@/components/SubmitButton";
+import { SubmitButton } from "@/components/submit-button";
 
 function transformStringIntoArray(value: string) {
   return value.split(",").map((x) => x.trim());
