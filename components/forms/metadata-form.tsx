@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { ConfiguratorOptions } from "@/models/configurator-options";
 import { FormField, TextInput } from "@/components/fields";
 
 export function MetadataForm({

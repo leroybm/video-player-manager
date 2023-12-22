@@ -4,10 +4,10 @@ import { Navigation } from "./navigation";
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import { Logo } from "./logo";
 import * as Collapsible from "@radix-ui/react-collapsible"
-import { Button } from "@/components/Button";
+import { Button } from "@/components/button";
 import { useState } from "react";
 import classNames from "classnames";
-import { Profile } from "./navigation/Profile";
+import { Profile } from "./navigation/profile";
 
 export function Sidebar({ setSidebarCollapsed, isCollapsed }: { setSidebarCollapsed: any, isCollapsed: any }) {
 

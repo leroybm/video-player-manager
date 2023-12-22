@@ -1,6 +1,6 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models/ConfiguratorOptions";
-import { FormField, TextInput } from "../../components/fields";
+import { ConfiguratorOptions } from "@/models/configurator-options";
+import { FormField, TextInput } from "@/components/fields";
 
 interface ContextMenuLinkFormProps {
   update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.layoutControls.contextMenu.links">;

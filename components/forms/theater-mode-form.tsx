@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models";
-import { CheckboxInput, FormField, Select, TextInput } from "../fields";
+import { ConfiguratorOptions } from "@/models/configurator-options";
+import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
 
 export function TheaterModeForm({
   onSave,

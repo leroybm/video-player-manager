@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models";
-import { FormField, FunctionInput } from "../fields";
+import { ConfiguratorOptions } from "@/models/configurator-options";
+import { FormField, FunctionInput } from "@/components/fields";
 
 export function CallbacksForm({
   onSave,

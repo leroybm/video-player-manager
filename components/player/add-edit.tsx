@@ -7,7 +7,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { cloneDeep } from 'lodash';
 
 import { useAlertService, usePlayerService } from '@/services/index';
-import { FluidPlayerConfigurator } from '@/components/FluidPlayerConfigurator';
+import { FluidPlayerConfigurator } from '@/components/fluid-player-configurator';
 import { ConfiguratorOptions } from '@/models/index';
 
 

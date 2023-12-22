@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useEffect } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { CheckboxInput } from "./CheckboxInput";
+import { CheckboxInput } from "./checkbox-input";
 
 const MockForm = ({
   formValuesUpdated,

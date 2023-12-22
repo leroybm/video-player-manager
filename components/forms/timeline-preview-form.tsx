@@ -1,7 +1,7 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
 import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, useFormContext } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
+import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
 import { VTTPreviewOptions } from "@/models/index";
 import { StaticPreviewForm } from "@/components/forms";
