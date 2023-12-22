@@ -1,11 +1,10 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useEffect, useState } from "react";
-import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, useForm } from "react-hook-form";
+import { FieldArrayWithId, FieldError, FieldErrorsImpl, Merge, useFieldArray, useFormContext } from "react-hook-form";
 import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
 import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
-import { StaticPreviewForm } from "./StaticPreviewForm";
-import { SubmitButton } from "@/components/SubmitButton";
 import { VTTPreviewOptions } from "@/models/index";
+import { StaticPreviewForm } from "@/components/forms";
 
 type VTTPreviewOptionsFieldError = Merge<FieldError, FieldErrorsImpl<NonNullable<VTTPreviewOptions>>>;
 
@@ -24,48 +23,43 @@ const staticTimelineItemDefaults = {
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/preview/
  */
 export function TimelinePreviewForm({
-  options,
   onSave,
-  onDirty,
 }: {
-  options: ConfiguratorOptions;
-  onSave: (newOptions: Partial<ExtendedFluidPlayerOptions>) => void;
-  onDirty: () => void;
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
   const {
+    getValues,
     register,
     handleSubmit,
     formState: { errors },
     watch,
     control,
-  } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(options.playerConfiguration) },
-  });
+  } = useFormContext<ConfiguratorOptions>();
   const {
     fields: staticPreviews,
     append: appendStaticPreview,
     update: updateStaticPreview,
     remove: removeStaticPreview,
   } = useFieldArray({
-    name: "layoutControls.timelinePreview.frames",
+    name: "playerConfiguration.layoutControls.timelinePreview.frames",
     control,
   });
+  const configuration = getValues();
   const [timelinePreviewType, setTimelinePreviewType] = useState(
-    options.playerConfiguration.layoutControls?.timelinePreview?.type,
+    configuration.playerConfiguration.layoutControls?.timelinePreview?.type,
   );
   const [openPreviewIndex, setOpenPreviewIndex] = useState<null | number>(null);
 
   useEffect(() => {
     const subscription = watch((formValue, { type, name }) => {
-      const nextType = formValue.layoutControls?.timelinePreview?.type;
-      if (nextType && type === "change" && name === "layoutControls.timelinePreview.type") {
+      const nextType = formValue.playerConfiguration?.layoutControls?.timelinePreview?.type;
+      if (nextType && type === "change" && name === "playerConfiguration.layoutControls.timelinePreview.type") {
         setTimelinePreviewType(nextType);
       }
 
-      onDirty();
     });
     return () => subscription.unsubscribe();
-  }, [watch, onDirty]);
+  }, [watch]);
 
   function validateTimings(
     staticPreviews: FieldArrayWithId<ExtendedFluidPlayerOptions, "layoutControls.timelinePreview.frames", "id">[],
@@ -95,7 +89,7 @@ export function TimelinePreviewForm({
   return (
     <form onSubmit={handleSubmit(onSave)}>
       <FormField label="Type">
-        <Select fieldName={"layoutControls.timelinePreview.type"} register={register} values={["VTT", "static"]} />
+        <Select fieldName={"playerConfiguration.layoutControls.timelinePreview.type"} register={register} values={["VTT", "static"]} />
       </FormField>
 
       <p className="text-blue-700 mb-2">
@@ -110,30 +104,30 @@ export function TimelinePreviewForm({
             label="Enable sprite relative path"
             forCheckbox
             errorMessage={
-              (errors.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.spriteRelativePath?.message
+              (errors.playerConfiguration?.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.spriteRelativePath?.message
             }
           >
-            <CheckboxInput fieldName={"layoutControls.timelinePreview.spriteRelativePath"} register={register} />
+            <CheckboxInput fieldName={"playerConfiguration.layoutControls.timelinePreview.spriteRelativePath"} register={register} />
           </FormField>
 
           <FormField
             label="File"
-            errorMessage={(errors.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.file?.message}
+            errorMessage={(errors.playerConfiguration?.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.file?.message}
           >
             <TextInput
               register={register}
-              fieldName="layoutControls.timelinePreview.file"
+              fieldName="playerConfiguration.layoutControls.timelinePreview.file"
               placeholder="thumbnails.vtt"
             />
           </FormField>
 
           <FormField
             label="Sprite"
-            errorMessage={(errors.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.sprite?.message}
+            errorMessage={(errors.playerConfiguration?.layoutControls?.timelinePreview as VTTPreviewOptionsFieldError)?.sprite?.message}
           >
             <TextInput
               register={register}
-              fieldName="layoutControls.timelinePreview.sprite"
+              fieldName="playerConfiguration.layoutControls.timelinePreview.sprite"
               placeholder="thumbnails.jpg"
             />
           </FormField>
@@ -167,8 +161,6 @@ export function TimelinePreviewForm({
       )}
 
       {!validateTimings(staticPreviews) && <div className="mt-1 text-red-500">Invalid Timings</div>}
-
-      <SubmitButton disabled={!validateTimings(staticPreviews)} />
     </form>
   );
 }

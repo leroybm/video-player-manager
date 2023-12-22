@@ -15,7 +15,11 @@ async function getById(req: Request, { params: { id } }: any) {
 
 async function update(req: Request, { params: { id } }: any) {
     const body = await req.json();
-    await playersRepo.update(id, body);
+
+    await playersRepo.update(id, {
+        playerConfiguration: {},
+        ...body
+    });
 }
 
 update.schema = joi.object({

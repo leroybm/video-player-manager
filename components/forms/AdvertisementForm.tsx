@@ -1,18 +1,18 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
 import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
 
-interface AdvertismentFormProps {
-  update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "vastOptions.adList">;
+interface AdvertisementFormProps {
+  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.vastOptions.adList">;
   index: number;
-  value: FieldArrayWithId<ExtendedFluidPlayerOptions, "vastOptions.adList", "id">;
-  control: Control<ExtendedFluidPlayerOptions>;
+  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.vastOptions.adList", "id">;
+  control: Control<ConfiguratorOptions>;
   isOpen: boolean;
   onClickOpen: () => void;
   onClickRemove: () => void;
 }
 
-export function AdvertismentForm({
+export function AdvertisementForm({
   update,
   index,
   value,
@@ -20,7 +20,7 @@ export function AdvertismentForm({
   isOpen,
   onClickOpen,
   onClickRemove,
-}: AdvertismentFormProps) {
+}: AdvertisementFormProps) {
   const {
     register,
     handleSubmit,
@@ -31,7 +31,7 @@ export function AdvertismentForm({
   });
   const data = useWatch({
     control,
-    name: `vastOptions.adList.${index}`,
+    name: `playerConfiguration.vastOptions.adList.${index}`,
   });
 
   const titleSection = (
@@ -123,7 +123,7 @@ export function AdvertismentForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text Postion" errorMessage={errors?.adTextPosition?.message}>
+      <FormField label="Video Ad Text Position" errorMessage={errors?.adTextPosition?.message}>
         <Select
           register={register}
           fieldName="adTextPosition"

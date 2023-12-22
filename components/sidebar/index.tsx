@@ -9,7 +9,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import { Profile } from "./navigation/Profile";
 
-export function Sidebar({ setSidebarCollapsed, isCollapsed }) {
+export function Sidebar({ setSidebarCollapsed, isCollapsed }: { setSidebarCollapsed: any, isCollapsed: any }) {
 
   const [open, setOpen] = useState(false);
 
@@ -38,7 +38,7 @@ export function Sidebar({ setSidebarCollapsed, isCollapsed }) {
           <Button
             aria-label="Collapse horizontal navigation"
             variant="ghost"
-            onClick={() => setSidebarCollapsed((prev) => !prev)}
+            onClick={() => setSidebarCollapsed((prev: any) => !prev)}
             className="hidden lg:block"
           >
             <Icon className="h-5 w-5 text-zinc-500" />

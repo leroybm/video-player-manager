@@ -1,12 +1,12 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ExtendedFluidPlayerOptions } from "@/models/ConfiguratorOptions";
 import { FormField, NumberInput, TextInput } from "@/components/fields";
+import { ConfiguratorOptions } from "@/models/index";
 
 interface StaticPreviewFormProps {
-  update: UseFieldArrayUpdate<ExtendedFluidPlayerOptions, "layoutControls.timelinePreview.frames">;
+  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.layoutControls.timelinePreview.frames">;
   index: number;
-  value: FieldArrayWithId<ExtendedFluidPlayerOptions, "layoutControls.timelinePreview.frames", "id">;
-  control: Control<ExtendedFluidPlayerOptions>;
+  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.layoutControls.timelinePreview.frames", "id">;
+  control: Control<ConfiguratorOptions>;
   isOpen: boolean;
   onClickOpen: () => void;
   onClickRemove: () => void;
@@ -30,7 +30,7 @@ export function StaticPreviewForm({
   });
   const data = useWatch({
     control,
-    name: `layoutControls.timelinePreview.frames.${index}`,
+    name: `playerConfiguration.layoutControls.timelinePreview.frames.${index}`,
   });
 
   const getTitleSection = () => (

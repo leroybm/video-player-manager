@@ -1,27 +1,49 @@
+import { useFormContext } from "react-hook-form";
 import { FormMenuItem, formMenuItems } from "@/constants/formMenuItem";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { useAlertService } from "@/services/useAlertService";
 
 interface FormMenuProps {
   onMenuChange: (menuItem: FormMenuItem) => void;
-  preventNavigation: boolean;
   selectedItem: string;
+  onSave: (value: ConfiguratorOptions) => void;
 }
 
-export function FormMenu({ onMenuChange, preventNavigation, selectedItem }: FormMenuProps) {
+export function FormMenu({ onMenuChange, onSave, selectedItem }: FormMenuProps) {
+  const { getValues, trigger, formState: { isDirty, isValid }  } = useFormContext<ConfiguratorOptions>();
+  const alertService = useAlertService();
+
+  function handleMenuChange(menuItem: FormMenuItem) {
+    if (!isDirty) {
+      return onMenuChange(menuItem);
+    }
+
+    trigger();
+
+    if (isValid) {
+      onSave(getValues());
+      return onMenuChange(menuItem);
+    }
+
+    alertService.error('Some fields have errors. Please check your input and try again.');
+  }
+
   return (
     <div>
-      <ul>
+      <p className="mb-1.5">Configuration</p>
+      <ul className="flex flex-col max-w-lg overflow-hidden gap-1">
         {formMenuItems.map((menuItem) => (
           <li
             key={menuItem.key}
-            onClick={() => onMenuChange(menuItem)}
-            className={`${selectedItem === menuItem.key && "font-bold text-lg"} ${preventNavigation ? "cursor-not-allowed" : " cursor-pointer hover:underline"
-              }`}
+            onClick={() => handleMenuChange(menuItem)}
+            className={`pl-2 whitespace-nowrap cursor-pointer
+              ${selectedItem === menuItem.key ? "!text-blue-500" : "text-slate-500"}
+              `}
           >
             {menuItem.label}
           </li>
         ))}
       </ul>
-      {preventNavigation && <p className="text-red-500 mt-2">You have unsaved changes.</p>}
     </div>
   );
 }

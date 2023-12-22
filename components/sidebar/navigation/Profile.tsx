@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 export interface ProfileProps { }
 
-export function Profile({ isCollapsed }) {
+export function Profile({ isCollapsed }: { isCollapsed: any }) {
   return (
     <div className={classNames({
       "flex gap-4 items-center h-11 overflow-hidden": true,

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 
-export function NavItem({ item: { path, title, icon: Icon }, onClose, isCollapsed }: { item: SideNavItem, onClose: () => void }) {
+export function NavItem({ item: { path, title, icon: Icon }, onClose, isCollapsed }: { item: SideNavItem, onClose: () => void, isCollapsed: any, setSidebarCollapsed: () => void }) {
 
   const pathname = usePathname();
 
