@@ -29,7 +29,6 @@ async function create(params: any) {
         throw 'Player "' + params.title + '" is already taken';
     }
 
-    console.log('creating player with ', params)
     const player = new Player(params);
 
     await player.save();

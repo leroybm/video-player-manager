@@ -1,65 +1,50 @@
-import { cloneDeep } from "lodash";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { ConfiguratorOptions, ExtendedFluidPlayerOptions } from "@/models/configurator-options";
+import { useFormContext } from "react-hook-form";
+import { ConfiguratorOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "@/components/fields";
-import { SubmitButton } from "@/components/submit-button";
 
 /**
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/layout/#logo
  */
 export function LogoForm({
-  configuration,
   onSave,
-  onDirty,
 }: {
-  configuration: ConfiguratorOptions;
-  onSave: (newOptions: Partial<ExtendedFluidPlayerOptions>) => void;
-  onDirty: () => void;
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-  } = useForm<ExtendedFluidPlayerOptions>({
-    defaultValues: { ...cloneDeep(configuration.playerConfiguration) },
-  });
-
-  useEffect(() => {
-    const subscription = watch(onDirty);
-    return () => subscription.unsubscribe();
-  }, [watch, onDirty]);
+  } = useFormContext<ConfiguratorOptions>();
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
-      <FormField label="Image URL" errorMessage={errors.layoutControls?.logo?.imageUrl?.message}>
+      <FormField label="Image URL" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.imageUrl?.message}>
         <TextInput
           register={register}
-          fieldName="layoutControls.logo.imageUrl"
+          fieldName="playerConfiguration.layoutControls.logo.imageUrl"
           placeholder="https://www.routetomylogo.com/logo.jpg"
         />
       </FormField>
 
-      <FormField label="Position" errorMessage={errors.layoutControls?.logo?.position?.message}>
+      <FormField label="Position" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.position?.message}>
         <Select
-          fieldName={"layoutControls.logo.position"}
+          fieldName={"playerConfiguration.layoutControls.logo.position"}
           register={register}
           values={["top left", "top right", "bottom left", "bottom right"]}
         />
       </FormField>
 
-      <FormField label="Click URL" errorMessage={errors.layoutControls?.logo?.clickUrl?.message}>
+      <FormField label="Click URL" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.clickUrl?.message}>
         <TextInput
           register={register}
-          fieldName="layoutControls.logo.clickUrl"
+          fieldName="playerConfiguration.layoutControls.logo.clickUrl"
           placeholder="https://www.landingpage.com/welcome"
         />
       </FormField>
 
-      <FormField label="Opacity" errorMessage={errors.layoutControls?.logo?.opacity?.message}>
+      <FormField label="Opacity" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.opacity?.message}>
         <NumberInput
-          fieldName={"layoutControls.logo.opacity"}
+          fieldName={"playerConfiguration.layoutControls.logo.opacity"}
           register={register}
           min={0}
           max={1}
@@ -68,28 +53,28 @@ export function LogoForm({
         />
       </FormField>
 
-      <FormField label="Image on hover URL" errorMessage={errors.layoutControls?.logo?.mouseOverImageUrl?.message}>
+      <FormField label="Image on hover URL" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.mouseOverImageUrl?.message}>
         <TextInput
           register={register}
-          fieldName="layoutControls.logo.mouseOverImageUrl"
+          fieldName="playerConfiguration.layoutControls.logo.mouseOverImageUrl"
           placeholder="image/on/hover.jpg"
         />
       </FormField>
 
-      <FormField label="Image marign (CSS)" errorMessage={errors.layoutControls?.logo?.imageMargin?.message}>
-        <TextInput register={register} fieldName="layoutControls.logo.imageMargin" placeholder="30px 80% 0 30px" />
+      <FormField label="Image margin (CSS)" errorMessage={errors.playerConfiguration?.layoutControls?.logo?.imageMargin?.message}>
+        <TextInput register={register} fieldName="playerConfiguration.layoutControls.logo.imageMargin" placeholder="30px 80% 0 30px" />
       </FormField>
 
       <FormField
         label="Hide with controls"
         forCheckbox
-        errorMessage={errors.layoutControls?.logo?.hideWithControls?.message}
+        errorMessage={errors.playerConfiguration?.layoutControls?.logo?.hideWithControls?.message}
       >
-        <CheckboxInput fieldName={"layoutControls.logo.hideWithControls"} register={register} />
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.logo.hideWithControls"} register={register} />
       </FormField>
 
-      <FormField label="Show over ads" forCheckbox errorMessage={errors.layoutControls?.logo?.showOverAds?.message}>
-        <CheckboxInput fieldName={"layoutControls.logo.showOverAds"} register={register} />
+      <FormField label="Show over ads" forCheckbox errorMessage={errors.playerConfiguration?.layoutControls?.logo?.showOverAds?.message}>
+        <CheckboxInput fieldName={"playerConfiguration.layoutControls.logo.showOverAds"} register={register} />
       </FormField>
 
       <p>
@@ -101,8 +86,6 @@ export function LogoForm({
           Open Logo documentation in a new tab&nbsp;↗️
         </a>
       </p>
-
-      <SubmitButton />
     </form>
   );
 }

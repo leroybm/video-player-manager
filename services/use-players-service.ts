@@ -1,8 +1,8 @@
 import { create } from 'zustand';
+import { ObjectId } from 'mongoose';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useAlertService } from './use-alert-service';
 import { useFetch } from '@/helpers/client';
-import { ObjectId } from 'mongodb';
+import { useAlertService } from '@/services/index';
 
 export { usePlayerService };
 
@@ -37,7 +37,6 @@ function usePlayerService(): IPlayerService {
             }
         },
         create: async (player: IPlayer) => {
-            console.log('doing create request with ', player)
             await fetch.post('/api/players', player);
         },
         update: async (id: string, params: Partial<IPlayer>) => {
@@ -67,7 +66,7 @@ interface IPlayer {
     userId: ObjectId,
     id: string,
     title: string,
-    playerConfiguration: string,
+    playerConfiguration: Object,
     sources: { label: string, url: string }[]
     isDeleting?: boolean
 }
