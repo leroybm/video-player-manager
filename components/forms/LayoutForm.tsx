@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models";
-import { FormField, TextInput, CheckboxInput, Select } from "../fields";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
 
 /**
  * This form is for the root options that can be found at https://docs.fluidplayer.com/docs/configuration/layout/

@@ -1,8 +1,8 @@
-import { formMenuItems } from "../constants";
-import { ConfiguratorOptions } from "../models";
+import { formMenuItems } from "@/constants/index";
+import { ConfiguratorOptions } from "@/models/index";
 import { useState } from "react";
 import { FormMenu } from "./FormMenu";
-import { transformFluidPlayerConfiguration } from "../helpers/client";
+import { transformFluidPlayerConfiguration } from "@/helpers/client";
 
 export function FluidPlayerConfigurator({
   configuration,

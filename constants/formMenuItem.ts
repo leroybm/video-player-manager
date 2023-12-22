@@ -1,11 +1,18 @@
-import { AdvertisementListForm, ControlBarForm, LayoutForm, LogoForm, MiniPlayerForm, TimelinePreviewForm } from "../components/forms";
-import { CallbacksForm } from "../components/forms/CallbacksForm";
-import { CaptionsForm } from "../components/forms/CaptionsForm";
-import { ContextMenuForm } from "../components/forms/ContextMenuForm";
-import { HtmlOnPauseForm } from "../components/forms/HtmlOnPauseForm";
-import { MetadataForm } from "../components/forms/MetadataForm";
-import { PersistentSettingsForm } from "../components/forms/PersistentSettingsForm";
-import { TheaterModeForm } from "../components/forms/TheaterModeForm";
+import {
+  AdvertisementListForm,
+  CallbacksForm,
+  CaptionsForm,
+  ContextMenuForm,
+  ControlBarForm,
+  HtmlOnPauseForm,
+  LayoutForm,
+  LogoForm,
+  MetadataForm,
+  MiniPlayerForm,
+  PersistentSettingsForm,
+  TheaterModeForm,
+  TimelinePreviewForm
+} from "@/components/forms";
 
 type FormComponents =
   | typeof MetadataForm
@@ -19,7 +26,8 @@ type FormComponents =
   | typeof TheaterModeForm
   | typeof CallbacksForm
   | typeof CaptionsForm
-  | typeof PersistentSettingsForm;
+  | typeof PersistentSettingsForm
+  | typeof ContextMenuForm;
 
 export interface FormMenuItem {
   label: string;

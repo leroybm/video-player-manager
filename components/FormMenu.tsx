@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
-import { FormMenuItem, formMenuItems } from "../constants/formMenuItem";
-import { ConfiguratorOptions } from "../models";
-import { useAlertService } from "../services";
+import { FormMenuItem, formMenuItems } from "@/constants/formMenuItem";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { useAlertService } from "@/services/useAlertService";
 
 interface FormMenuProps {
   onMenuChange: (menuItem: FormMenuItem) => void;

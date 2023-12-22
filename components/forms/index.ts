@@ -1,3 +1,4 @@
+export * from './MetadataForm';
 export * from './AdvertisementForm';
 export * from './AdvertisementListForm';
 export * from './ControlBarForm';
@@ -6,3 +7,9 @@ export * from './LogoForm';
 export * from './MiniPlayerForm';
 export * from './StaticPreviewForm';
 export * from './TimelinePreviewForm';
+export * from './HtmlOnPauseForm';
+export * from './TheaterModeForm';
+export * from './CallbacksForm';
+export * from './CaptionsForm';
+export * from './PersistentSettingsForm';
+export * from './ContextMenuForm'

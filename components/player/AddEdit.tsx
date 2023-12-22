@@ -2,13 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
-import { useAlertService, usePlayerService } from '../../services';
-import { FluidPlayerConfigurator } from '../../components/FluidPlayerConfigurator';
 import { useState } from 'react';
-import { ConfiguratorOptions } from '../../models';
 import { FormProvider, useForm } from 'react-hook-form';
 import { cloneDeep } from 'lodash';
+
+import { useAlertService, usePlayerService } from '@/services/index';
+import { FluidPlayerConfigurator } from '@/components/FluidPlayerConfigurator';
+import { ConfiguratorOptions } from '@/models/index';
+
 
 export { AddEdit };
 

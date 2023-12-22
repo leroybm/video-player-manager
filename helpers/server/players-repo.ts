@@ -1,4 +1,3 @@
-import { headers } from 'next/headers';
 import { db } from './db';
 import { ObjectId } from 'mongodb';
 

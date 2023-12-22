@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models";
-import { FormField, CheckboxInput, NumberInput, TextInput, Select } from "../fields";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { CheckboxInput, FormField, NumberInput, Select, TextInput } from "@/components/fields";
 
 export function MiniPlayerForm({
   onSave,

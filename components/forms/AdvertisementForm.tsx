@@ -1,6 +1,6 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models/ConfiguratorOptions";
-import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "../../components/fields";
+import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
+import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
 
 interface AdvertisementFormProps {
   update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.vastOptions.adList">;

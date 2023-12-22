@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useAlertService } from './useAlertService';
-import { useFetch } from '../helpers/client';
 import { ObjectId } from 'mongoose';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useFetch } from '@/helpers/client';
+import { useAlertService } from '@/services/index';
 
 export { usePlayerService };
 

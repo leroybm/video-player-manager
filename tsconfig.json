@@ -23,8 +23,16 @@
                 "name": "next"
             }
         ],
-        // make all imports without a dot '.' prefix relative to the app directory
-        "baseUrl": "./app"
+        "baseUrl": ".",
+        "paths": {
+            "@/app/*": ["app/*"],
+            "@/components/*": ["components/*"],
+            "@/constants/*": ["constants/*"],
+            "@/docs/*": ["docs/*"],
+            "@/helpers/*": ["helpers/*"],
+            "@/models/*": ["models/*"],
+            "@/services/*": ["services/*"]
+        }
     },
     "include": [
         "next-env.d.ts",
