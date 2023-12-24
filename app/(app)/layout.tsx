@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import { Sidebar } from '@/components/sidebar';
-import { Alert } from '@/components/Alert';
+import { Alert } from '@/components/alert';
 
 export default function AppLayout({
     children,
