@@ -25,7 +25,7 @@ export function FormMenu({ onMenuChange, onSave, selectedItem }: FormMenuProps) 
       return onMenuChange(menuItem);
     }
 
-    alertService.error('Some fields have errors. Please check your input and try again.');
+    alertService.error('Somes fields have errors. Please check your input and try again.');
   }
 
   return (
