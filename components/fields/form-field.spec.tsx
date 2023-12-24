@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { FormField } from "./FormField";
+import { FormField } from "./form-field";
 
 describe("FormField", () => {
   it("should render", () => {

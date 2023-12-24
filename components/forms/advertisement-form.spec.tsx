@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ConfiguratorOptions, ExtendedAdOptions } from "@/models/ConfiguratorOptions";
+import { ConfiguratorOptions, ExtendedAdOptions } from "@/models/configurator-options";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
-import { AdvertisementForm } from "./AdvertisementForm";
+import { AdvertisementForm } from "./advertisement-form";
 
 const DummyComponent = ({
   openIndex = 0,

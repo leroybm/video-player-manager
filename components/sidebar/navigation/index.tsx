@@ -1,5 +1,5 @@
 import { SIDENAV_ITEMS } from "../constants";
-import { NavItem } from "./navItem";
+import { NavItem } from "./nav-item";
 
 export function Navigation({ onClose, isCollapsed, setSidebarCollapsed }: any) {
   return (

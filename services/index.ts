@@ -1,2 +1,2 @@
-export * from './useAlertService';
-export * from './usePlayersService';
+export * from './use-alert-service';
+export * from './use-players-service';

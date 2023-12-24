@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "../../models";
-import { FormField, NumberInput, TextInput } from "../fields";
+import { ConfiguratorOptions } from "@/models/configurator-options";
+import { FormField, NumberInput, TextInput } from "@/components/fields";
 
 export function HtmlOnPauseForm({
   onSave,

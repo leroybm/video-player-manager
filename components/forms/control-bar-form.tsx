@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/ConfiguratorOptions";
+import { ConfiguratorOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField, NumberInput, TextInput } from "@/components/fields";
 
 function transformStringIntoArray(value: string) {
