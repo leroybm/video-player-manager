@@ -17,7 +17,7 @@ function Alert() {
     const alert = alertService.alert;
     
     useEffect(() => {
-        // clear alert on location change
+        // clear alert on location change.
         alertService.clear();
     }, [pathname]);
 
