@@ -1,50 +1,74 @@
 {
-  "env": {
-    "es2021": true,
-    "jest": true
-  },
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-  "rules": {
-    "import/no-cycle": "error",
-    "require-await": "error",
-    "no-nested-ternary": "off",
-    "no-duplicate-imports": [
-      "error"
+    "env": {
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "parent",
-          "sibling",
-          "index"
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "import/no-cycle": "error",
+        "require-await": "error",
+        "no-nested-ternary": "off",
+        "no-duplicate-imports": [
+            "error"
         ],
-        "pathGroups": [
-          {
-            "pattern": "@**/*",
-            "group": "parent"
-          }
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "parent",
+                    "sibling",
+                    "index"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "@**/*",
+                        "group": "parent"
+                    }
+                ],
+                "newlines-between": "never"
+            }
         ],
-        "newlines-between": "never"
-      }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": false
-      }
-    ],
-    "no-console": "warn",
-    "no-undefined": "error"
-  }
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true,
+                "optionalDependencies": false,
+                "peerDependencies": false
+            }
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+            2,
+            {
+                "multiline": {
+                    "delimiter": "none",
+                    "requireLast": true
+                },
+                "singleline": {
+                    "delimiter": "semi",
+                    "requireLast": false
+                }
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "ignoreRestSiblings": true
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "no-console": "warn",
+        "no-undefined": "error"
+    }
 }
