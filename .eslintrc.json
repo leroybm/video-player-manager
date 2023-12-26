@@ -1,0 +1,50 @@
+{
+  "env": {
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "import/no-cycle": "error",
+    "require-await": "error",
+    "no-nested-ternary": "off",
+    "no-duplicate-imports": [
+      "error"
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@**/*",
+            "group": "parent"
+          }
+        ],
+        "newlines-between": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "no-console": "warn",
+    "no-undefined": "error"
+  }
+}
