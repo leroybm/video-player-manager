@@ -23,15 +23,10 @@
                 "name": "next"
             }
         ],
-        "baseUrl": ".",
         "paths": {
-            "@/app/*": ["app/*"],
-            "@/components/*": ["components/*"],
-            "@/constants/*": ["constants/*"],
-            "@/docs/*": ["docs/*"],
-            "@/helpers/*": ["helpers/*"],
-            "@/models/*": ["models/*"],
-            "@/services/*": ["services/*"]
+            "@/*": [
+                "./*"
+            ],
         }
     },
     "include": [
