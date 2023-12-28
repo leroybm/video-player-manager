@@ -14,7 +14,7 @@
     "test:watch": "jest --watch",
     "prepare": "husky install"
   },
-  "author": "",
+  "author": "Leroy Medeiros <leroy.medeiros@ustwo.com>, Bernardo Trindade de Abreu <bernardo.trindade-de-abreu@ustwo.com>",
   "license": "ISC",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
