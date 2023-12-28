@@ -1,4 +1,4 @@
-import { ExtendedFluidPlayerOptions } from "@/models";
+import { ExtendedFluidPlayerOptions } from "@/models"
 
 export const defaultValues: Partial<ExtendedFluidPlayerOptions> = {
   layoutControls: {
@@ -57,7 +57,7 @@ export const defaultValues: Partial<ExtendedFluidPlayerOptions> = {
       autoToggle: false,
     },
   },
-};
+}
 
 // export const completeConfiguration: Partial<ExtendedFluidPlayerOptions> = {
 //   layoutControls: {

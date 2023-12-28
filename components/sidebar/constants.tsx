@@ -1,28 +1,28 @@
-import { FileVideo, HelpCircle, Home } from 'lucide-react';
+import { FileVideo, HelpCircle, Home } from "lucide-react"
 
 export type SideNavItem = {
-  title: string;
-  path: string;
-  icon?: React.ElementType;
-  submenu?: boolean;
-  subMenuItems?: SideNavItem[];
+  title: string
+  path: string
+  icon?: React.ElementType
+  submenu?: boolean
+  subMenuItems?: SideNavItem[]
   onClose?: () => void
-};
+}
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
-    title: 'Home',
-    path: '/',
+    title: "Home",
+    path: "/",
     icon: Home,
   },
   {
-    title: 'Players',
-    path: '/players',
+    title: "Players",
+    path: "/players",
     icon: FileVideo,
   },
   {
-    title: 'Help',
-    path: '/help',
+    title: "Help",
+    path: "/help",
     icon: HelpCircle,
-  }
-];
+  },
+]

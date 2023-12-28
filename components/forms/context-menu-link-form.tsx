@@ -1,15 +1,28 @@
-import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/configurator-options";
-import { FormField, TextInput } from "@/components/fields";
+import {
+  Control,
+  FieldArrayWithId,
+  UseFieldArrayUpdate,
+  useForm,
+  useWatch,
+} from "react-hook-form"
+import { ConfiguratorOptions } from "@/models/configurator-options"
+import { FormField, TextInput } from "@/components/fields"
 
 interface ContextMenuLinkFormProps {
-  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.layoutControls.contextMenu.links">;
-  index: number;
-  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.layoutControls.contextMenu.links", "id">;
-  control: Control<ConfiguratorOptions>;
-  isOpen: boolean;
-  onClickOpen: () => void;
-  onClickRemove: () => void;
+  update: UseFieldArrayUpdate<
+    ConfiguratorOptions,
+    "playerConfiguration.layoutControls.contextMenu.links"
+  >
+  index: number
+  value: FieldArrayWithId<
+    ConfiguratorOptions,
+    "playerConfiguration.layoutControls.contextMenu.links",
+    "id"
+  >
+  control: Control<ConfiguratorOptions>
+  isOpen: boolean
+  onClickOpen: () => void
+  onClickRemove: () => void
 }
 
 export function ContextMenuLinkForm({
@@ -27,11 +40,11 @@ export function ContextMenuLinkForm({
     formState: { errors },
   } = useForm({
     defaultValues: value,
-  });
+  })
   const data = useWatch({
     control,
     name: `playerConfiguration.layoutControls.contextMenu.links.${index}`,
-  });
+  })
 
   const titleSection = (
     <>
@@ -39,29 +52,29 @@ export function ContextMenuLinkForm({
       <button
         className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
         type="button"
-        onClick={onClickRemove}
-      >
+        onClick={onClickRemove}>
         Remove
       </button>
     </>
-  );
+  )
 
   if (!isOpen) {
     return (
       <li
         className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-        onClick={onClickOpen}
-      >
+        onClick={onClickOpen}>
         {titleSection}
       </li>
-    );
+    )
   }
 
   return (
     <li className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative">
       <div className="flex justify-between mb-3">{titleSection}</div>
 
-      <FormField label="Label" errorMessage={errors?.label?.message}>
+      <FormField
+        label="Label"
+        errorMessage={errors?.label?.message}>
         <TextInput
           register={register}
           fieldName="label"
@@ -72,7 +85,9 @@ export function ContextMenuLinkForm({
         />
       </FormField>
 
-      <FormField label="URL" errorMessage={errors?.href?.message}>
+      <FormField
+        label="URL"
+        errorMessage={errors?.href?.message}>
         <TextInput
           register={register}
           fieldName="href"
@@ -83,5 +98,5 @@ export function ContextMenuLinkForm({
         />
       </FormField>
     </li>
-  );
+  )
 }

@@ -1,6 +1,12 @@
-import classNames from "classnames";
+import classNames from "classnames"
 
-export function Logo({ isCollapsed, setSidebarCollapsed }: { setSidebarCollapsed: any, isCollapsed: boolean }) {
+export function Logo({
+  isCollapsed,
+  setSidebarCollapsed,
+}: {
+  setSidebarCollapsed: any
+  isCollapsed: boolean
+}) {
   return (
     <strong className="flex items-center max-lg:pointer-events-none gap-3 text-xl font-semibold text-zinc-900">
       <span
@@ -11,9 +17,8 @@ export function Logo({ isCollapsed, setSidebarCollapsed }: { setSidebarCollapsed
         onClick={() => setSidebarCollapsed((prev: any) => !prev)}
         className={classNames({
           "font-medium text-zinc-700": true,
-          "lg:hidden": isCollapsed
-        })}
-      >
+          "lg:hidden": isCollapsed,
+        })}>
         FP Manager
       </span>
     </strong>

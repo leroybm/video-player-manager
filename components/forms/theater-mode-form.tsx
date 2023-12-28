@@ -1,34 +1,45 @@
-import { useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/configurator-options";
-import { CheckboxInput, FormField, Select, TextInput } from "@/components/fields";
+import { useFormContext } from "react-hook-form"
+import { ConfiguratorOptions } from "@/models/configurator-options"
+import {
+  CheckboxInput,
+  FormField,
+  Select,
+  TextInput,
+} from "@/components/fields"
 
 export function TheaterModeForm({
   onSave,
 }: {
-  onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void
 }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useFormContext<ConfiguratorOptions>();
+  } = useFormContext<ConfiguratorOptions>()
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
       <FormField
         label="Allow theater mode"
         forCheckbox
-        errorMessage={errors.playerConfiguration?.layoutControls?.allowTheatre?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#allowtheatre"
-      >
-        <CheckboxInput fieldName={"playerConfiguration.layoutControls.allowTheatre"} register={register} />
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.allowTheatre?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#allowtheatre">
+        <CheckboxInput
+          fieldName={"playerConfiguration.layoutControls.allowTheatre"}
+          register={register}
+        />
       </FormField>
 
       <FormField
         label="Theatre Element (selector)"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreAdvanced?.theatreElement?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatreadvanced"
-      >
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreAdvanced
+            ?.theatreElement?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatreadvanced">
         <TextInput
           register={register}
           fieldName="playerConfiguration.layoutControls.theatreAdvanced.theatreElement"
@@ -38,9 +49,11 @@ export function TheaterModeForm({
 
       <FormField
         label="Class to apply"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreAdvanced?.classToApply?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatreadvanced"
-      >
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreAdvanced
+            ?.classToApply?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatreadvanced">
         <TextInput
           register={register}
           fieldName="playerConfiguration.layoutControls.theatreAdvanced.classToApply"
@@ -50,9 +63,11 @@ export function TheaterModeForm({
 
       <FormField
         label="Width"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreSettings?.width?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings"
-      >
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreSettings?.width
+            ?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings">
         <TextInput
           register={register}
           fieldName="playerConfiguration.layoutControls.theatreSettings.width"
@@ -62,9 +77,11 @@ export function TheaterModeForm({
 
       <FormField
         label="Height"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreSettings?.height?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings"
-      >
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreSettings?.height
+            ?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings">
         <TextInput
           register={register}
           fieldName="playerConfiguration.layoutControls.theatreSettings.height"
@@ -74,9 +91,11 @@ export function TheaterModeForm({
 
       <FormField
         label="Margin Top"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreSettings?.marginTop?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings"
-      >
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreSettings?.marginTop
+            ?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings">
         <TextInput
           register={register}
           fieldName="playerConfiguration.layoutControls.theatreSettings.marginTop"
@@ -86,11 +105,19 @@ export function TheaterModeForm({
 
       <FormField
         label="Horizontal Align"
-        errorMessage={errors.playerConfiguration?.layoutControls?.theatreSettings?.horizontalAlign?.message}
-        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings"
-      >
-        <Select fieldName={"playerConfiguration.layoutControls.theatreSettings.horizontalAlign"} register={register} values={["left", "right", "center"]} />
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.theatreSettings
+            ?.horizontalAlign?.message
+        }
+        externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#theatresettings">
+        <Select
+          fieldName={
+            "playerConfiguration.layoutControls.theatreSettings.horizontalAlign"
+          }
+          register={register}
+          values={["left", "right", "center"]}
+        />
       </FormField>
     </form>
-  );
+  )
 }

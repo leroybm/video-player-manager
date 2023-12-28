@@ -4,31 +4,31 @@ import {
   UseFieldArrayUpdate,
   useForm,
   useWatch,
-} from "react-hook-form";
+} from "react-hook-form"
 import {
   FormField,
   Select,
   TextInput,
   CheckboxInput,
   NumberInput,
-} from "@/components/fields";
-import { ConfiguratorOptions } from "@/models/configurator-options";
+} from "@/components/fields"
+import { ConfiguratorOptions } from "@/models/configurator-options"
 
 interface AdvertisementFormProps {
   update: UseFieldArrayUpdate<
     ConfiguratorOptions,
     "playerConfiguration.vastOptions.adList"
-  >;
-  index: number;
+  >
+  index: number
   value: FieldArrayWithId<
     ConfiguratorOptions,
     "playerConfiguration.vastOptions.adList",
     "id"
-  >;
-  control: Control<ConfiguratorOptions>;
-  isOpen: boolean;
-  onClickOpen: () => void;
-  onClickRemove: () => void;
+  >
+  control: Control<ConfiguratorOptions>
+  isOpen: boolean
+  onClickOpen: () => void
+  onClickRemove: () => void
 }
 
 export function AdvertisementForm({
@@ -47,11 +47,11 @@ export function AdvertisementForm({
     formState: { errors },
   } = useForm({
     defaultValues: value,
-  });
+  })
   const data = useWatch({
     control,
     name: `playerConfiguration.vastOptions.adList.${index}`,
-  });
+  })
 
   const titleSection = (
     <>
@@ -59,22 +59,20 @@ export function AdvertisementForm({
       <button
         className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
         type="button"
-        onClick={onClickRemove}
-      >
+        onClick={onClickRemove}>
         Remove
       </button>
     </>
-  );
+  )
 
   if (!isOpen) {
     return (
       <li
         className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-        onClick={onClickOpen}
-      >
+        onClick={onClickOpen}>
         {titleSection}
       </li>
-    );
+    )
   }
 
   return (
@@ -89,15 +87,17 @@ export function AdvertisementForm({
           required
           onChange={() => {
             if (data.roll === "midRoll") {
-              setValue("timer", 30);
+              setValue("timer", 30)
             }
 
-            return handleSubmit((data) => update(index, data))();
+            return handleSubmit((data) => update(index, data))()
           }}
         />
       </FormField>
 
-      <FormField label="Vast Tag" errorMessage={errors?.vastTag?.message}>
+      <FormField
+        label="Vast Tag"
+        errorMessage={errors?.vastTag?.message}>
         <TextInput
           register={register}
           fieldName="vastTag"
@@ -109,7 +109,9 @@ export function AdvertisementForm({
       </FormField>
 
       {data?.roll === "midRoll" && (
-        <FormField label="Timer" errorMessage={errors?.timer?.message}>
+        <FormField
+          label="Timer"
+          errorMessage={errors?.timer?.message}>
           <TextInput
             register={register}
             fieldName="timer"
@@ -124,8 +126,7 @@ export function AdvertisementForm({
 
       <FormField
         label="Fallback Vast Tags (Comma separated)"
-        errorMessage={errors?.fallbackVastTags?.message}
-      >
+        errorMessage={errors?.fallbackVastTags?.message}>
         <TextInput
           register={register}
           fieldName="fallbackVastTags"
@@ -136,7 +137,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text" errorMessage={errors?.adText?.message}>
+      <FormField
+        label="Video Ad Text"
+        errorMessage={errors?.adText?.message}>
         <TextInput
           register={register}
           fieldName="adText"
@@ -147,8 +150,7 @@ export function AdvertisementForm({
 
       <FormField
         label="Video Ad Text Position"
-        errorMessage={errors?.adTextPosition?.message}
-      >
+        errorMessage={errors?.adTextPosition?.message}>
         <Select
           register={register}
           fieldName="adTextPosition"
@@ -161,8 +163,7 @@ export function AdvertisementForm({
       <FormField
         label="Video Ad Clickable"
         errorMessage={errors?.adClickable?.message}
-        forCheckbox
-      >
+        forCheckbox>
         <CheckboxInput
           register={register}
           fieldName="adClickable"
@@ -172,8 +173,7 @@ export function AdvertisementForm({
 
       <FormField
         label="Banner Vertical Alignment"
-        errorMessage={errors?.vAlign?.message}
-      >
+        errorMessage={errors?.vAlign?.message}>
         <Select
           register={register}
           fieldName="vAlign"
@@ -185,8 +185,7 @@ export function AdvertisementForm({
 
       <FormField
         label="Banner Ad Duration"
-        errorMessage={errors?.nonLinearDuration?.message}
-      >
+        errorMessage={errors?.nonLinearDuration?.message}>
         <NumberInput
           register={register}
           fieldName="nonLinearDuration"
@@ -195,7 +194,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Size" errorMessage={errors?.size?.message}>
+      <FormField
+        label="Banner Size"
+        errorMessage={errors?.size?.message}>
         <Select
           register={register}
           fieldName="size"
@@ -205,5 +206,5 @@ export function AdvertisementForm({
         />
       </FormField>
     </li>
-  );
+  )
 }

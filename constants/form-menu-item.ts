@@ -11,8 +11,8 @@ import {
   MiniPlayerForm,
   PersistentSettingsForm,
   TheaterModeForm,
-  TimelinePreviewForm
-} from "@/components/forms";
+  TimelinePreviewForm,
+} from "@/components/forms"
 
 type FormComponents =
   | typeof MetadataForm
@@ -27,12 +27,12 @@ type FormComponents =
   | typeof CallbacksForm
   | typeof CaptionsForm
   | typeof PersistentSettingsForm
-  | typeof ContextMenuForm;
+  | typeof ContextMenuForm
 
 export interface FormMenuItem {
-  label: string;
-  key: string;
-  FormComponent: FormComponents;
+  label: string
+  key: string
+  FormComponent: FormComponents
 }
 
 export const formMenuItems: FormMenuItem[] = [
@@ -101,4 +101,4 @@ export const formMenuItems: FormMenuItem[] = [
     key: "callbacks",
     FormComponent: CallbacksForm,
   },
-];
+]

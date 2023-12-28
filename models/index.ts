@@ -1,2 +1,2 @@
-export * from './configurator-options';
-export * from './fluid-player-configuration';
+export * from "./configurator-options"
+export * from "./fluid-player-configuration"

@@ -1,15 +1,28 @@
-import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { FormField, NumberInput, TextInput } from "@/components/fields";
-import { ConfiguratorOptions } from "@/models";
+import {
+  Control,
+  FieldArrayWithId,
+  UseFieldArrayUpdate,
+  useForm,
+  useWatch,
+} from "react-hook-form"
+import { FormField, NumberInput, TextInput } from "@/components/fields"
+import { ConfiguratorOptions } from "@/models"
 
 interface StaticPreviewFormProps {
-  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.layoutControls.timelinePreview.frames">;
-  index: number;
-  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.layoutControls.timelinePreview.frames", "id">;
-  control: Control<ConfiguratorOptions>;
-  isOpen: boolean;
-  onClickOpen: () => void;
-  onClickRemove: () => void;
+  update: UseFieldArrayUpdate<
+    ConfiguratorOptions,
+    "playerConfiguration.layoutControls.timelinePreview.frames"
+  >
+  index: number
+  value: FieldArrayWithId<
+    ConfiguratorOptions,
+    "playerConfiguration.layoutControls.timelinePreview.frames",
+    "id"
+  >
+  control: Control<ConfiguratorOptions>
+  isOpen: boolean
+  onClickOpen: () => void
+  onClickRemove: () => void
 }
 
 export function StaticPreviewForm({
@@ -27,11 +40,11 @@ export function StaticPreviewForm({
     formState: { errors },
   } = useForm({
     defaultValues: value,
-  });
+  })
   const data = useWatch({
     control,
     name: `playerConfiguration.layoutControls.timelinePreview.frames.${index}`,
-  });
+  })
 
   const getTitleSection = () => (
     <>
@@ -41,29 +54,29 @@ export function StaticPreviewForm({
       <button
         className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
         type="button"
-        onClick={onClickRemove}
-      >
+        onClick={onClickRemove}>
         Remove
       </button>
     </>
-  );
+  )
 
   if (!isOpen) {
     return (
       <li
         className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-        onClick={onClickOpen}
-      >
+        onClick={onClickOpen}>
         {getTitleSection()}
       </li>
-    );
+    )
   }
 
   return (
     <li className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative">
       <div className="flex justify-between mb-3">{getTitleSection()}</div>
 
-      <FormField label="Start Time" errorMessage={errors?.startTime?.message}>
+      <FormField
+        label="Start Time"
+        errorMessage={errors?.startTime?.message}>
         <NumberInput
           register={register}
           fieldName="startTime"
@@ -73,7 +86,9 @@ export function StaticPreviewForm({
         />
       </FormField>
 
-      <FormField label="End Time" errorMessage={errors?.endTime?.message}>
+      <FormField
+        label="End Time"
+        errorMessage={errors?.endTime?.message}>
         <NumberInput
           register={register}
           fieldName="endTime"
@@ -83,7 +98,9 @@ export function StaticPreviewForm({
         />
       </FormField>
 
-      <FormField label="Image" errorMessage={errors?.image?.message}>
+      <FormField
+        label="Image"
+        errorMessage={errors?.image?.message}>
         <TextInput
           register={register}
           fieldName="image"
@@ -99,7 +116,9 @@ export function StaticPreviewForm({
         )}
       </FormField>
 
-      <FormField label="Horizontal Position (Pixels)" errorMessage={errors?.x?.message}>
+      <FormField
+        label="Horizontal Position (Pixels)"
+        errorMessage={errors?.x?.message}>
         <NumberInput
           register={register}
           fieldName="x"
@@ -109,7 +128,9 @@ export function StaticPreviewForm({
         />
       </FormField>
 
-      <FormField label="Vertical Position (Pixels)" errorMessage={errors?.y?.message}>
+      <FormField
+        label="Vertical Position (Pixels)"
+        errorMessage={errors?.y?.message}>
         <NumberInput
           register={register}
           fieldName="y"
@@ -119,7 +140,9 @@ export function StaticPreviewForm({
         />
       </FormField>
 
-      <FormField label="Width (Pixels)" errorMessage={errors?.w?.message}>
+      <FormField
+        label="Width (Pixels)"
+        errorMessage={errors?.w?.message}>
         <NumberInput
           register={register}
           fieldName="w"
@@ -129,7 +152,9 @@ export function StaticPreviewForm({
         />
       </FormField>
 
-      <FormField label="Height (Pixels)" errorMessage={errors?.h?.message}>
+      <FormField
+        label="Height (Pixels)"
+        errorMessage={errors?.h?.message}>
         <NumberInput
           register={register}
           fieldName="h"
@@ -139,5 +164,5 @@ export function StaticPreviewForm({
         />
       </FormField>
     </li>
-  );
+  )
 }
