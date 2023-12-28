@@ -1,7 +1,7 @@
 {
   "name": "fp-manager",
   "version": "0.0.1",
-  "description": "",
+  "description": "This project centralizes video player distributions, offering a user-friendly interface to manage configurations, including creation, modification, and deletion.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
