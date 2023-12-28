@@ -1,11 +1,11 @@
 "use client"
 
-import { SideNavItem } from "../constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
+import { SideNavItem } from "../constants";
 
-export function NavItem({ item: { path, title, icon: Icon }, onClose, isCollapsed }: { item: SideNavItem, onClose: () => void, isCollapsed: any, setSidebarCollapsed: () => void }) {
+export function NavItem({ item: { path, title, icon: Icon }, onClose, isCollapsed }: { item: SideNavItem, onClose: () => void, isCollapsed: boolean, setSidebarCollapsed: () => void }) {
 
   const pathname = usePathname();
 

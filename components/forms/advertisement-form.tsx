@@ -1,11 +1,30 @@
-import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
+import {
+  Control,
+  FieldArrayWithId,
+  UseFieldArrayUpdate,
+  useForm,
+  useWatch,
+} from "react-hook-form";
+import {
+  FormField,
+  Select,
+  TextInput,
+  CheckboxInput,
+  NumberInput,
+} from "@/components/fields";
 import { ConfiguratorOptions } from "@/models/configurator-options";
 
 interface AdvertisementFormProps {
-  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.vastOptions.adList">;
+  update: UseFieldArrayUpdate<
+    ConfiguratorOptions,
+    "playerConfiguration.vastOptions.adList"
+  >;
   index: number;
-  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.vastOptions.adList", "id">;
+  value: FieldArrayWithId<
+    ConfiguratorOptions,
+    "playerConfiguration.vastOptions.adList",
+    "id"
+  >;
   control: Control<ConfiguratorOptions>;
   isOpen: boolean;
   onClickOpen: () => void;
@@ -95,7 +114,7 @@ export function AdvertisementForm({
             register={register}
             fieldName="timer"
             required
-            pattern={/(^\d+$)|(^\d{1,2}\%$)/}
+            pattern={/(^\d+$)|(^\d{1,2}%$)/}
             patternMessage="Field must be a number or a percentage between 1% and 99%"
             onChange={handleSubmit((data) => update(index, data))}
             placeholder="50%"
@@ -103,7 +122,10 @@ export function AdvertisementForm({
         </FormField>
       )}
 
-      <FormField label="Fallback Vast Tags (Comma separated)" errorMessage={errors?.fallbackVastTags?.message}>
+      <FormField
+        label="Fallback Vast Tags (Comma separated)"
+        errorMessage={errors?.fallbackVastTags?.message}
+      >
         <TextInput
           register={register}
           fieldName="fallbackVastTags"
@@ -123,7 +145,10 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text Position" errorMessage={errors?.adTextPosition?.message}>
+      <FormField
+        label="Video Ad Text Position"
+        errorMessage={errors?.adTextPosition?.message}
+      >
         <Select
           register={register}
           fieldName="adTextPosition"
@@ -133,7 +158,11 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Clickable" errorMessage={errors?.adClickable?.message} forCheckbox>
+      <FormField
+        label="Video Ad Clickable"
+        errorMessage={errors?.adClickable?.message}
+        forCheckbox
+      >
         <CheckboxInput
           register={register}
           fieldName="adClickable"
@@ -141,7 +170,10 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Vertical Alignment" errorMessage={errors?.vAlign?.message}>
+      <FormField
+        label="Banner Vertical Alignment"
+        errorMessage={errors?.vAlign?.message}
+      >
         <Select
           register={register}
           fieldName="vAlign"
@@ -151,7 +183,10 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Ad Duration" errorMessage={errors?.nonLinearDuration?.message}>
+      <FormField
+        label="Banner Ad Duration"
+        errorMessage={errors?.nonLinearDuration?.message}
+      >
         <NumberInput
           register={register}
           fieldName="nonLinearDuration"

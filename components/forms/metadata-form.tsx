@@ -21,6 +21,7 @@ export function MetadataForm({
     if (configuration?.title === '') {
       trigger(["title", "sources.0.url"], { shouldFocus: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

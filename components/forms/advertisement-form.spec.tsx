@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ConfiguratorOptions, ExtendedAdOptions } from "@/models/configurator-options";
 import { omit, uniqueId } from "lodash";
 import { useFieldArray, useForm } from "react-hook-form";
 import { AdvertisementForm } from "./advertisement-form";
+import { ConfiguratorOptions, ExtendedAdOptions } from "@/models/configurator-options";
 
 const DummyComponent = ({
   openIndex = 0,
@@ -60,23 +60,23 @@ describe("AdvertisementForm", () => {
 
   it("should render two", async () => {
     const adList = [
-        { _id: uniqueId(), roll: 'preRoll', vastTag: '' },
-        { _id: uniqueId(), roll: 'midRoll', vastTag: '', timer: 10 },
+      { _id: uniqueId(), roll: 'preRoll', vastTag: '' },
+      { _id: uniqueId(), roll: 'midRoll', vastTag: '', timer: 10 },
     ] as ExtendedAdOptions[];
     // @ts-expect-error
     render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
 
     const preRollTitle = screen.findByText(adList[0].roll);
     const midRollTitle = screen.findByText(adList[1].roll);
-    expect(preRollTitle).toBeTruthy();    
-    expect(midRollTitle).toBeTruthy();    
+    expect(preRollTitle).toBeTruthy();
+    expect(midRollTitle).toBeTruthy();
   });
 
   it("should fill form for preRoll", async () => {
     const user = userEvent.setup();
     const adList = [{ _id: uniqueId(), roll: 'preRoll', vastTag: '' }] as ExtendedAdOptions[];
     // @ts-expect-error
-    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } }} } />)
+    render(<DummyComponent defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await user.pointer({ target: screen.getByLabelText('Vast Tag'), keys: '[MouseLeft]' });
     await user.keyboard('https://adserver.com/test');
@@ -117,7 +117,7 @@ describe("AdvertisementForm", () => {
     render(<DummyComponent onOpen={mockOpen} defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await userEvent.click(screen.getAllByRole('listitem')[1]);
-    
+
     expect(mockOpen).toHaveBeenCalledWith(1);
   });
 
@@ -131,7 +131,7 @@ describe("AdvertisementForm", () => {
     render(<DummyComponent onRemove={mockRemove} defaultValues={{ playerConfiguration: { vastOptions: { adList } } }} />)
 
     await userEvent.click(screen.getAllByText('Remove')[1]);
-    
+
     expect(mockRemove).toHaveBeenCalledWith(1);
   });
 
@@ -160,7 +160,7 @@ describe("AdvertisementForm", () => {
 
     expect(omit(lastUpdateValue, ['id', '_id'])).toEqual({
       "adClickable": true,
-      "adText": "Ad Text", 
+      "adText": "Ad Text",
       "adTextPosition": "bottom left",
       "fallbackVastTags": "https://adserver.com/test1,https://adserver.com/test2",
       "nonLinearDuration": "20",

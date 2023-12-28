@@ -19,7 +19,7 @@ export function AdvertisementListForm({
 }: {
   onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
 }) {
-  const { handleSubmit, watch, control } = useFormContext<ConfiguratorOptions>();;
+  const { handleSubmit, control } = useFormContext<ConfiguratorOptions>();
   const {
     fields: advertisements,
     append: appendAdvertisement,

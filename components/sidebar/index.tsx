@@ -1,15 +1,15 @@
 "use client"
 
-import { Navigation } from "./navigation";
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
-import { Logo } from "./logo";
 import * as Collapsible from "@radix-ui/react-collapsible"
-import { Button } from "@/components/button";
 import { useState } from "react";
 import classNames from "classnames";
+import { Logo } from "./logo";
+import { Navigation } from "./navigation";
 import { Profile } from "./navigation/profile";
+import { Button } from "@/components/button";
 
-export function Sidebar({ setSidebarCollapsed, isCollapsed }: { setSidebarCollapsed: any, isCollapsed: any }) {
+export function Sidebar({ setSidebarCollapsed, isCollapsed }: { setSidebarCollapsed: any, isCollapsed: boolean }) {
 
   const [open, setOpen] = useState(false);
 

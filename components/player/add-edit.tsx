@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { cloneDeep } from 'lodash';
-
-import { useAlertService, usePlayerService } from '@/services/index';
 import { FluidPlayerConfigurator } from '@/components/fluid-player-configurator';
-import { ConfiguratorOptions } from '@/models/index';
+import { ConfiguratorOptions } from '@/models';
+import { useAlertService, usePlayerService } from '@/services';
 
 
 export { AddEdit };
@@ -24,7 +23,7 @@ function AddEdit({ title, player }: { title: string, player: ConfiguratorOptions
 
     async function onSubmit() {
         formMethods.trigger();
-  
+
         if (!formMethods.formState.isValid) {
             alertService.error('Some fields have errors. Please check your input and try again.');
             return;
@@ -55,7 +54,7 @@ function AddEdit({ title, player }: { title: string, player: ConfiguratorOptions
         <FormProvider {...formMethods}>
             <div className="container mx-auto h-full grid grid-rows-[50px_1fr_50px] gap-2">
                 <h1 className="my-3 text-xl">{title}</h1>
-                <FluidPlayerConfigurator 
+                <FluidPlayerConfigurator
                     configuration={currentPlayer}
                     onSave={(data) => setCurrentPlayer({ ...currentPlayer, ...data })}
                 />

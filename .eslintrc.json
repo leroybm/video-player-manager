@@ -32,8 +32,8 @@
         ],
         "pathGroups": [
           {
-            "pattern": "@/*",
-            "group": "parent"
+            "pattern": "@/**",
+            "group": "index"
           }
         ],
         "newlines-between": "never"

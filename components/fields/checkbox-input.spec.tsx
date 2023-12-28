@@ -16,7 +16,7 @@ const MockForm = ({
 
   useEffect(() => {
     if (formValuesUpdated) formValuesUpdated(formValues);
-  }, [formValues]);
+  }, [formValues, formValuesUpdated]);
 
   return <CheckboxInput register={register} fieldName="isToggled" onChange={onChange} />;
 };

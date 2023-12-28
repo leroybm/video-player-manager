@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { usePlayerService } from '@/services/index';
 import { AddEdit } from '@/components/player';
+import { usePlayerService } from '@/services';
 
 export default Edit;
 
@@ -17,6 +17,7 @@ function Edit({ params: { id } }: any) {
 
     // fetch user for add/edit form
     playerService.getById(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   return player

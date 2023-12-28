@@ -24,7 +24,6 @@ export function ContextMenuLinkForm({
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: value,

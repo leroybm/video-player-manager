@@ -1,5 +1,5 @@
-import { db } from './db';
 import { ObjectId } from 'mongodb';
+import { db } from './db';
 
 const Player = db.VideoPlayer;
 

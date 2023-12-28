@@ -1,8 +1,8 @@
 import { cloneDeep, uniqueId } from "lodash";
 import { useState } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/configurator-options";
 import { ContextMenuLinkForm } from "./context-menu-link-form";
+import { ConfiguratorOptions } from "@/models/configurator-options";
 import { CheckboxInput, FormField } from "@/components/fields";
 
 const linkDefaults = {

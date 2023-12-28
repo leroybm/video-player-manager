@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { usePlayerService } from '@/services/index';
+import { usePlayerService } from '@/services';
 
 export default function Players() {
     const playerService = usePlayerService();
@@ -10,6 +10,7 @@ export default function Players() {
 
     useEffect(() => {
         playerService.getAll();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { useAlertService } from '../services';
 import classNames from 'classnames';
 import { ceil, words } from 'lodash';
+import { useAlertService } from '../services';
 
 const alertTimeoutMs = 1000 * 5; // Base of 5 seconds
 const msPerWordRead = 1000 / (120 / 60); // 120 words per minute
@@ -15,10 +15,11 @@ function Alert() {
     const pathname = usePathname();
     const alertService = useAlertService();
     const alert = alertService.alert;
-    
+
     useEffect(() => {
         // clear alert on location change.
         alertService.clear();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pathname]);
 
     if (!alert) return null;

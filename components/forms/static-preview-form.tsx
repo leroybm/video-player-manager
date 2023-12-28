@@ -1,6 +1,6 @@
 import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
 import { FormField, NumberInput, TextInput } from "@/components/fields";
-import { ConfiguratorOptions } from "@/models/index";
+import { ConfiguratorOptions } from "@/models";
 
 interface StaticPreviewFormProps {
   update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.layoutControls.timelinePreview.frames">;

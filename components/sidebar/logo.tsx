@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export function Logo({ isCollapsed, setSidebarCollapsed }: { setSidebarCollapsed: any, isCollapsed: any }) {
+export function Logo({ isCollapsed, setSidebarCollapsed }: { setSidebarCollapsed: any, isCollapsed: boolean }) {
   return (
     <strong className="flex items-center max-lg:pointer-events-none gap-3 text-xl font-semibold text-zinc-900">
       <span

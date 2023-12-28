@@ -1,8 +1,7 @@
 import { create } from 'zustand';
 import { ObjectId } from 'mongoose';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useAlertService } from './use-alert-service';
 import { useFetch } from '@/helpers/client';
-import { useAlertService } from '@/services/index';
 
 export { usePlayerService };
 
@@ -17,8 +16,6 @@ const playerStore = create<IPlayerStore>(() => initialState);
 function usePlayerService(): IPlayerService {
     const alertService = useAlertService();
     const fetch = useFetch();
-    const router = useRouter();
-    const searchParams = useSearchParams();
     const { currentPlayer, player, players } = playerStore();
 
     return {
@@ -50,9 +47,6 @@ function usePlayerService(): IPlayerService {
                     return x;
                 })
             });
-
-            // delete player
-            const response = await fetch.delete(`/api/players/${id}`);
 
             // remove deleted player from state
             playerStore.setState({ players: players!.filter(x => x.id !== id) });
