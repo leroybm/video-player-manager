@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { omit, uniqueId } from "lodash"
@@ -68,7 +69,6 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: "preRoll", vastTag: "" },
     ] as ExtendedAdOptions[]
     // TODO: Fix this ASAP
-    // @ts-expect-error
     render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
 
     const title = screen.findByText(adList[0].roll)
@@ -80,7 +80,6 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: "preRoll", vastTag: "" },
       { _id: uniqueId(), roll: "midRoll", vastTag: "", timer: 10 },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
 
     const preRollTitle = screen.findByText(adList[0].roll)
@@ -94,7 +93,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "preRoll", vastTag: "" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
@@ -117,7 +115,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "midRoll", vastTag: "https://" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
@@ -134,7 +131,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "preRoll", vastTag: "https://" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
@@ -156,7 +152,6 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: "preRoll", vastTag: "https://" },
       { _id: uniqueId(), roll: "postRoll", vastTag: "https://" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         onOpen={mockOpen}
@@ -175,7 +170,6 @@ describe("AdvertisementForm", () => {
       { _id: uniqueId(), roll: "preRoll", vastTag: "https://" },
       { _id: uniqueId(), roll: "postRoll", vastTag: "https://" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         onRemove={mockRemove}
@@ -202,7 +196,6 @@ describe("AdvertisementForm", () => {
       })
       await user.keyboard(text)
     }
-    // @ts-expect-error
     render(
       <DummyComponent
         onUpdate={mockUpdate}
@@ -258,7 +251,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "preRoll", vastTag: "" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
@@ -289,7 +281,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "midRoll", vastTag: "" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
@@ -330,7 +321,6 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "preRoll", vastTag: "https://" },
     ] as ExtendedAdOptions[]
-    // @ts-expect-error
     render(
       <DummyComponent
         defaultValues={{ playerConfiguration: { vastOptions: { adList } } }}
