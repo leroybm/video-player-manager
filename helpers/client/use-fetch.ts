@@ -1,10 +1,6 @@
-import { useRouter } from 'next/navigation';
-
 export { useFetch };
 
 function useFetch() {
-    const router = useRouter();
-
     return {
         get: request('GET'),
         post: request('POST'),

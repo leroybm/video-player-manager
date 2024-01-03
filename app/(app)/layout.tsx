@@ -1,32 +1,25 @@
-"use client"
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-import { useState } from 'react';
-import classNames from 'classnames';
-import { Sidebar } from '@/components/sidebar';
-import { Alert } from '@/components/Alert';
+const inter = Inter({ subsets: ['latin'] })
 
-export default function AppLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
+export const metadata: Metadata = {
+  title: {
+    template: '%s | FP Manager',
+    default: 'FP Manager',
+  },
+  description: 'Manage video settings',
+}
 
-  const [collapsed, setSidebarCollapsed] = useState(false);
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <div
-      className={classNames({
-      "lg:grid min-h-screen relative": true,
-      "lg:grid-cols-app": !collapsed,
-      "lg:grid-cols-collapsed": collapsed,
-      "transition-[grid-template-columns] duration-300 ease-in-out": true,
-      })}
-    >
-      <Alert />
-      <Sidebar setSidebarCollapsed={setSidebarCollapsed} isCollapsed={collapsed} />
-      <main className="max-w-screen px-4 pb-12 pt-24 space-y-2 lg:col-start-2 lg:w-auto lg:px-6 lg:pt-8">
-        {children}
-      </main>
-    </div>
-  );
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
 }

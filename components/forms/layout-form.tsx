@@ -144,7 +144,12 @@ export function LayoutForm({
         errorMessage={errors.playerConfiguration?.layoutControls?.layout?.message}
         externalLink="https://docs.fluidplayer.com/docs/configuration/layout/#layout"
       >
-        <TextInput register={register} fieldName="playerConfiguration.layoutControls.layout" placeholder="default" />
+        <TextInput
+          register={register}
+          fieldName="playerConfiguration.layoutControls.layout"
+          placeholder="default"
+          setValueAs={(value) => !value ? 'default' : value}
+        />
       </FormField>
     </form>
   );

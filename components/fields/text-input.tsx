@@ -11,6 +11,7 @@ interface TextInputProps<T extends FieldValues> {
   onChange?: () => void;
   pattern?: RegExp;
   patternMessage?: string;
+  setValueAs?: (value: unknown) => unknown;
 }
 
 export function TextInput<T extends FieldValues>({
@@ -24,6 +25,7 @@ export function TextInput<T extends FieldValues>({
   onChange,
   pattern,
   patternMessage,
+  setValueAs,
 }: TextInputProps<T>) {
   return (
     <input
@@ -43,6 +45,7 @@ export function TextInput<T extends FieldValues>({
             ? { value: minLength, message: `Must be longer than ${minLength}` }
             : Number.MIN_VALUE,
         validate: validate && ((value) => validate(value) || validateMessage),
+        setValueAs: setValueAs
       })}
     />
   );
