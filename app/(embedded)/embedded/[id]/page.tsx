@@ -1,10 +1,9 @@
 import { FluidPlayerWrapper } from "@/components/player";
 import { ConfiguratorOptions } from "@/models/index";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {};
-
-const VideoNotAvailable = <div className="flex justify-center items-center h-full">Video Not Available</div>
 
 export default async function EmbeddedVideo({ params }:  { params: { id: string } }) {
     const { id } = params;
@@ -14,10 +13,10 @@ export default async function EmbeddedVideo({ params }:  { params: { id: string 
         const response = await fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players/${id}`);
         player = await  response.json();
     } catch (error) {
-        return VideoNotAvailable;
+        return notFound();
     }
 
-    if (!player?.playerConfiguration) return VideoNotAvailable;
+    if (!player?.playerConfiguration) return notFound();
 
     player.playerConfiguration.layoutControls = {
         ...(player.playerConfiguration?.layoutControls || {}),
