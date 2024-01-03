@@ -12,7 +12,7 @@ import {
   CheckboxInput,
   NumberInput,
 } from "@/components/fields"
-import { ConfiguratorOptions } from "@/models/configurator-options"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 
 interface AdvertisementFormProps {
   update: UseFieldArrayUpdate<

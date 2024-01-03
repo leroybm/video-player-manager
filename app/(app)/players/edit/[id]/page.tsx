@@ -7,7 +7,13 @@ import { usePlayerService } from "@/services"
 
 export default Edit
 
-function Edit({ params: { id } }: any) {
+interface Params {
+  params: {
+    id: string
+  }
+}
+
+function Edit({ params: { id } }: Params) {
   const router = useRouter()
   const playerService = usePlayerService()
   const player = playerService.player

@@ -1,5 +1,3 @@
-"use client"
-
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react"
 import * as Collapsible from "@radix-ui/react-collapsible"
 import { useState } from "react"
@@ -9,13 +7,12 @@ import { Navigation } from "./navigation"
 import { Profile } from "./navigation/profile"
 import { Button } from "@/components/button"
 
-export function Sidebar({
-  setSidebarCollapsed,
-  isCollapsed,
-}: {
-  setSidebarCollapsed: any
+interface SidebarProps {
+  setSidebarCollapsed: React.Dispatch<React.SetStateAction<boolean>>
   isCollapsed: boolean
-}) {
+}
+
+export function Sidebar({ setSidebarCollapsed, isCollapsed }: SidebarProps) {
   const [open, setOpen] = useState(false)
 
   const Icon = isCollapsed ? ChevronRight : ChevronLeft
@@ -47,7 +44,7 @@ export function Sidebar({
           <Button
             aria-label="Collapse horizontal navigation"
             variant="ghost"
-            onClick={() => setSidebarCollapsed((prev: any) => !prev)}
+            onClick={() => setSidebarCollapsed((prev) => !prev)}
             className="hidden lg:block">
             <Icon className="h-5 w-5 text-zinc-500" />
           </Button>
@@ -71,7 +68,6 @@ export function Sidebar({
           <Navigation
             onClose={handleClose}
             isCollapsed={isCollapsed}
-            setSidebarCollapsed={setSidebarCollapsed}
           />
           <div className="mt-auto flex flex-col gap-3">
             <div className="h-px gap-2 bg-zinc-200" />

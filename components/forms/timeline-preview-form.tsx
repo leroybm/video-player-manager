@@ -12,14 +12,13 @@ import { StaticPreviewForm } from "./static-preview-form"
 import {
   ConfiguratorOptions,
   ExtendedFluidPlayerOptions,
-} from "@/models/configurator-options"
+} from "@/types/configurator-options"
 import {
   CheckboxInput,
   FormField,
   Select,
   TextInput,
 } from "@/components/fields"
-import { VTTPreviewOptions } from "@/models"
 
 type VTTPreviewOptionsFieldError = Merge<
   FieldError,

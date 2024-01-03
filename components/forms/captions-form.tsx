@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form"
-import { ConfiguratorOptions } from "@/models/configurator-options"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 import { FormField, TextInput } from "@/components/fields"
 
 export function CaptionsForm({

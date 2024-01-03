@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form"
 import { FormMenuItem, formMenuItems } from "@/constants/form-menu-item"
-import { ConfiguratorOptions } from "@/models/configurator-options"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 import { useAlertService } from "@/services/use-alert-service"
 
 interface FormMenuProps {

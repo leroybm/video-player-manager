@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form"
-import { ConfiguratorOptions } from "@/models/configurator-options"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 import { CheckboxInput, FormField } from "@/components/fields"
 
 export function PersistentSettingsForm({

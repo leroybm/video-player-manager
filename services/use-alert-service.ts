@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { getErrorMessage } from "@/lib/utils/errors"
 
 export { useAlertService }
 
@@ -16,10 +17,10 @@ function useAlertService(): IAlertService {
         alert: { type, message, showAfterRedirect },
       })
     },
-    error: (message: string, showAfterRedirect = false) => {
+    error: (error, showAfterRedirect = false) => {
       const type = "alert-danger"
       alertStore.setState({
-        alert: { type, message, showAfterRedirect },
+        alert: { type, message: getErrorMessage(error), showAfterRedirect },
       })
     },
     clear: () => {
@@ -54,6 +55,6 @@ interface IAlertStore {
 
 interface IAlertService extends IAlertStore {
   success: (message: string, showAfterRedirect?: boolean) => void
-  error: (message: string, showAfterRedirect?: boolean) => void
+  error: (error: unknown, showAfterRedirect?: boolean) => void
   clear: () => void
 }

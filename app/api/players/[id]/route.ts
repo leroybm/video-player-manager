@@ -8,11 +8,17 @@ module.exports = apiHandler({
   DELETE: _delete,
 })
 
-async function getById(req: Request, { params: { id } }: any) {
+interface Params {
+  params: {
+    id: string
+  }
+}
+
+async function getById({ params: { id } }: Params) {
   return await playersRepo.getById(id)
 }
 
-async function update(req: Request, { params: { id } }: any) {
+async function update(req: Request, { params: { id } }: Params) {
   const body = await req.json()
 
   await playersRepo.update(id, {
@@ -32,6 +38,6 @@ update.schema = joi.object({
   ),
 })
 
-async function _delete(req: Request, { params: { id } }: any) {
+async function _delete({ params: { id } }: Params) {
   await playersRepo.delete(id)
 }

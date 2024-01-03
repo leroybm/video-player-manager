@@ -1,5 +1,6 @@
 import React from "react"
 import { FieldValues, Path, UseFormRegister } from "react-hook-form"
+import { getErrorMessage } from "@/lib/utils/errors"
 
 /**
  * Validates that a string is a valid function
@@ -13,8 +14,12 @@ export function functionValidator<T>(fn: string | T): boolean {
 
   try {
     return typeof (new Function("return " + fn)() as T) === "function"
-  } catch (e) {
-    return false
+  } catch (error: unknown) {
+    throw new Error(
+      `Error trying to get the botLogMessage to update.\nMessage: ${getErrorMessage(
+        error
+      )}`
+    )
   }
 }
 

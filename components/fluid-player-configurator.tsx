@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { FormMenu } from "./form-menu"
 import { transformFluidPlayerConfiguration } from "@/helpers/client"
-import { ConfiguratorOptions } from "@/models"
+import { ConfiguratorOptions } from "@/types"
 import { formMenuItems } from "@/constants"
+
+interface FluidPlayerConfiguratorProps {
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void
+}
 
 export function FluidPlayerConfigurator({
   onSave,
-}: {
-  configuration: ConfiguratorOptions
-  onSave: (newOptions: Partial<ConfiguratorOptions>) => void
-}) {
+}: FluidPlayerConfiguratorProps) {
   const [openedMenu, setOpenedMenu] = useState(formMenuItems[0].key)
 
   /**

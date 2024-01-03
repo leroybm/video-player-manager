@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb"
 import { db } from "./db"
+import { IPlayer } from "@/types"
 
 const Player = db.VideoPlayer
 
@@ -23,7 +24,7 @@ async function getById(id: string) {
   }
 }
 
-async function create(params: any) {
+async function create(params: IPlayer) {
   // validate
   if (await Player.findOne({ title: params.title })) {
     throw 'Player "' + params.title + '" is already taken'
@@ -34,7 +35,7 @@ async function create(params: any) {
   await player.save()
 }
 
-async function update(id: string, params: any) {
+async function update(id: string, params: Partial<IPlayer>) {
   const player = await Player.findById(id)
 
   // validate

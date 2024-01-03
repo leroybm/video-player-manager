@@ -1,3 +1,5 @@
+import { IPlayer } from "@/types/player"
+
 export { useFetch }
 
 function useFetch() {
@@ -9,21 +11,22 @@ function useFetch() {
   }
 
   function request(method: string) {
-    return (url: string, body?: any) => {
-      const requestOptions: any = {
+    return async (url: string, body?: Partial<IPlayer>) => {
+      const requestOptions: RequestInit = {
         method,
       }
       if (body) {
         requestOptions.headers = { "Content-Type": "application/json" }
         requestOptions.body = JSON.stringify(body)
       }
-      return fetch(url, requestOptions).then(handleResponse)
+      const response = await fetch(url, requestOptions)
+      return handleResponse(response)
     }
   }
 
   // helper functions
 
-  async function handleResponse(response: any) {
+  async function handleResponse(response: Response) {
     const isJson = response.headers
       ?.get("content-type")
       ?.includes("application/json")

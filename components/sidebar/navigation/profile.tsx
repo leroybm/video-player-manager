@@ -3,9 +3,11 @@ import classNames from "classnames"
 import Image from "next/image"
 import { Button } from "@/components/button"
 
-export interface ProfileProps {}
+export interface ProfileProps {
+  isCollapsed: boolean
+}
 
-export function Profile({ isCollapsed }: { isCollapsed: boolean }) {
+export function Profile({ isCollapsed }: ProfileProps) {
   return (
     <div
       className={classNames({

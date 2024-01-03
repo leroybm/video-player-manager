@@ -1,9 +1,9 @@
-/* eslint-disable no-console */
 import { NextResponse } from "next/server"
+import { getErrorMessage } from "@/lib/utils/errors"
 
 export { errorHandler }
 
-function errorHandler(err: Error | string) {
+function errorHandler(err: unknown) {
   if (typeof err === "string") {
     // custom application error
     const is404 = err.toLowerCase().endsWith("not found")
@@ -12,6 +12,5 @@ function errorHandler(err: Error | string) {
   }
 
   // default to 500 server error
-  console.error(err)
-  return NextResponse.json({ message: err.message }, { status: 500 })
+  return NextResponse.json({ message: getErrorMessage(err) }, { status: 500 })
 }

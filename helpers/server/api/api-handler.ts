@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server"
 import { validateMiddleware } from "./validate-middleware"
 import { errorHandler } from "./error-handler"
@@ -5,6 +6,7 @@ import { errorHandler } from "./error-handler"
 export { apiHandler }
 
 function apiHandler(handler: any) {
+  // TODO: Possible refactor to apiHandler mechanism
   const wrappedHandler: any = {}
   const httpMethods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
@@ -17,7 +19,9 @@ function apiHandler(handler: any) {
         // monkey patch req.json() because it can only be called once
         const json = await req.json()
         req.json = () => json
-      } catch {}
+      } catch {
+        /* empty */
+      }
 
       try {
         // global middleware
@@ -26,7 +30,7 @@ function apiHandler(handler: any) {
         // route handler
         const responseBody = await handler[method](req, ...args)
         return NextResponse.json(responseBody || {})
-      } catch (err: any) {
+      } catch (err: unknown) {
         // global error handler
         return errorHandler(err)
       }

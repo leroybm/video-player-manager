@@ -1,6 +1,6 @@
 import { FileVideo, HelpCircle, Home } from "lucide-react"
 
-export type SideNavItem = {
+export interface SideNavItem {
   title: string
   path: string
   icon?: React.ElementType

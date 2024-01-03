@@ -1,11 +1,12 @@
 import { useFormContext } from "react-hook-form"
-import { ConfiguratorOptions } from "@/models/configurator-options"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 import {
   CheckboxInput,
   FormField,
   NumberInput,
   TextInput,
 } from "@/components/fields"
+import { getErrorMessage } from "@/lib/utils/errors"
 
 function transformStringIntoArray(value: string) {
   return value.split(",").map((x) => x.trim())
@@ -53,8 +54,8 @@ export function ControlBarForm({
       const playbackRateRegExp = /^x[0-9](\.[0-9])?$/
       const transformedValue = transformStringIntoArray(stringValue)
       return transformedValue.every((entry) => playbackRateRegExp.test(entry))
-    } catch (e) {
-      return false
+    } catch (error: unknown) {
+      throw new Error(`Message: ${getErrorMessage(error)}`)
     }
   }
 

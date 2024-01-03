@@ -6,7 +6,7 @@ import { AdvertisementForm } from "./advertisement-form"
 import {
   ConfiguratorOptions,
   ExtendedAdOptions,
-} from "@/models/configurator-options"
+} from "@/types/configurator-options"
 
 const DummyComponent = ({
   openIndex = 0,
@@ -67,6 +67,7 @@ describe("AdvertisementForm", () => {
     const adList = [
       { _id: uniqueId(), roll: "preRoll", vastTag: "" },
     ] as ExtendedAdOptions[]
+    // TODO: Fix this ASAP
     // @ts-expect-error
     render(<DummyComponent defaultValues={{ vastOptions: { adList } }} />)
 

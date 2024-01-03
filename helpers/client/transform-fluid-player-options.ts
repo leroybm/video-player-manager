@@ -1,5 +1,5 @@
 import { omit } from "lodash"
-import { AdOptions, ExtendedFluidPlayerOptions } from "@/models"
+import { ExtendedFluidPlayerOptions } from "@/types"
 
 /**
  * Transforms values from the data types that work well with the form, to the

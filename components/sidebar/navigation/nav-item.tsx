@@ -1,20 +1,19 @@
-"use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import classNames from "classnames"
 import { SideNavItem } from "../constants"
 
+interface NavItemProps {
+  item: SideNavItem
+  isCollapsed: boolean
+  onClose: () => void
+}
+
 export function NavItem({
   item: { path, title, icon: Icon },
   onClose,
   isCollapsed,
-}: {
-  item: SideNavItem
-  onClose: () => void
-  isCollapsed: boolean
-  setSidebarCollapsed: () => void
-}) {
+}: NavItemProps) {
   const pathname = usePathname()
 
   const handleOnClose = () => onClose()

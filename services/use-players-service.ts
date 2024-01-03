@@ -1,7 +1,7 @@
 import { create } from "zustand"
-import { ObjectId } from "mongoose"
 import { useAlertService } from "./use-alert-service"
 import { useFetch } from "@/helpers/client"
+import { IPlayer, IPlayerService, IPlayerStore } from "@/types/player"
 
 export { usePlayerService }
 
@@ -29,7 +29,7 @@ function usePlayerService(): IPlayerService {
       playerStore.setState({ player: undefined })
       try {
         playerStore.setState({ player: await fetch.get(`/api/players/${id}`) })
-      } catch (error: any) {
+      } catch (error: unknown) {
         alertService.error(error)
       }
     },
@@ -54,29 +54,4 @@ function usePlayerService(): IPlayerService {
       playerStore.setState({ players: players!.filter((x) => x.id !== id) })
     },
   }
-}
-
-// interfaces
-
-interface IPlayer {
-  userId: ObjectId
-  id: string
-  title: string
-  playerConfiguration: Object
-  sources: { label: string; url: string }[]
-  isDeleting?: boolean
-}
-
-interface IPlayerStore {
-  players?: IPlayer[]
-  player?: IPlayer
-  currentPlayer?: IPlayer
-}
-
-interface IPlayerService extends IPlayerStore {
-  getAll: () => Promise<void>
-  getById: (id: string) => Promise<void>
-  create: (user: IPlayer) => Promise<void>
-  update: (id: string, params: Partial<IPlayer>) => Promise<void>
-  delete: (id: string) => Promise<void>
 }

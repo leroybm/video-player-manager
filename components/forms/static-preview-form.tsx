@@ -6,7 +6,7 @@ import {
   useWatch,
 } from "react-hook-form"
 import { FormField, NumberInput, TextInput } from "@/components/fields"
-import { ConfiguratorOptions } from "@/models"
+import { ConfiguratorOptions } from "@/types"
 
 interface StaticPreviewFormProps {
   update: UseFieldArrayUpdate<

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { useRouter } from "next/navigation"
@@ -6,7 +7,7 @@ import { useState } from "react"
 import { FormProvider, useForm } from "react-hook-form"
 import { cloneDeep } from "lodash"
 import { FluidPlayerConfigurator } from "@/components/fluid-player-configurator"
-import { ConfiguratorOptions } from "@/models"
+import { ConfiguratorOptions } from "@/types"
 import { useAlertService, usePlayerService } from "@/services"
 
 export { AddEdit }
@@ -53,7 +54,7 @@ function AddEdit({
       // redirect to user list with success message
       router.push("/players")
       alertService.success(message, true)
-    } catch (error: any) {
+    } catch (error: unknown) {
       alertService.error(error)
     }
   }
