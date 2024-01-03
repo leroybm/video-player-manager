@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { FormMenu } from "./form-menu"
-import { transformFluidPlayerConfiguration } from "@/helpers/client"
+import { transformFluidPlayerConfiguration } from "@/lib/client"
 import { ConfiguratorOptions } from "@/types"
 import { formMenuItems } from "@/constants"
 

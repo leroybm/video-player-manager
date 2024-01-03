@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { useAlertService } from "./use-alert-service"
-import { useFetch } from "@/helpers/client"
+import { useFetch } from "@/lib/client"
 import { IPlayer, IPlayerService, IPlayerStore } from "@/types/player"
 
 export { usePlayerService }

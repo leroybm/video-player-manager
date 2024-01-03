@@ -1,6 +1,6 @@
 import joi from "joi"
-import { playersRepo } from "@/helpers/server"
-import { apiHandler } from "@/helpers/server/api"
+import { playersRepo } from "@/lib/server"
+import { apiHandler } from "@/lib/server/api"
 
 module.exports = apiHandler({
   GET: getAll,
