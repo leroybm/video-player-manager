@@ -14,11 +14,9 @@ export function FluidPlayerWrapper({ source, configuration }: FluidPlayerWrapper
         }
     }, []);
 
-    return <>
-        <video ref={videoTag}>
-            <source src={source} type="video/mp4" />
-        </video>
-    </>
+    return <video ref={videoTag}>
+        <source src={source} type="video/mp4" />
+    </video>;
 }
 
 interface FluidPlayerWrapperProps {

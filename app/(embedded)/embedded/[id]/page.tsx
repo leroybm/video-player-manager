@@ -4,6 +4,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {};
 
+const VideoNotAvailable = <div className="flex justify-center items-center h-full">Video Not Available</div>
+
 export default async function EmbeddedVideo({ params }:  { params: { id: string } }) {
     const { id } = params;
     let player: ConfiguratorOptions | undefined;
@@ -12,10 +14,10 @@ export default async function EmbeddedVideo({ params }:  { params: { id: string 
         const response = await fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players/${id}`);
         player = await  response.json();
     } catch (error) {
-        return;
+        return VideoNotAvailable;
     }
 
-    if (!player?.playerConfiguration) return;
+    if (!player?.playerConfiguration) return VideoNotAvailable;
 
     player.playerConfiguration.layoutControls = {
         ...(player.playerConfiguration?.layoutControls || {}),
