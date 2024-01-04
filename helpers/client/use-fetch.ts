@@ -10,7 +10,11 @@ function useFetch() {
 
   function request(method: string) {
     return (url: string, body?: string) => {
-      const requestOptions: { method: string, headers?: { [key: string]: string }, body?: string } = {
+      const requestOptions: {
+        method: string
+        headers?: { [key: string]: string }
+        body?: string
+      } = {
         method,
       }
       if (body) {

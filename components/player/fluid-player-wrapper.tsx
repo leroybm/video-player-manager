@@ -13,7 +13,10 @@ export function FluidPlayerWrapper({
 
   useEffect(() => {
     if (!playerInstanceRef.current && videoTagRef.current) {
-      playerInstanceRef.current = fluidPlayer(videoTagRef.current, configuration)
+      playerInstanceRef.current = fluidPlayer(
+        videoTagRef.current,
+        configuration
+      )
     }
   }, [configuration])
 

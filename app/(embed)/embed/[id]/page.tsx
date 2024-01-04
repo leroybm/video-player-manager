@@ -27,6 +27,10 @@ export default async function EmbeddedVideo({
   player.playerConfiguration.layoutControls = {
     ...(player.playerConfiguration?.layoutControls || {}),
     fillToContainer: true,
+    miniPlayer: {
+      enabled: false,
+    },
+    allowTheatre: false,
   }
 
   metadata.title = `Embedded Video - ${player.title}`
