@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '👀 pre-commit'
+echo '🏗️👷 Formatting and Linting before committing 👷‍♂️🏗️'
+ 
+# Check ESLint and Prettier Standards
+yarn lint-staged
 
-echo '👀 Checking prettier'
-yarn format:check
-
-echo '👀 Checking eslint'
-yarn lint:check
+echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'

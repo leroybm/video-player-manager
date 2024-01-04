@@ -1,0 +1,9 @@
+{
+  "**/*.ts?(x)": [
+    "yarn format:check",
+    "yarn lint:check"
+  ],
+  "./*.md": [
+    "yarn format:check"
+  ]
+}
