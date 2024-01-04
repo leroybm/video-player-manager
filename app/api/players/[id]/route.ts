@@ -14,7 +14,7 @@ interface Params {
   }
 }
 
-async function getById(req: Request, { params: { id } }: Params) {
+async function getById(_req: Request, { params: { id } }: Params) {
   return await playersRepo.getById(id)
 }
 

@@ -4,6 +4,11 @@ import fluidPlayer from "fluid-player"
 import "./fluid-player-wrapper.css"
 import { useEffect, useRef } from "react"
 
+interface FluidPlayerWrapperProps {
+  source: string
+  configuration: Partial<FluidPlayerOptions>
+}
+
 export function FluidPlayerWrapper({
   source,
   configuration,
@@ -28,9 +33,4 @@ export function FluidPlayerWrapper({
       />
     </video>
   )
-}
-
-interface FluidPlayerWrapperProps {
-  source: string
-  configuration: Partial<FluidPlayerOptions>
 }
