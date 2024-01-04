@@ -41,12 +41,12 @@ export function FormMenu({
   return (
     <div>
       <p className="mb-1.5">Configuration</p>
-      <ul className="flex flex-col max-w-lg overflow-hidden gap-1">
+      <ul className="flex max-w-lg flex-col gap-1 overflow-hidden">
         {formMenuItems.map((menuItem) => (
           <li
             key={menuItem.key}
             onClick={() => handleMenuChange(menuItem)}
-            className={`pl-2 whitespace-nowrap cursor-pointer
+            className={`cursor-pointer whitespace-nowrap pl-2
               ${
                 selectedItem === menuItem.key ?
                   "!text-blue-500"

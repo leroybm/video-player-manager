@@ -7,10 +7,10 @@ interface LogoProps {
 
 export function Logo({ isCollapsed, setSidebarCollapsed }: LogoProps) {
   return (
-    <strong className="flex items-center max-lg:pointer-events-none gap-3 text-xl font-semibold text-zinc-900">
+    <strong className="flex items-center gap-3 text-xl font-semibold text-zinc-900 max-lg:pointer-events-none">
       <span
         onClick={() => setSidebarCollapsed((prev) => !prev)}
-        className="h-7 w-7 bg-zinc-300 rounded-lg cursor-pointer"
+        className="h-7 w-7 cursor-pointer rounded-lg bg-zinc-300"
       />
       <span
         onClick={() => setSidebarCollapsed((prev) => !prev)}

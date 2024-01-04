@@ -11,14 +11,14 @@ export function Profile({ isCollapsed }: ProfileProps) {
   return (
     <div
       className={classNames({
-        "flex gap-4 items-center h-11 overflow-hidden": true,
+        "flex h-11 items-center gap-4 overflow-hidden": true,
         "lg:flex-col": isCollapsed,
       })}>
       <Image
         src="https://avatars.githubusercontent.com/u/13338262?v=4" // Temporary placeholder URL
         width={40}
         height={40}
-        className="cursor-pointer h-10 w-10 rounded-full"
+        className="h-10 w-10 cursor-pointer rounded-full"
         alt="User avatar"
       />
       <div

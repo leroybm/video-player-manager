@@ -23,7 +23,7 @@ export function NumberInput<T extends FieldValues>({
 }: NumberInputProps<T>) {
   return (
     <input
-      className="border-gray-400 rounded border px-2 py-1 w-full"
+      className="w-full rounded border border-gray-400 px-2 py-1"
       type="number"
       placeholder={placeholder || ""}
       step={step || 1}

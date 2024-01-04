@@ -26,7 +26,7 @@ export function Sidebar({ setSidebarCollapsed, isCollapsed }: SidebarProps) {
       aria-label="Sidebar menu"
       onOpenChange={setOpen}
       className={classNames({
-        "flex flex-col fixed left-0 right-0 top-0 z-20 gap-3 border-b border-zinc-200 bg-white p-4 scrollbar-thin scrollbar-track-zinc-100 scrollbar-thumb-zinc-300 data-[state=open]:bottom-0 lg:bottom-0 lg:right-auto lg:h-auto lg:border-b-0 lg:border-r lg:py-8":
+        "scrollbar-thin scrollbar-track-zinc-100 scrollbar-thumb-zinc-300 fixed left-0 right-0 top-0 z-20 flex flex-col gap-3 border-b border-zinc-200 bg-white p-4 data-[state=open]:bottom-0 lg:bottom-0 lg:right-auto lg:h-auto lg:border-b-0 lg:border-r lg:py-8":
           true,
         "lg:w-80": !isCollapsed,
         "lg:flex-col": isCollapsed,
@@ -59,11 +59,11 @@ export function Sidebar({ setSidebarCollapsed, isCollapsed }: SidebarProps) {
           </Button>
         </Collapsible.Trigger>
       </div>
-      <div className="hidden lg:block h-px gap-2 bg-zinc-200" />
+      <div className="hidden h-px gap-2 bg-zinc-200 lg:block" />
       <Collapsible.Content
         asChild
         forceMount
-        className="data-[state=closed]:hidden data-[state=closed]:animate-slideUpAndFade data-[state=open]:animate-slideDownAndFade lg:data-[state=closed]:flex">
+        className="data-[state=closed]:animate-slideUpAndFade data-[state=open]:animate-slideDownAndFade data-[state=closed]:hidden lg:data-[state=closed]:flex">
         <div className="flex flex-1 flex-col gap-3">
           <Navigation
             onClose={handleClose}

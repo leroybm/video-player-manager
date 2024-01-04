@@ -33,13 +33,13 @@ function Alert() {
 
   return (
     <div
-      className={`absolute pointer-events-none top-0 w-screen h-screen flex justify-center overflow-hidden mt-4`}>
+      className={`pointer-events-none absolute top-0 mt-4 flex h-screen w-screen justify-center overflow-hidden`}>
       <p
         tabIndex={0}
         role="alert"
         aria-live={"assertive"}
         className={classNames({
-          "border rounded px-4 py-1 shadow-xl h-fit cursor-pointer text-lg pointer-events-auto max-w-screen-sm":
+          "pointer-events-auto h-fit max-w-screen-sm cursor-pointer rounded border px-4 py-1 text-lg shadow-xl":
             true,
           "bg-green-600 text-white": alert.type === "alert-success",
           "bg-red-500 text-white": alert.type === "alert-danger",
