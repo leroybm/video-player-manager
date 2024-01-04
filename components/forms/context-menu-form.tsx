@@ -1,22 +1,27 @@
-import { cloneDeep, uniqueId } from "lodash";
-import { useState } from "react";
-import { useFieldArray, useFormContext } from "react-hook-form";
-import { ConfiguratorOptions } from "@/models/configurator-options";
-import { ContextMenuLinkForm } from "./context-menu-link-form";
-import { CheckboxInput, FormField } from "@/components/fields";
+import { cloneDeep, uniqueId } from "lodash"
+import { useState } from "react"
+import { useFieldArray, useFormContext } from "react-hook-form"
+import { ContextMenuLinkForm } from "./context-menu-link-form"
+import { ConfiguratorOptions } from "@/types/configurator-options"
+import { CheckboxInput, FormField } from "@/components/fields"
 
 const linkDefaults = {
   id: uniqueId(),
-  href: 'https://',
-  label: 'New Link',
-};
+  href: "https://",
+  label: "New Link",
+}
 
 export function ContextMenuForm({
   onSave,
 }: {
-  onSave: (newOptions: Partial<ConfiguratorOptions>) => void;
+  onSave: (newOptions: Partial<ConfiguratorOptions>) => void
 }) {
-  const { handleSubmit, control, register, formState: { errors } } = useFormContext<ConfiguratorOptions>();
+  const {
+    handleSubmit,
+    control,
+    register,
+    formState: { errors },
+  } = useFormContext<ConfiguratorOptions>()
   const {
     fields: links,
     append: appendLink,
@@ -25,8 +30,8 @@ export function ContextMenuForm({
   } = useFieldArray({
     name: "playerConfiguration.layoutControls.contextMenu.links",
     control,
-  });
-  const [openLinkIndex, setOpenLinkIndex] = useState<null | number>(null);
+  })
+  const [openLinkIndex, setOpenLinkIndex] = useState<null | number>(null)
 
   /**
    * Appends new link by either creating it from the defaults or by
@@ -34,23 +39,25 @@ export function ContextMenuForm({
    */
   function addNewLink() {
     if (links.length === 0) {
-      return appendLink(cloneDeep(linkDefaults));
+      return appendLink(cloneDeep(linkDefaults))
     }
 
     appendLink(
       cloneDeep({
         ...links[links.length - 1],
         _id: uniqueId(),
-      }),
-    );
+      })
+    )
 
-    setOpenLinkIndex(links.length);
+    setOpenLinkIndex(links.length)
   }
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
       <p className="text-blue-700 mb-2">
-        <a href="https://docs.fluidplayer.com/docs/configuration/layout/#contextmenu" target="_blank">
+        <a
+          href="https://docs.fluidplayer.com/docs/configuration/layout/#contextmenu"
+          target="_blank">
           Open Context Menu documentation in a new tab&nbsp;↗️
         </a>
       </p>
@@ -58,9 +65,14 @@ export function ContextMenuForm({
       <FormField
         label="Show playback controls"
         forCheckbox
-        errorMessage={errors.playerConfiguration?.layoutControls?.contextMenu?.controls?.message}
-      >
-        <CheckboxInput fieldName={"playerConfiguration.layoutControls.contextMenu.controls"} register={register} />
+        errorMessage={
+          errors.playerConfiguration?.layoutControls?.contextMenu?.controls
+            ?.message
+        }>
+        <CheckboxInput
+          fieldName={"playerConfiguration.layoutControls.contextMenu.controls"}
+          register={register}
+        />
       </FormField>
 
       <ul>
@@ -69,7 +81,7 @@ export function ContextMenuForm({
             key={link.id}
             control={control}
             update={(...args) => {
-              updateLink(...args);
+              updateLink(...args)
             }}
             index={index}
             value={link}
@@ -81,11 +93,10 @@ export function ContextMenuForm({
 
         <li
           className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-          onClick={addNewLink}
-        >
+          onClick={addNewLink}>
           ➕ Add new Link
         </li>
       </ul>
     </form>
-  );
+  )
 }
