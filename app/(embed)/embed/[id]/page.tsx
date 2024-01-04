@@ -37,7 +37,7 @@ export default async function EmbeddedVideo({
   metadata.title = `Embedded Video - ${player.title}`
 
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <FluidPlayerWrapper
         source={player.sources[0].url}
         configuration={player.playerConfiguration}
