@@ -11,7 +11,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={classNames({
-        "lg:grid min-h-screen relative": true,
+        "relative min-h-screen lg:grid": true,
         "lg:grid-cols-app": !collapsed,
         "lg:grid-cols-collapsed": collapsed,
         "transition-[grid-template-columns] duration-300 ease-in-out": true,
@@ -21,7 +21,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         setSidebarCollapsed={setSidebarCollapsed}
         isCollapsed={collapsed}
       />
-      <main className="max-w-screen px-4 pb-12 pt-24 space-y-2 lg:col-start-2 lg:w-auto lg:px-6 lg:pt-8">
+      <main className="max-w-screen space-y-2 px-4 pb-12 pt-24 lg:col-start-2 lg:w-auto lg:px-6 lg:pt-8">
         {children}
       </main>
     </div>

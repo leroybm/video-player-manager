@@ -30,7 +30,7 @@ export function FormField({
     : label
 
   return (
-    <label className={`pb-2 w-full ${forCheckbox ? "inline-block" : "block"}`}>
+    <label className={`w-full pb-2 ${forCheckbox ? "inline-block" : "block"}`}>
       {!forCheckbox && <p className="text-sm">{wrappedLabel}</p>}
       {children}
       {forCheckbox && <p className="inline pl-1">{wrappedLabel}</p>}

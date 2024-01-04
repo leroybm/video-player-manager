@@ -48,11 +48,11 @@ export function StaticPreviewForm({
 
   const getTitleSection = () => (
     <>
-      <p className="font-medium mb-1">
+      <p className="mb-1 font-medium">
         Static Preview ({data?.startTime}s - {data?.endTime}s)
       </p>
       <button
-        className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
+        className="mr-1 origin-right text-sm font-light transition ease-in hover:scale-105 hover:transform-gpu hover:text-red-500"
         type="button"
         onClick={onClickRemove}>
         Remove
@@ -63,7 +63,7 @@ export function StaticPreviewForm({
   if (!isOpen) {
     return (
       <li
-        className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
+        className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
         onClick={onClickOpen}>
         {getTitleSection()}
       </li>
@@ -71,8 +71,8 @@ export function StaticPreviewForm({
   }
 
   return (
-    <li className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative">
-      <div className="flex justify-between mb-3">{getTitleSection()}</div>
+    <li className="relative mb-4 rounded border-2 border-slate-400 bg-top p-2">
+      <div className="mb-3 flex justify-between">{getTitleSection()}</div>
 
       <FormField
         label="Start Time"
@@ -110,7 +110,7 @@ export function StaticPreviewForm({
         />
         {data?.image && (
           <div
-            className={`w-full aspect-video bg-cover bg-center mt-2`}
+            className={`mt-2 aspect-video w-full bg-cover bg-center`}
             style={{ backgroundImage: `url(${data.image})` }}
           />
         )}
