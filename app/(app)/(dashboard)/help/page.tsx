@@ -1,10 +1,10 @@
 export default function HelpPage() {
   return (
     <>
-      <span className="font-bold text-4xl">Help</span>
+      <span className="text-4xl font-bold">Help</span>
 
-      <div className="border-dashed border border-zinc-500 w-full h-12 rounded-lg"></div>
-      <div className="border-dashed border border-zinc-500 w-full h-64 rounded-lg"></div>
+      <div className="h-12 w-full rounded-lg border border-dashed border-zinc-500"></div>
+      <div className="h-64 w-full rounded-lg border border-dashed border-zinc-500"></div>
     </>
   )
 }

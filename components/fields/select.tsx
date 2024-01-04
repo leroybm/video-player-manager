@@ -24,7 +24,7 @@ export function Select<T extends FieldValues>({
         required: required,
         onChange: () => onChange && onChange(),
       })}
-      className="border-gray-400 rounded border px-2 py-1 w-full bg-transparent">
+      className="w-full rounded border border-gray-400 bg-transparent px-2 py-1">
       {!required && (
         <option value="">{defaultMessage || "Select a value"}</option>
       )}

@@ -55,9 +55,9 @@ export function AdvertisementForm({
 
   const titleSection = (
     <>
-      <p className="font-medium mb-1 capitalize">{data?.roll}</p>
+      <p className="mb-1 font-medium capitalize">{data?.roll}</p>
       <button
-        className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
+        className="mr-1 origin-right text-sm font-light transition ease-in hover:scale-105 hover:transform-gpu hover:text-red-500"
         type="button"
         onClick={onClickRemove}>
         Remove
@@ -68,7 +68,7 @@ export function AdvertisementForm({
   if (!isOpen) {
     return (
       <li
-        className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
+        className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
         onClick={onClickOpen}>
         {titleSection}
       </li>
@@ -76,8 +76,8 @@ export function AdvertisementForm({
   }
 
   return (
-    <li className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative">
-      <div className="flex justify-between mb-3">{titleSection}</div>
+    <li className="relative mb-4 rounded border-2 border-slate-400 bg-top p-2">
+      <div className="mb-3 flex justify-between">{titleSection}</div>
 
       <FormField label="Roll Type">
         <Select

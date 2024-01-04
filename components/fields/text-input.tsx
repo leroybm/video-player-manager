@@ -29,7 +29,7 @@ export function TextInput<T extends FieldValues>({
 }: TextInputProps<T>) {
   return (
     <input
-      className="border-gray-400 rounded border px-2 py-1 w-full"
+      className="w-full rounded border border-gray-400 px-2 py-1"
       type="text"
       placeholder={placeholder || ""}
       {...register(fieldName, {

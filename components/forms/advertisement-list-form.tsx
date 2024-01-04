@@ -54,7 +54,7 @@ export function AdvertisementListForm({
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
-      <p className="text-blue-700 mb-2">
+      <p className="mb-2 text-blue-700">
         <a
           href="https://docs.fluidplayer.com/docs/configuration/ads/#adlist"
           target="_blank">
@@ -79,7 +79,7 @@ export function AdvertisementListForm({
         ))}
 
         <li
-          className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
+          className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
           onClick={addNewAdvertisement}>
           ➕ Add new Advertisement
         </li>

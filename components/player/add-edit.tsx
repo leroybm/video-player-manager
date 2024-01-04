@@ -61,20 +61,20 @@ function AddEdit({
 
   return (
     <FormProvider {...formMethods}>
-      <div className="container mx-auto h-full grid grid-rows-[50px_1fr_50px] gap-2">
+      <div className="container mx-auto grid h-full grid-rows-[50px_1fr_50px] gap-2">
         <h1 className="my-3 text-xl">{title}</h1>
         <FluidPlayerConfigurator
           onSave={(data) => setCurrentPlayer({ ...currentPlayer, ...data })}
         />
-        <div className="flex justify-end items-center gap-2 pb-4">
+        <div className="flex items-center justify-end gap-2 pb-4">
           <Link
             href="/players"
-            className="rounded bg-gray-200 text-gray-800 px-3 py-1">
+            className="rounded bg-gray-200 px-3 py-1 text-gray-800">
             Cancel
           </Link>
           <button
             type="button"
-            className="rounded bg-green-500 text-gray-100 px-3 py-1"
+            className="rounded bg-green-500 px-3 py-1 text-gray-100"
             onClick={onSubmit}>
             Save
           </button>

@@ -43,7 +43,7 @@ export function FunctionInput<T extends FieldValues>({
 
   return (
     <textarea
-      className="border-gray-400 rounded border px-2 py-1 w-full -mb-1.5"
+      className="-mb-1.5 w-full rounded border border-gray-400 px-2 py-1"
       placeholder={placeholder || ""}
       onKeyDown={handleCustomKeys}
       {...register(fieldName, {
