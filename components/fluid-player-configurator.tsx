@@ -42,10 +42,12 @@ export function FluidPlayerConfigurator({
         onSave={handleSave}
         selectedItem={openedMenu}
       />
-      {FormComponent && <div>
-        <h2 className="text-lg mb-1.5">{label}</h2>
-        <FormComponent onSave={handleSave} />
-      </div>}
+      {FormComponent && (
+        <div>
+          <h2 className="mb-1.5 text-lg">{label}</h2>
+          <FormComponent onSave={handleSave} />
+        </div>
+      )}
     </div>
   )
 }

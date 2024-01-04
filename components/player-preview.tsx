@@ -9,12 +9,14 @@ export function PlayerPreview() {
 
   if (!playerConfiguration || !sources?.[0]?.url) {
     return (
-      <p className="mt-3 text-sm">Preview not possible at this time due to an invalid configuration.</p>
+      <p className="mt-3 text-sm">
+        Preview not possible at this time due to an invalid configuration.
+      </p>
     )
   }
 
   return (
-    <div className="w-full aspect-video">
+    <div className="aspect-video w-full">
       <FluidPlayerWrapper
         source={sources[0].url}
         configuration={playerConfiguration}
