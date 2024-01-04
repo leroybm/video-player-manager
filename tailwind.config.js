@@ -10,7 +10,7 @@ module.exports = {
       gridTemplateColumns: {
         app: "20rem 1fr",
         collapsed: "5rem 1fr", //for collapsed sidebar layout
-      }
+      },
     },
   },
   plugins: [],

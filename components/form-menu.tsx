@@ -1,31 +1,41 @@
-import { useFormContext } from "react-hook-form";
-import { FormMenuItem, formMenuItems } from "@/constants/form-menu-item";
-import { ConfiguratorOptions } from "@/models/configurator-options";
-import { useAlertService } from "@/services/use-alert-service";
+import { useFormContext } from "react-hook-form"
+import { FormMenuItem, formMenuItems } from "@/constants/form-menu-item"
+import { ConfiguratorOptions } from "@/types/configurator-options"
+import { useAlertService } from "@/services/use-alert-service"
 
 interface FormMenuProps {
-  onMenuChange: (menuItem: FormMenuItem) => void;
-  selectedItem: string;
-  onSave: (value: ConfiguratorOptions) => void;
+  onMenuChange: (menuItem: FormMenuItem) => void
+  selectedItem: string
+  onSave: (value: ConfiguratorOptions) => void
 }
 
-export function FormMenu({ onMenuChange, onSave, selectedItem }: FormMenuProps) {
-  const { getValues, trigger, formState: { isDirty, isValid }  } = useFormContext<ConfiguratorOptions>();
-  const alertService = useAlertService();
+export function FormMenu({
+  onMenuChange,
+  onSave,
+  selectedItem,
+}: FormMenuProps) {
+  const {
+    getValues,
+    trigger,
+    formState: { isDirty, isValid },
+  } = useFormContext<ConfiguratorOptions>()
+  const alertService = useAlertService()
 
   function handleMenuChange(menuItem: FormMenuItem) {
     if (!isDirty) {
-      return onMenuChange(menuItem);
+      return onMenuChange(menuItem)
     }
 
-    trigger();
+    trigger()
 
     if (isValid) {
-      onSave(getValues());
-      return onMenuChange(menuItem);
+      onSave(getValues())
+      return onMenuChange(menuItem)
     }
 
-    alertService.error('Some fields have errors. Please check your input and try again.');
+    alertService.error(
+      "Some fields have errors. Please check your input and try again."
+    )
   }
 
   return (
@@ -37,13 +47,16 @@ export function FormMenu({ onMenuChange, onSave, selectedItem }: FormMenuProps) 
             key={menuItem.key}
             onClick={() => handleMenuChange(menuItem)}
             className={`pl-2 whitespace-nowrap cursor-pointer
-              ${selectedItem === menuItem.key ? "!text-blue-500" : "text-slate-500"}
-              `}
-          >
+              ${
+                selectedItem === menuItem.key ?
+                  "!text-blue-500"
+                : "text-slate-500"
+              }
+              `}>
             {menuItem.label}
           </li>
         ))}
       </ul>
     </div>
-  );
+  )
 }
