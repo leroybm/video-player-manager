@@ -1,4 +1,5 @@
 import { AddEdit } from "@/components/player"
+import { defaultValues } from "@/constants/fluid-player-configs"
 
 export default Add
 
@@ -9,7 +10,7 @@ function Add() {
       player={{
         title: "",
         sources: [{ label: "Default", url: "" }],
-        playerConfiguration: {},
+        playerConfiguration: defaultValues,
       }}
     />
   )
