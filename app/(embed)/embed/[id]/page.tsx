@@ -26,6 +26,7 @@ export default async function EmbeddedVideo({
 
   player.playerConfiguration.layoutControls = {
     ...(player.playerConfiguration?.layoutControls || {}),
+    // Overrides saved configurations that don't work inside iframes
     fillToContainer: true,
     miniPlayer: {
       enabled: false,
