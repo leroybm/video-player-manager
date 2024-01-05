@@ -2558,9 +2558,10 @@ flatted@^3.2.9:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.9.tgz"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-"fluid-player@https://github.com/leroybm/fluid-player.git#afa248ad6b06d487cd0d1f9f2224216737ca795e":
+fluid-player@^3.28.0:
   version "3.29.0"
-  resolved "https://github.com/leroybm/fluid-player.git#afa248ad6b06d487cd0d1f9f2224216737ca795e"
+  resolved "https://registry.yarnpkg.com/fluid-player/-/fluid-player-3.29.0.tgz#13f9ddf446fa397d20f2ce52b4c4143ef1eb460b"
+  integrity sha512-YePzJNKDkJN9bbRHw9JmZ0qFU5wwx9ovViwo20PtxfhiK/ozH0PEcEBZH2u6ybmtszs/Jmt2QCv+h+ePUpN11Q==
   dependencies:
     dashjs "^4.5.2"
     es6-promise "^4.2.8"
