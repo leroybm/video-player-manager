@@ -9,8 +9,7 @@ export default function Players() {
   const players = playerService.players
 
   useEffect(() => {
-    playerService.getAll()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    playerService.getPaginated(20, 2)
   }, [])
 
   return (

@@ -20,6 +20,7 @@ function useFetch() {
         requestOptions.body = JSON.stringify(body)
       }
       const response = await fetch(url, requestOptions)
+
       return handleResponse(response)
     }
   }
@@ -41,6 +42,7 @@ function useFetch() {
 
       // get error message from body or default to response status
       const error = (data && data.message) || response.statusText
+
       return Promise.reject(error)
     }
 

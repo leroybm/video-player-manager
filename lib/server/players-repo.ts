@@ -6,6 +6,7 @@ const Player = db.VideoPlayer
 
 export const playersRepo = {
   getAll,
+  getPaginated,
   getById,
   create,
   update,
@@ -16,7 +17,13 @@ async function getAll() {
   return await Player.find()
 }
 
+async function getPaginated(limit: number, offset: number) {
+  return await Player.find().skip(offset).limit(limit).exec()
+}
+
 async function getById(id: string) {
+  return await Player.find()
+
   try {
     return await Player.findById(id)
   } catch {

@@ -2,13 +2,18 @@ import joi from "joi"
 import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
 
+interface Params {
+  limit: number
+  offset: number
+}
+
 module.exports = apiHandler({
-  GET: getAll,
+  GET: getPaginated,
   POST: create,
 })
 
-async function getAll() {
-  return await playersRepo.getAll()
+async function getPaginated({ limit, offset }: Params) {
+  return await playersRepo.getPaginated(limit, offset)
 }
 
 async function create(req: Request) {
