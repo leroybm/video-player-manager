@@ -64,7 +64,6 @@ function AddEdit({
       <div className="container mx-auto grid h-full grid-rows-[50px_1fr_50px] gap-2">
         <h1 className="my-3 text-xl">{title}</h1>
         <FluidPlayerConfigurator
-          configuration={currentPlayer}
           onSave={(data) => setCurrentPlayer({ ...currentPlayer, ...data })}
         />
         <div className="flex items-center justify-end gap-2 pb-4">
