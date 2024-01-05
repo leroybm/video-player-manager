@@ -1,4 +1,4 @@
-import { ExtendedFluidPlayerOptions } from "@/models/index";
+import { ExtendedFluidPlayerOptions } from "@/types"
 
 export const defaultValues: Partial<ExtendedFluidPlayerOptions> = {
   layoutControls: {
@@ -35,6 +35,7 @@ export const defaultValues: Partial<ExtendedFluidPlayerOptions> = {
     timelinePreview: {
       type: "static",
       frames: [
+        // TODO: Fix this ASAP
         // @ts-expect-error ts(2322) This is an internal control value
         {
           startTime: 5,
@@ -57,20 +58,4 @@ export const defaultValues: Partial<ExtendedFluidPlayerOptions> = {
       autoToggle: false,
     },
   },
-};
-
-// export const completeConfiguration: Partial<ExtendedFluidPlayerOptions> = {
-//   layoutControls: {
-//     miniPlayer: {
-//       enabled: true,
-//       width: 400
-//     },
-//   },
-//   onBeforeXMLHttpRequestOpen: (request: XMLHttpRequest) => console.log(request),
-//   vastOptions: {
-//     adList: [{
-//       roll: "preRoll",
-//       vastTag: "https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/single_ad_samples&sz=640x480&cust_params=sample_ct%3Dlinear&ciu_szs=300x250%2C728x90&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator="
-//     }]
-//   }
-// };
+}

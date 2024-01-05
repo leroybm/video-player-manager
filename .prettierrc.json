@@ -1,0 +1,9 @@
+{
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "proseWrap": "always",
+  "singleAttributePerLine": true,
+  "semi": false,
+  "experimentalTernaries": true,
+  "plugins": ["prettier-plugin-tailwindcss"]
+}

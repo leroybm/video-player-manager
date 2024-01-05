@@ -1,15 +1,34 @@
-import { Control, FieldArrayWithId, UseFieldArrayUpdate, useForm, useWatch } from "react-hook-form";
-import { FormField, Select, TextInput, CheckboxInput, NumberInput } from "@/components/fields";
-import { ConfiguratorOptions } from "@/models/configurator-options";
+import {
+  Control,
+  FieldArrayWithId,
+  UseFieldArrayUpdate,
+  useForm,
+  useWatch,
+} from "react-hook-form"
+import {
+  FormField,
+  Select,
+  TextInput,
+  CheckboxInput,
+  NumberInput,
+} from "@/components/fields"
+import { ConfiguratorOptions } from "@/types/configurator-options"
 
 interface AdvertisementFormProps {
-  update: UseFieldArrayUpdate<ConfiguratorOptions, "playerConfiguration.vastOptions.adList">;
-  index: number;
-  value: FieldArrayWithId<ConfiguratorOptions, "playerConfiguration.vastOptions.adList", "id">;
-  control: Control<ConfiguratorOptions>;
-  isOpen: boolean;
-  onClickOpen: () => void;
-  onClickRemove: () => void;
+  update: UseFieldArrayUpdate<
+    ConfiguratorOptions,
+    "playerConfiguration.vastOptions.adList"
+  >
+  index: number
+  value: FieldArrayWithId<
+    ConfiguratorOptions,
+    "playerConfiguration.vastOptions.adList",
+    "id"
+  >
+  control: Control<ConfiguratorOptions>
+  isOpen: boolean
+  onClickOpen: () => void
+  onClickRemove: () => void
 }
 
 export function AdvertisementForm({
@@ -28,39 +47,37 @@ export function AdvertisementForm({
     formState: { errors },
   } = useForm({
     defaultValues: value,
-  });
+  })
   const data = useWatch({
     control,
     name: `playerConfiguration.vastOptions.adList.${index}`,
-  });
+  })
 
   const titleSection = (
     <>
-      <p className="font-medium mb-1 capitalize">{data?.roll}</p>
+      <p className="mb-1 font-medium capitalize">{data?.roll}</p>
       <button
-        className="font-light mr-1 text-sm hover:text-red-500 hover:transform-gpu origin-right hover:scale-105 transition ease-in"
+        className="mr-1 origin-right text-sm font-light transition ease-in hover:scale-105 hover:transform-gpu hover:text-red-500"
         type="button"
-        onClick={onClickRemove}
-      >
+        onClick={onClickRemove}>
         Remove
       </button>
     </>
-  );
+  )
 
   if (!isOpen) {
     return (
       <li
-        className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative w-full text-left flex justify-between items-center cursor-pointer"
-        onClick={onClickOpen}
-      >
+        className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
+        onClick={onClickOpen}>
         {titleSection}
       </li>
-    );
+    )
   }
 
   return (
-    <li className="border-2 rounded border-slate-400 mb-4 p-2 bg-top relative">
-      <div className="flex justify-between mb-3">{titleSection}</div>
+    <li className="relative mb-4 rounded border-2 border-slate-400 bg-top p-2">
+      <div className="mb-3 flex justify-between">{titleSection}</div>
 
       <FormField label="Roll Type">
         <Select
@@ -70,15 +87,17 @@ export function AdvertisementForm({
           required
           onChange={() => {
             if (data.roll === "midRoll") {
-              setValue("timer", 30);
+              setValue("timer", 30)
             }
 
-            return handleSubmit((data) => update(index, data))();
+            return handleSubmit((data) => update(index, data))()
           }}
         />
       </FormField>
 
-      <FormField label="Vast Tag" errorMessage={errors?.vastTag?.message}>
+      <FormField
+        label="Vast Tag"
+        errorMessage={errors?.vastTag?.message}>
         <TextInput
           register={register}
           fieldName="vastTag"
@@ -90,12 +109,14 @@ export function AdvertisementForm({
       </FormField>
 
       {data?.roll === "midRoll" && (
-        <FormField label="Timer" errorMessage={errors?.timer?.message}>
+        <FormField
+          label="Timer"
+          errorMessage={errors?.timer?.message}>
           <TextInput
             register={register}
             fieldName="timer"
             required
-            pattern={/(^\d+$)|(^\d{1,2}\%$)/}
+            pattern={/(^\d+$)|(^\d{1,2}%$)/}
             patternMessage="Field must be a number or a percentage between 1% and 99%"
             onChange={handleSubmit((data) => update(index, data))}
             placeholder="50%"
@@ -103,7 +124,9 @@ export function AdvertisementForm({
         </FormField>
       )}
 
-      <FormField label="Fallback Vast Tags (Comma separated)" errorMessage={errors?.fallbackVastTags?.message}>
+      <FormField
+        label="Fallback Vast Tags (Comma separated)"
+        errorMessage={errors?.fallbackVastTags?.message}>
         <TextInput
           register={register}
           fieldName="fallbackVastTags"
@@ -114,7 +137,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text" errorMessage={errors?.adText?.message}>
+      <FormField
+        label="Video Ad Text"
+        errorMessage={errors?.adText?.message}>
         <TextInput
           register={register}
           fieldName="adText"
@@ -123,7 +148,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Text Position" errorMessage={errors?.adTextPosition?.message}>
+      <FormField
+        label="Video Ad Text Position"
+        errorMessage={errors?.adTextPosition?.message}>
         <Select
           register={register}
           fieldName="adTextPosition"
@@ -133,7 +160,10 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Video Ad Clickable" errorMessage={errors?.adClickable?.message} forCheckbox>
+      <FormField
+        label="Video Ad Clickable"
+        errorMessage={errors?.adClickable?.message}
+        forCheckbox>
         <CheckboxInput
           register={register}
           fieldName="adClickable"
@@ -141,7 +171,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Vertical Alignment" errorMessage={errors?.vAlign?.message}>
+      <FormField
+        label="Banner Vertical Alignment"
+        errorMessage={errors?.vAlign?.message}>
         <Select
           register={register}
           fieldName="vAlign"
@@ -151,7 +183,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Ad Duration" errorMessage={errors?.nonLinearDuration?.message}>
+      <FormField
+        label="Banner Ad Duration"
+        errorMessage={errors?.nonLinearDuration?.message}>
         <NumberInput
           register={register}
           fieldName="nonLinearDuration"
@@ -160,7 +194,9 @@ export function AdvertisementForm({
         />
       </FormField>
 
-      <FormField label="Banner Size" errorMessage={errors?.size?.message}>
+      <FormField
+        label="Banner Size"
+        errorMessage={errors?.size?.message}>
         <Select
           register={register}
           fieldName="size"
@@ -170,5 +206,5 @@ export function AdvertisementForm({
         />
       </FormField>
     </li>
-  );
+  )
 }
