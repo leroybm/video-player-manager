@@ -213,6 +213,7 @@ export function LayoutForm({
           register={register}
           fieldName="playerConfiguration.layoutControls.layout"
           placeholder="default"
+          setValueAs={(value) => (!value ? "default" : value)}
         />
       </FormField>
     </form>

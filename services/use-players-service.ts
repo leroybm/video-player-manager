@@ -28,7 +28,8 @@ function usePlayerService(): IPlayerService {
     getById: async (id: string) => {
       playerStore.setState({ player: undefined })
       try {
-        playerStore.setState({ player: await fetch.get(`/api/players/${id}`) })
+        const player = await fetch.get(`/api/players/${id}`)
+        playerStore.setState({ player })
       } catch (error: unknown) {
         alertService.error(error)
       }
