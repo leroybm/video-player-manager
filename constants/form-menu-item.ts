@@ -13,6 +13,7 @@ import {
   TheaterModeForm,
   TimelinePreviewForm,
 } from "@/components/forms"
+import { PlayerPreview } from "@/components/player-preview"
 
 type FormComponents =
   | typeof MetadataForm
@@ -28,6 +29,7 @@ type FormComponents =
   | typeof CaptionsForm
   | typeof PersistentSettingsForm
   | typeof ContextMenuForm
+  | typeof PlayerPreview
 
 export interface FormMenuItem {
   label: string
@@ -40,6 +42,11 @@ export const formMenuItems: FormMenuItem[] = [
     label: "Metadata",
     key: "metadata",
     FormComponent: MetadataForm,
+  },
+  {
+    label: "Player Preview",
+    key: "playerPreview",
+    FormComponent: PlayerPreview,
   },
   {
     label: "Layout",
