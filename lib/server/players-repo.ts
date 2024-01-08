@@ -19,11 +19,11 @@ async function getAll() {
   return await Player.find()
 }
 
-async function getPaginated(offset: number) {  
+async function getPaginated(offset: number) {
   return await Player.find().skip(offset).limit(limit).exec()
 }
 
-async function count() {  
+async function count() {
   return await Player.countDocuments()
 }
 

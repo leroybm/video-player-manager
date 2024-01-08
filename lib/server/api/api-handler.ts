@@ -15,13 +15,12 @@ function apiHandler(handler: any) {
     if (typeof handler[method] !== "function") return
     wrappedHandler[method] = async (req: NextRequest, ...args: any) => {
       try {
-        
         // global middleware
         await validateMiddleware(req, handler[method].schema)
-        
+
         // route handler
         const responseBody = await handler[method](req, ...args)
-        
+
         return NextResponse.json(responseBody || {})
       } catch (err: unknown) {
         // global error handler
