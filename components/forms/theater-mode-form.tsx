@@ -33,6 +33,7 @@ export function TheaterModeForm({
         />
       </FormField>
 
+      {/* Removed in meanwhile, check: https://github.com/fluid-player/fluid-player/issues/790
       <FormField
         label="Theatre Element (selector)"
         errorMessage={
@@ -59,7 +60,7 @@ export function TheaterModeForm({
           fieldName="playerConfiguration.layoutControls.theatreAdvanced.classToApply"
           placeholder="my-theatre-class"
         />
-      </FormField>
+      </FormField> */}
 
       <FormField
         label="Width"
