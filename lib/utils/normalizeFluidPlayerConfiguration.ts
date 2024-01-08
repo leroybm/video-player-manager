@@ -2,6 +2,10 @@ import { isObject } from "lodash"
 
 type GenericObject = { [key: string]: unknown }
 
+/**
+ * Recursively changes every value of the Fluid Player configuration object by
+ * checking if it's empty and changing it to the default value.
+ */
 export function normalizeFluidPlayerConfiguration(
   configuration: GenericObject,
   defaultValues: GenericObject
