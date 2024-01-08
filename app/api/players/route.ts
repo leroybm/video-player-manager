@@ -2,10 +2,12 @@ import joi from "joi"
 import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
 
-module.exports = apiHandler({
+const handlers = apiHandler({
   GET: getAll,
   POST: create,
 })
+
+export const { GET, POST } = handlers
 
 async function getAll() {
   return await playersRepo.getAll()

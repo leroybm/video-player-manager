@@ -2,11 +2,13 @@ import joi from "joi"
 import { apiHandler } from "@/lib/server/api"
 import { playersRepo } from "@/lib/server"
 
-module.exports = apiHandler({
+const handlers = apiHandler({
   GET: getById,
   PUT: update,
   DELETE: _delete,
 })
+
+export const { GET, PUT, DELETE } = handlers
 
 interface Params {
   params: {
