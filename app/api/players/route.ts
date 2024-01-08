@@ -2,10 +2,12 @@ import joi from "joi"
 import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
 
-module.exports = apiHandler({
+const handlers = apiHandler({
   GET: getPaginated,
   POST: create,
 })
+
+export const { GET, POST } = handlers
 
 async function getPaginated(req: Request) {
   const { searchParams } = new URL(req.url)
