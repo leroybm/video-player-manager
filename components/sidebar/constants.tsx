@@ -17,7 +17,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     title: "Players",
-    path: "/players",
+    path: "/players?page=1",
     icon: FileVideo,
   },
   {

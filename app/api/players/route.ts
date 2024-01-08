@@ -2,18 +2,16 @@ import joi from "joi"
 import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
 
-interface Params {
-  limit: number
-  offset: number
-}
-
 module.exports = apiHandler({
   GET: getPaginated,
   POST: create,
 })
 
-async function getPaginated({ limit, offset }: Params) {
-  return await playersRepo.getPaginated(limit, offset)
+async function getPaginated(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const offset = Number(searchParams.get("offset"))
+
+  return await playersRepo.getPaginated(offset)
 }
 
 async function create(req: Request) {

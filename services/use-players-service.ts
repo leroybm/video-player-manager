@@ -22,10 +22,10 @@ function usePlayerService(): IPlayerService {
     players,
     player,
     currentPlayer,
-    getPaginated: async (limit: number, offset: number) => {
+    getPaginated: async (offset: number) => {
       playerStore.setState({
         players: await fetch.get(
-          `/api/players?limit=${limit}&offset=${offset}`
+          `/api/players?offset=${offset}`
         ),
       })
     },

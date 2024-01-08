@@ -17,7 +17,7 @@ export interface IPlayerStore {
 }
 
 export interface IPlayerService extends IPlayerStore {
-  getPaginated: (limit: number, offset: number) => Promise<void>
+  getPaginated: (offset: number) => Promise<void>
   getById: (id: string) => Promise<void>
   create: (user: IPlayer) => Promise<void>
   update: (id: string, params: Partial<IPlayer>) => Promise<void>
