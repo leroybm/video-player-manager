@@ -1,3 +1,5 @@
+"use client"
+
 import { cloneDeep, uniqueId } from "lodash"
 import { useState } from "react"
 import { useFieldArray, useFormContext } from "react-hook-form"

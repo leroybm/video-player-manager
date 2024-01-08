@@ -1,3 +1,5 @@
+"use client"
+
 import { useFormContext } from "react-hook-form"
 import { FluidPlayerWrapper } from "./player/fluid-player-wrapper"
 import { ConfiguratorOptions } from "@/types/configurator-options"

@@ -1,3 +1,5 @@
+"use client"
+
 import { useFormContext } from "react-hook-form"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import {
@@ -213,7 +215,6 @@ export function LayoutForm({
           register={register}
           fieldName="playerConfiguration.layoutControls.layout"
           placeholder="default"
-          setValueAs={(value) => (!value ? "default" : value)}
         />
       </FormField>
     </form>

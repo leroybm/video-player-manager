@@ -46,7 +46,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@types/lodash": "^4.14.202",
     "classnames": "^2.3.2",
-    "fluid-player": "^3.28.0",
+    "fluid-player": "https://github.com/leroybm/fluid-player.git#afa248ad6b06d487cd0d1f9f2224216737ca795e",
     "joi": "^17.11.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.294.0",

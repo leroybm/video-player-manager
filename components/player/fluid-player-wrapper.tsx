@@ -18,6 +18,10 @@ export function FluidPlayerWrapper({
 
   useEffect(() => {
     if (!playerInstanceRef.current && videoTagRef.current) {
+      if (configuration.layoutControls?.theatreAdvanced) {
+        configuration.layoutControls.theatreAdvanced = {}
+      }
+
       playerInstanceRef.current = fluidPlayer(
         videoTagRef.current,
         configuration
