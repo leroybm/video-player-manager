@@ -1,3 +1,5 @@
+"use client"
+
 import { useFormContext } from "react-hook-form"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import { CheckboxInput, FormField } from "@/components/fields"

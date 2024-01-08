@@ -1,3 +1,5 @@
+"use client"
+
 import { cloneDeep, uniqueId } from "lodash"
 import { useEffect, useState } from "react"
 import {

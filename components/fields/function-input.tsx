@@ -8,7 +8,7 @@ import { getErrorMessage } from "@/lib/utils/errors"
  * @param fn A function string, also accepts a function in case that it's coming natively (For example, a default value)
  */
 export function functionValidator<T>(fn: string | T): boolean {
-  if (typeof fn === "function") {
+  if (typeof fn === "function" || fn === "") {
     return true
   }
 
