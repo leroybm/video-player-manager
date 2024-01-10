@@ -3,6 +3,9 @@ import { Pagination } from "@/components/pagination"
 import { PlayersList } from "@/components/players-list"
 import { IPlayer } from "@/types"
 
+const getPlayers = (page: number) =>
+  fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players?page=${page}`)
+
 export default async function Players({
   searchParams,
 }: {
@@ -11,11 +14,7 @@ export default async function Players({
   let players: IPlayer[] = []
 
   if (searchParams.page > 0) {
-    players = await (
-      await fetch(
-        `http://localhost:3000/api/players?offset=${searchParams.page}`
-      )
-    ).json()
+    players = await (await getPlayers(searchParams.page)).json()
   }
 
   const playersCount = await (
@@ -30,7 +29,7 @@ export default async function Players({
       {players.length ?
         <>
           <PlayersList players={players} />
-          <Pagination playersCount={playersCount} />
+          <Pagination totalCount={playersCount} />
         </>
       : <h1>No Players To Display</h1>}
     </>

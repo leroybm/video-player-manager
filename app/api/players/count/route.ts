@@ -2,11 +2,11 @@ import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
 
 const handlers = apiHandler({
-  GET: getPalayersCount,
+  GET: getPlayersCount,
 })
 
 export const { GET } = handlers
 
-async function getPalayersCount() {
+async function getPlayersCount() {
   return await playersRepo.count()
 }

@@ -1,39 +1,36 @@
 "use client"
 
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
-import { limit } from "@/constants/pagination"
+import { LIMIT, MIN_PAGE_NUMBER } from "@/constants/pagination"
 
 interface PaginationProps {
-  playersCount: number
+  totalCount: number
 }
 
-export function Pagination({ playersCount }: PaginationProps) {
+export function Pagination({ totalCount }: PaginationProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
   const currentPage = Number(searchParams.get("page")) ?? 1
-  const calculatePlayersFrom =
-    currentPage === 1 ? 1 : limit * (currentPage - 1) + 1
-  const calculatePlayersTo =
-    limit * currentPage < playersCount ? limit * currentPage : playersCount
+  const totalPages = Math.ceil(totalCount / LIMIT)
 
-  const [showPlayersFrom, setShowPlayersFrom] = useState(calculatePlayersFrom)
-  const [showPlayersTo, setShowPlayersTo] = useState(calculatePlayersTo)
+  const hasPrevPage = currentPage > MIN_PAGE_NUMBER
+  const hasNextPage = currentPage < totalPages
 
-  useEffect(() => {
-    setShowPlayersFrom(calculatePlayersFrom)
-    setShowPlayersTo(calculatePlayersTo)
-  }, [currentPage])
+  const showPlayersFrom = LIMIT * (currentPage - 1) + 1
+  const showPlayersTo = LIMIT * currentPage
+
+  const startIndex = currentPage === 1 ? 1 : showPlayersFrom
+  const endIndex = showPlayersTo < totalCount ? showPlayersTo : totalCount
 
   const onPrevPage = () => {
-    if (currentPage != 1) {
+    if (hasPrevPage) {
       router.push(`?page=${currentPage - 1}`)
     }
   }
 
   const onNextPage = () => {
-    if (currentPage != Math.ceil(playersCount / limit)) {
+    if (hasNextPage) {
       router.push(`?page=${currentPage + 1}`)
     }
   }
@@ -42,22 +39,28 @@ export function Pagination({ playersCount }: PaginationProps) {
     <div className="flex flex-col items-center">
       <span className="text-sm text-gray-700">
         Showing
-        <span className="font-semibold text-gray-900">{showPlayersFrom}</span>
+        <span className="font-semibold text-gray-900">{startIndex}</span>
         to
-        <span className="font-semibold text-gray-900">{showPlayersTo}</span>
+        <span className="font-semibold text-gray-900">{endIndex}</span>
         of
-        <span className="font-semibold text-gray-900">{playersCount}</span>
+        <span className="font-semibold text-gray-900">{totalCount}</span>
         Entries
       </span>
       <div className="xs:mt-0 mt-2 inline-flex">
         <button
+          disabled={!hasPrevPage}
           onClick={onPrevPage}
-          className="flex h-8 items-center justify-center rounded-s bg-gray-800 px-3 text-sm font-medium text-white hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          className={`flex h-8 items-center justify-center rounded-s border-gray-700 bg-gray-800 px-3 text-sm font-medium text-gray-400 ${
+            hasPrevPage && "hover:bg-gray-700 hover:text-white"
+          }`}>
           Prev
         </button>
         <button
+          disabled={!hasNextPage}
           onClick={onNextPage}
-          className="flex h-8 items-center justify-center rounded-e border-0 border-s border-gray-700 bg-gray-800 px-3 text-sm font-medium text-white hover:bg-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          className={`flex h-8 items-center justify-center rounded-e border-gray-700 bg-gray-800 px-3 text-sm font-medium text-gray-400 ${
+            hasNextPage && "hover:bg-gray-700 hover:text-white"
+          }`}>
           Next
         </button>
       </div>

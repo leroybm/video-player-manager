@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { db } from "./db"
 import { IPlayer } from "@/types"
-import { limit } from "@/constants/pagination"
+import { LIMIT } from "@/constants/pagination"
 
 const Player = db.VideoPlayer
 
@@ -20,7 +20,7 @@ async function getAll() {
 }
 
 async function getPaginated(offset: number) {
-  return await Player.find().skip(offset).limit(limit).exec()
+  return await Player.find().skip(offset).limit(LIMIT).exec()
 }
 
 async function count() {
