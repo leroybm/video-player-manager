@@ -17,11 +17,11 @@ export function Pagination({ totalCount }: PaginationProps) {
   const hasPrevPage = currentPage > MIN_PAGE_NUMBER
   const hasNextPage = currentPage < totalPages
 
-  const showPlayersFrom = LIMIT * (currentPage - 1) + 1
-  const showPlayersTo = LIMIT * currentPage
+  const showItemsFrom = LIMIT * (currentPage - 1) + 1
+  const showItemssTo = LIMIT * currentPage
 
-  const startIndex = currentPage === 1 ? 1 : showPlayersFrom
-  const endIndex = showPlayersTo < totalCount ? showPlayersTo : totalCount
+  const startIndex = currentPage === 1 ? 1 : showItemsFrom
+  const endIndex = showItemssTo < totalCount ? showItemssTo : totalCount
 
   const onPrevPage = () => {
     if (hasPrevPage) {
