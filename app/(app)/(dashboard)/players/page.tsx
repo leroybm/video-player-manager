@@ -1,10 +1,16 @@
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { Pagination } from "@/components/pagination"
 import { PlayersList } from "@/components/players-list"
 import { IPlayer } from "@/types"
 
-const getPlayers = (page: number) =>
-  fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players?page=${page}`)
+const getPlayers = (page: number) => {
+  try {
+    return fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players?page=${page}`)
+  } catch (error) {
+    return notFound()
+  }
+}
 
 export default async function Players({
   searchParams,
