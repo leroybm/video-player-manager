@@ -13,25 +13,18 @@ function apiHandler(handler: any) {
   // wrap handler methods to add middleware and global error handler
   httpMethods.forEach((method) => {
     if (typeof handler[method] !== "function") return
-
     wrappedHandler[method] = async (req: NextRequest, ...args: any) => {
-      try {
-        // monkey patch req.json() because it can only be called once
-        const json = await req.json()
-        req.json = () => json
-      } catch {
-        /* empty */
-      }
-
       try {
         // global middleware
         await validateMiddleware(req, handler[method].schema)
 
         // route handler
         const responseBody = await handler[method](req, ...args)
+
         return NextResponse.json(responseBody || {})
       } catch (err: unknown) {
         // global error handler
+
         return errorHandler(err)
       }
     }

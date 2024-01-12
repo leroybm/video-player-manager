@@ -1,16 +1,21 @@
 import joi from "joi"
 import { playersRepo } from "@/lib/server"
 import { apiHandler } from "@/lib/server/api"
+import { LIMIT } from "@/constants/pagination"
 
 const handlers = apiHandler({
-  GET: getAll,
+  GET: getPaginated,
   POST: create,
 })
 
 export const { GET, POST } = handlers
 
-async function getAll() {
-  return await playersRepo.getAll()
+async function getPaginated(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const page = Number(searchParams.get("page"))
+  const offset = (page - 1) * LIMIT
+
+  return await playersRepo.getPaginated(offset)
 }
 
 async function create(req: Request) {
