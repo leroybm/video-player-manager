@@ -3,12 +3,15 @@ import { normalizeFluidPlayerConfiguration } from "../utils/normalizeFluidPlayer
 import { db } from "./db"
 import { ExtendedFluidPlayerOptions, IPlayer } from "@/types"
 import { defaultValues } from "@/constants"
+import { LIMIT } from "@/constants/pagination"
 
 const Player = db.VideoPlayer
 
 export const playersRepo = {
   getAll,
+  getPaginated,
   getById,
+  count,
   create,
   update,
   delete: _delete,
@@ -16,6 +19,14 @@ export const playersRepo = {
 
 async function getAll() {
   return await Player.find()
+}
+
+async function getPaginated(offset: number) {
+  return await Player.find().skip(offset).limit(LIMIT).exec()
+}
+
+async function count() {
+  return await Player.countDocuments()
 }
 
 async function getById(id: string) {
