@@ -17,18 +17,6 @@ export const playersRepo = {
   delete: _delete,
 }
 
-/**
- * Data transformation for storing Fluid Player in the correct format as defined
- * by the documentation.
- */
-function preFormatPlayerConfiguration(
-  playerConfiguration: Partial<ExtendedFluidPlayerOptions> | undefined
-): Partial<ExtendedFluidPlayerOptions> {
-  return normalizeFluidPlayerConfiguration(
-    playerConfiguration || {},
-    defaultValues
-}
-
 async function getAll() {
   return await Player.find()
 }
@@ -88,4 +76,17 @@ async function update(id: string, params: Partial<IPlayer>) {
 
 async function _delete(id: string) {
   await Player.findOneAndDelete({ _id: new ObjectId(id) })
+}
+
+/**
+ * Data transformation for storing Fluid Player in the correct format as defined
+ * by the documentation.
+ */
+function preFormatPlayerConfiguration(
+  playerConfiguration: Partial<ExtendedFluidPlayerOptions> | undefined
+): Partial<ExtendedFluidPlayerOptions> {
+  return normalizeFluidPlayerConfiguration(
+    playerConfiguration || {},
+    defaultValues
+  )
 }
