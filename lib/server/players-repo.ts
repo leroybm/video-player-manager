@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { normalizeFluidPlayerConfiguration } from "../utils/normalizeFluidPlayerConfiguration"
 import { db } from "./db"
-import { IPlayer } from "@/types"
+import { ExtendedFluidPlayerOptions, IPlayer } from "@/types"
 import { defaultValues } from "@/constants"
 
 const Player = db.VideoPlayer
@@ -12,6 +12,19 @@ export const playersRepo = {
   create,
   update,
   delete: _delete,
+}
+
+/**
+ * Data transformation for storing Fluid Player in the correct format as defined
+ * by the documentation.
+ */
+function preFormatPlayerConfiguration(
+  playerConfiguration: Partial<ExtendedFluidPlayerOptions> | undefined
+): Partial<ExtendedFluidPlayerOptions> {
+  return normalizeFluidPlayerConfiguration(
+    playerConfiguration || {},
+    defaultValues
+  )
 }
 
 async function getAll() {
@@ -32,12 +45,9 @@ async function create(params: IPlayer) {
     throw 'Player "' + params.title + '" is already taken'
   }
 
-  if (params.playerConfiguration) {
-    params.playerConfiguration = normalizeFluidPlayerConfiguration(
-      params.playerConfiguration,
-      defaultValues
-    )
-  }
+  params.playerConfiguration = preFormatPlayerConfiguration(
+    params.playerConfiguration
+  )
 
   const player = new Player(params)
 
@@ -56,12 +66,9 @@ async function update(id: string, params: Partial<IPlayer>) {
     throw 'Title "' + params.title + '" is already taken'
   }
 
-  if (params.playerConfiguration) {
-    params.playerConfiguration = normalizeFluidPlayerConfiguration(
-      params.playerConfiguration,
-      defaultValues
-    )
-  }
+  params.playerConfiguration = preFormatPlayerConfiguration(
+    params.playerConfiguration
+  )
 
   // copy params properties to user
   Object.assign(player, params)
