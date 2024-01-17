@@ -15,7 +15,7 @@ export default async function EmbeddedVideo({
 
   try {
     const response = await fetch(
-      `${process.env.NEXTJS_API_BASE_URL}/api/players/${id}`
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/players/${id}`
     )
     player = await response.json()
   } catch (error) {

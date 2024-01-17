@@ -6,7 +6,9 @@ import { IPlayer } from "@/types"
 
 const getPlayers = (page: number) => {
   try {
-    return fetch(`${process.env.NEXTJS_API_BASE_URL}/api/players?page=${page}`)
+    return fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/players?page=${page}`
+    )
   } catch (error) {
     return notFound()
   }
@@ -24,7 +26,7 @@ export default async function Players({
   }
 
   const playersCount = await (
-    await fetch(`http://localhost:3000/api/players/count`)
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/players/count`)
   ).json()
 
   return (
