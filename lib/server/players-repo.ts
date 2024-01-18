@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb"
-import { normalizeFluidPlayerConfiguration } from "../utils/normalizeFluidPlayerConfiguration"
+import { normalizeFluidPlayerConfiguration } from "../utils/normalize-fluidplayer-configuration"
 import { db } from "./db"
 import { ExtendedFluidPlayerOptions, IPlayer } from "@/types"
 import { LIMIT } from "@/constants/pagination"

@@ -1,6 +1,5 @@
-import { isObject } from "lodash"
-
-type GenericObject = { [key: string]: unknown }
+import { isObject } from "./type-validation"
+import { GenericObject } from "@/types"
 
 /**
  * Recursively changes every value of the Fluid Player configuration object by
