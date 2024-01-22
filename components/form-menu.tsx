@@ -39,24 +39,34 @@ export function FormMenu({
   }
 
   return (
-    <div>
-      <p className="mb-1.5">Configuration</p>
-      <ul className="flex max-w-lg flex-col gap-1 overflow-hidden">
+    <aside aria-labelledby="navTitle">
+      <h2
+        id="navTitle"
+        className="mb-1.5">
+        Configuration
+      </h2>
+      <nav
+        role="tablist"
+        tabIndex={0}
+        className="flex max-w-lg flex-col gap-1 overflow-hidden">
         {formMenuItems.map((menuItem) => (
-          <li
+          <button
+            role="tab"
+            aria-controls={menuItem.key}
+            aria-selected={selectedItem === menuItem.key}
             key={menuItem.key}
             onClick={() => handleMenuChange(menuItem)}
-            className={`cursor-pointer whitespace-nowrap pl-2
+            className={`cursor-pointer whitespace-nowrap pl-2 text-left
               ${
                 selectedItem === menuItem.key ?
-                  "!text-blue-500"
+                  "!text-blue-600"
                 : "text-slate-500"
               }
               `}>
             {menuItem.label}
-          </li>
+          </button>
         ))}
-      </ul>
-    </div>
+      </nav>
+    </aside>
   )
 }

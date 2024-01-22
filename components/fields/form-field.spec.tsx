@@ -64,8 +64,8 @@ describe("FormField", () => {
       </FormField>
     )
 
-    const anchor = (await screen.getByTitle(
-      "Open Test documentation in a new tab"
+    const anchor = (await screen.getByText(
+      "Go to Test docs ↗️"
     )) as HTMLAnchorElement
 
     expect(anchor).toBeTruthy()

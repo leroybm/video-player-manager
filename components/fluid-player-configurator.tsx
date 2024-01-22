@@ -32,7 +32,7 @@ export function FluidPlayerConfigurator({
     })
   }
 
-  const { FormComponent, label } =
+  const { FormComponent, label, key } =
     formMenuItems.find((menuItem) => menuItem.key === openedMenu) || {}
 
   return (
@@ -43,8 +43,16 @@ export function FluidPlayerConfigurator({
         selectedItem={openedMenu}
       />
       {FormComponent && (
-        <div>
-          <h2 className="mb-1.5 text-lg">{label}</h2>
+        <div
+          id={key}
+          role="tabpanel"
+          tabIndex={0}
+          aria-labelledby={`tab-${key}-label`}>
+          <h2
+            id={`tab-${key}-label`}
+            className="mb-1.5 text-lg">
+            {label}
+          </h2>
           <FormComponent onSave={handleSave} />
         </div>
       )}

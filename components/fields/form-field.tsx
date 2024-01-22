@@ -16,29 +16,27 @@ export function FormField({
   externalLink,
 }: FormFieldProps) {
   const wrappedLabel =
-    externalLink ?
-      <>
-        {label}
-        <a
-          className="text-blue-700"
-          href={externalLink}
-          target="_blank"
-          title={`Open ${label} documentation in a new tab`}>
-          &nbsp;↗️
-        </a>
-      </>
-    : label
+    externalLink ? <span className="inline text-lg">{label}</span> : label
 
   return (
-    <label className={`w-full pb-2 ${forCheckbox ? "inline-block" : "block"}`}>
-      {!forCheckbox && <p className="text-sm">{wrappedLabel}</p>}
-      {children}
-      {forCheckbox && <p className="inline pl-1">{wrappedLabel}</p>}
-      <small className="text-red-500">
-        {errorMessage ?
-          <p>{errorMessage}</p>
-        : null}
-      </small>
-    </label>
+    <div className="mb-3">
+      <label className={`w-full ${forCheckbox ? "inline-block" : "block"}`}>
+        {!forCheckbox && <p className="text-sm">{wrappedLabel}</p>}
+        {children}
+        {forCheckbox && <p className="inline pl-1">{wrappedLabel}</p>}
+        <small className="text-red-500">
+          {errorMessage ?
+            <p>{errorMessage}</p>
+          : null}
+        </small>
+      </label>
+      <a
+        tabIndex={0}
+        className="text-sm text-blue-700"
+        href={externalLink}
+        target="_blank">
+        Go to {label} docs ↗️
+      </a>
+    </div>
   )
 }

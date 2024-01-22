@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import { FormField, TextInput } from "@/components/fields"
 
@@ -79,14 +80,10 @@ export function CaptionsForm({
         />
       </FormField>
 
-      <p>
-        <a
-          className="text-blue-700"
-          href="https://docs.fluidplayer.com/docs/configuration/layout/#captions"
-          target="_blank">
-          Open Captions documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        href="https://docs.fluidplayer.com/docs/configuration/layout/#captions"
+        label="Captions"
+      />
     </form>
   )
 }

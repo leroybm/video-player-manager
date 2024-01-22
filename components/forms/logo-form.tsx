@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import {
   CheckboxInput,
@@ -125,14 +126,10 @@ export function LogoForm({
         />
       </FormField>
 
-      <p>
-        <a
-          className="text-blue-700"
-          href="https://docs.fluidplayer.com/docs/configuration/layout/#logo"
-          target="_blank">
-          Open Logo documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        href="https://docs.fluidplayer.com/docs/configuration/layout/#logo"
+        label="Logo"
+      />
     </form>
   )
 }

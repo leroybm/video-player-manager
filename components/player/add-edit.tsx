@@ -74,7 +74,7 @@ function AddEdit({
           </Link>
           <button
             type="button"
-            className="rounded bg-green-500 px-3 py-1 text-gray-100"
+            className="rounded bg-green-700 px-3 py-1 text-white"
             onClick={onSubmit}>
             Save
           </button>

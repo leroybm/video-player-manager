@@ -8,6 +8,7 @@ import {
   useFieldArray,
   useFormContext,
 } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { StaticPreviewForm } from "./static-preview-form"
 import {
   ConfiguratorOptions,
@@ -123,13 +124,11 @@ export function TimelinePreviewForm({
         />
       </FormField>
 
-      <p className="mb-2 text-blue-700">
-        <a
-          href="https://docs.fluidplayer.com/docs/configuration/preview/"
-          target="_blank">
-          Open Timeline Preview documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        className="mb-2"
+        href="https://docs.fluidplayer.com/docs/configuration/preview/"
+        label="Timeline Preview"
+      />
 
       {timelinePreviewType === "VTT" && (
         <>
@@ -199,10 +198,12 @@ export function TimelinePreviewForm({
             />
           ))}
 
-          <li
-            className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
-            onClick={addNewStaticPreview}>
-            ➕ Add new Static Preview
+          <li className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left">
+            <button
+              type="button"
+              onClick={addNewStaticPreview}>
+              ➕ Add new Static Preview
+            </button>
           </li>
         </ul>
       )}
