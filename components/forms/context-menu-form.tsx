@@ -3,6 +3,7 @@
 import { cloneDeep, uniqueId } from "lodash"
 import { useState } from "react"
 import { useFieldArray, useFormContext } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { ContextMenuLinkForm } from "./context-menu-link-form"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import { CheckboxInput, FormField } from "@/components/fields"
@@ -56,13 +57,11 @@ export function ContextMenuForm({
 
   return (
     <form onSubmit={handleSubmit(onSave)}>
-      <p className="mb-2 text-blue-700">
-        <a
-          href="https://docs.fluidplayer.com/docs/configuration/layout/#contextmenu"
-          target="_blank">
-          Open Context Menu documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        className="mb-2"
+        href="https://docs.fluidplayer.com/docs/configuration/layout/#contextmenu"
+        label="Context Menu"
+      />
 
       <FormField
         label="Show playback controls"
@@ -93,10 +92,12 @@ export function ContextMenuForm({
           />
         ))}
 
-        <li
-          className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left"
-          onClick={addNewLink}>
-          ➕ Add new Link
+        <li className="relative mb-4 flex w-full cursor-pointer items-center justify-between rounded border-2 border-slate-400 bg-top p-2 text-left">
+          <button
+            type="button"
+            onClick={addNewLink}>
+            ➕ Add new Link
+          </button>
         </li>
       </ul>
     </form>

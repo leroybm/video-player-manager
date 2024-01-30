@@ -1,6 +1,7 @@
 "use client"
 
 import { useFormContext } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import { FormField, NumberInput, TextInput } from "@/components/fields"
 
@@ -62,14 +63,10 @@ export function HtmlOnPauseForm({
         />
       </FormField>
 
-      <p>
-        <a
-          className="text-blue-700"
-          href="https://docs.fluidplayer.com/docs/configuration/layout/#htmlonpauseblock"
-          target="_blank">
-          Open HTML On Pause Block documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        href="https://docs.fluidplayer.com/docs/configuration/layout/#htmlonpauseblock"
+        label="HTML On Pause Block"
+      />
     </form>
   )
 }

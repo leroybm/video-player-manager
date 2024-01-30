@@ -57,7 +57,11 @@ export function AdvertisementForm({
 
   const titleSection = (
     <>
-      <p className="mb-1 font-medium capitalize">{data?.roll}</p>
+      <button
+        type="button"
+        className="mb-1 font-medium capitalize">
+        {data?.roll}
+      </button>
       <button
         className="mr-1 origin-right text-sm font-light transition ease-in hover:scale-105 hover:transform-gpu hover:text-red-500"
         type="button"
@@ -80,6 +84,13 @@ export function AdvertisementForm({
   return (
     <li className="relative mb-4 rounded border-2 border-slate-400 bg-top p-2">
       <div className="mb-3 flex justify-between">{titleSection}</div>
+
+      {/* Announces content change to screen readers */}
+      <p
+        aria-live="polite"
+        className="clip-inset-100 clip-path-rect-1 absolute h-1 w-1 overflow-hidden whitespace-nowrap">
+        {isOpen ? "Advertisement form opened" : ""}
+      </p>
 
       <FormField label="Roll Type">
         <Select

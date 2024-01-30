@@ -1,6 +1,7 @@
 "use client"
 
 import { useFormContext } from "react-hook-form"
+import { ExternalDocumentationLink } from "../external-documentation-link"
 import { ConfiguratorOptions } from "@/types/configurator-options"
 import {
   CheckboxInput,
@@ -178,14 +179,10 @@ export function ControlBarForm({
         />
       </FormField>
 
-      <p>
-        <a
-          className="text-blue-700"
-          href="https://docs.fluidplayer.com/docs/configuration/layout/#controlbar"
-          target="_blank">
-          Open Control bar documentation in a new tab&nbsp;↗️
-        </a>
-      </p>
+      <ExternalDocumentationLink
+        href="https://docs.fluidplayer.com/docs/configuration/layout/#controlbar"
+        label="Control Bar"
+      />
     </form>
   )
 }
