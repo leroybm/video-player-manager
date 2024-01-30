@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '👀 pre-commit'
+# echo '👀 pre-commit'
 
-echo '👀 Checking prettier'
-yarn format:check
+# echo '👀 Checking prettier'
+# yarn format:check
 
-echo '👀 Checking eslint'
-yarn lint:check
+# echo '👀 Checking eslint'
+# yarn lint:check

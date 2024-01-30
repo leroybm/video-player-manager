@@ -35,7 +35,7 @@ resource "aws_amplify_app" "amplify" {
 
   environment_variables = {
     "_CUSTOM_IMAGE"          = "btrindadedeabreu/fp-manager:ninth",
-    NEXT_PUBLIC_MONGODB_URI  = "mongodb+srv://lleroym423qsfmi:KlpJcR8dDsAImq5Y@fpmanagercluster0.rixjq6c.mongodb.net/?retryWrites=true&w=majority"
+    NEXT_PUBLIC_MONGODB_URI  = ""
     NEXT_PUBLIC_API_BASE_URL = "http://localhost:3000"
   }
 }

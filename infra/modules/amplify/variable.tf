@@ -12,10 +12,9 @@ variable "tca_existing_repo_url" {
 }
 variable "tca_github_access_token" {
   type        = string
-  default     = "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"
+  default     = ""
   description = "Optional GitHub access token. Only required if using GitHub repo."
 }
-
 variable "tca_amplify_app_framework" {
   type    = string
   default = "Next.js - SSR"
